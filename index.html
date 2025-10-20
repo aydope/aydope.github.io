@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>aydope - Code with Style</title>
+    <meta name="description" content="aydope - Code with style" />
+    <meta name="robots" content="index, follow" />
+    <meta name="copyright" content="aydope" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="address=no" />
+    <meta http-equiv="Cache-Control" content="no-cache" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="aydope" />
+    <meta property="og:url" content="https://aydope.github.io" />
+    <meta
+      property="og:image"
+      content="/portfolio/assets/images/avatars/favicon.ico"
+    />
+    <meta property="og:description" content="aydope - Code with Style" />
+
+    <meta name="theme-color" content="#0044ff99" />
+
+    <link
+      rel="shortcut icon"
+      href="/portfolio/assets/images/avatars/favicon.ico"
+      type="image/x-icon"
+    />
+
+    <link
+      rel="icon"
+      type="image/png"
+      href="/portfolio/assets/images/avatars/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/portfolio/assets/images/avatars/favicon.svg"
+    />
+    <link
+      rel="shortcut icon"
+      href="/portfolio/assets/images/avatars/favicon.ico"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/portfolio/assets/images/avatars/apple-touch-icon.png"
+    />
+    <meta name="apple-mobile-web-app-title" content="aydope" />
+    <link
+      rel="manifest"
+      href="/portfolio/assets/images/avatars/site.webmanifest"
+    />
+    <style>
+      body {
+        transition: opacity ease-in 0.2s;
+      }
+
+      body[unresolved] {
+        opacity: 0;
+        display: block;
+        overflow: hidden;
+        position: relative;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/portfolio/assets/styles/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/portfolio/assets/styles/style.css"
+    />
+
+    <style type="text/css">
+      .medium-zoom-overlay {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        opacity: 0;
+        transition: opacity 0.3s;
+        will-change: opacity;
+      }
+      .medium-zoom--opened .medium-zoom-overlay {
+        cursor: pointer;
+        cursor: zoom-out;
+        opacity: 1;
+      }
+      .medium-zoom-image {
+        cursor: pointer;
+        cursor: zoom-in;
+        transition: transform 0.3s cubic-bezier(0.2, 0, 0.2, 1) !important;
+      }
+      .medium-zoom-image--hidden {
+        visibility: hidden;
+      }
+      .medium-zoom-image--opened {
+        position: relative;
+        cursor: pointer;
+        cursor: zoom-out;
+        will-change: transform;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="particles-js">
+      <canvas
+        class="particles-js-canvas-el"
+        width="804"
+        height="645"
+        style="width: 100%; height: 100%"
+      ></canvas>
+    </div>
+    <script src="/portfolio/assets/js/particles.min.js"></script>
+
+    <main class="main">
+      <div class="container gutter-top gutter-bottom">
+        <div class="row sticky-parent" style="position: relative">
+          <aside class="col-12 col-md-12 col-xl-3" style="position: relative">
+            <div class="sidebar box-outer sticky-column" style="">
+              <div class="sidebar__base-info">
+                <figure class="icon-box box avatar-box">
+                  <img
+                    src="https://avatars.githubusercontent.com/u/235188909?v=4"
+                    alt="Brand"
+                  />
+                </figure>
+
+                <div class="text-xl-center">
+                  <h3 class="title title--h3 sidebar__name">aydope</h3>
+                  <div class="badge">Just a Developer</div>
+                </div>
+
+                <button
+                  class="btn btn--small btn--icon-right sidebar__btn js-btn-toggle"
+                >
+                  <span>Show Contacts</span
+                  ><i class="feathericon-chevron-down"></i>
+                </button>
+              </div>
+
+              <div
+                class="sidebar__additional-info js-show"
+                style="display: none"
+              >
+                <div class="separation"></div>
+                <ul class="details-info">
+                  <li class="details-info__item">
+                    <span class="box icon-box"
+                      ><i class="font-icon icon-user"></i
+                    ></span>
+                    <div class="contacts-block__info">
+                      <span class="overhead">Real Name</span>
+                      <span class="text-overflow" title="Amin Sadeghi"
+                        >Amin Sadeghi</span
+                      >
+                    </div>
+                  </li>
+
+                  <li class="details-info__item">
+                    <span class="box icon-box"
+                      ><i class="font-icon icon-calendar"></i
+                    ></span>
+                    <div class="contacts-block__info">
+                      <span class="overhead">Birthday</span>
+                      <span class="text-overflow" title="June 1, 2006"
+                        >June 1, 2006</span
+                      >
+                    </div>
+                  </li>
+
+                  <li class="details-info__item">
+                    <span class="box icon-box"
+                      ><i class="font-icon icon-location"></i
+                    ></span>
+                    <div class="contacts-block__info">
+                      <span class="overhead">Location</span>
+                      <span class="text-overflow" title="Tehran, Iran"
+                        >Tehran, Iran</span
+                      >
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </aside>
+
+          <div class="col-12 col-md-12 col-xl-9">
+            <div class="box-outer">
+              <div class="pb-0 pb-sm-2">
+                <h1 class="title title--h1 title__separate">About Me</h1>
+                <p>
+                  I'm Amin, a web developer who enjoys coding and creating cool
+                  stuff.
+                </p>
+                <p>
+                  I know both Front-End and Back-End, and I’ve practiced a lot
+                  by working on personal projects to grow my skills.
+                </p>
+                <p>
+                  I don’t have job experience yet, but I’ve built several
+                  projects that helped me learn a lot as a developer. I’m always
+                  ready for new challenges and learning more.
+                </p>
+                <p>
+                  Now I’m excited to work on real projects and build something
+                  awesome. If you’re looking for a motivated developer, feel
+                  free to reach out!
+                </p>
+              </div>
+
+              <h2 class="title title--h2 mt-3">What I'm Doing</h2>
+              <div class="row">
+                <div class="col-12 col-lg-6">
+                  <div class="case-item box box-inner">
+                    <img
+                      class="case-item__icon"
+                      src="/portfolio/assets/icons/code.svg"
+                      alt=""
+                    />
+                    <div>
+                      <h3 class="title title--h3">Web Design</h3>
+                      <p class="case-item__caption">
+                        Building modern, responsive websites with clean design
+                        and smooth user experience.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 col-lg-6">
+                  <div class="case-item box box-inner">
+                    <img
+                      class="case-item__icon"
+                      src="/portfolio/assets/icons/build.svg"
+                      alt=""
+                    />
+                    <div>
+                      <h3 class="title title--h3">Servers</h3>
+                      <p class="case-item__caption">
+                        Building and maintaining backend systems and reliable
+                        services.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <h2 class="title title--h2 mt-16">My Skills</h2>
+              <div
+                class="swiper-container js-carousel-skills swiper-container-initialized swiper-container-horizontal"
+                style="cursor: grab"
+              >
+                <div
+                  class="swiper-wrapper"
+                  style="
+                    transform: translate3d(-1004.8px, 0px, 0px);
+                    transition-duration: 0ms;
+                  "
+                >
+                  <figure
+                    class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-prev"
+                    data-swiper-slide-index="2"
+                    style="width: 125.6px"
+                  >
+                    <span
+                      ><img
+                        class="logo-client"
+                        src="/portfolio/assets/images/skills/NodeJS.png"
+                        alt="NodeJS"
+                    /></span>
+                  </figure>
+                  <figure
+                    class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-next"
+                    data-swiper-slide-index="4"
+                    style="width: 125.6px"
+                  >
+                    <span
+                      ><img
+                        class="logo-client"
+                        src="/portfolio/assets/images/skills/MongoDB.png"
+                        alt="MongoDB"
+                    /></span>
+                  </figure>
+                  <figure
+                    class="swiper-slide swiper-slide-duplicate"
+                    data-swiper-slide-index="5"
+                    style="width: 125.6px"
+                  >
+                    <span
+                      ><img
+                        class="logo-client"
+                        src="/portfolio/assets/images/skills/HTML.png"
+                        alt="HTML"
+                    /></span>
+                  </figure>
+                  <figure
+                    class="swiper-slide swiper-slide-duplicate"
+                    data-swiper-slide-index="6"
+                    style="width: 125.6px"
+                  >
+                    <span
+                      ><img
+                        class="logo-client"
+                        src="/portfolio/assets/images/skills/CSS.png"
+                        alt="CSS"
+                    /></span>
+                  </figure>
+
+                  <figure
+                    class="swiper-slide"
+                    data-swiper-slide-index="0"
+                    style="width: 125.6px"
+                  >
+                    <span
+                      ><img
+                        class="logo-client"
+                        src="/portfolio/assets/images/skills/JS.png"
+                        alt="JS"
+                    /></span>
+                  </figure>
+
+                  <figure
+                    class="swiper-slide"
+                    data-swiper-slide-index="1"
+                    style="width: 125.6px"
+                  >
+                    <span
+                      ><img
+                        class="logo-client"
+                        src="/portfolio/assets/images/skills/TS.png"
+                        alt="TS"
+                    /></span>
+                  </figure>
+
+                  <figure
+                    class="swiper-slide swiper-slide-prev"
+                    data-swiper-slide-index="2"
+                    style="width: 125.6px"
+                  >
+                    <span
+                      ><img
+                        class="logo-client"
+                        src="/portfolio/assets/images/skills/NodeJS.png"
+                        alt="NodeJS"
+                    /></span>
+                  </figure>
+
+                  <figure
+                    class="swiper-slide swiper-slide-next"
+                    data-swiper-slide-index="4"
+                    style="width: 125.6px"
+                  >
+                    <span
+                      ><img
+                        class="logo-client"
+                        src="/portfolio/assets/images/skills/MongoDB.png"
+                        alt="MongoDB"
+                    /></span>
+                  </figure>
+
+                  <figure
+                    class="swiper-slide"
+                    data-swiper-slide-index="5"
+                    style="width: 125.6px"
+                  >
+                    <span
+                      ><img
+                        class="logo-client"
+                        src="/portfolio/assets/images/skills/HTML.png"
+                        alt="HTML"
+                    /></span>
+                  </figure>
+
+                  <figure
+                    class="swiper-slide"
+                    data-swiper-slide-index="6"
+                    style="width: 125.6px"
+                  >
+                    <span
+                      ><img
+                        class="logo-client"
+                        src="/portfolio/assets/images/skills/CSS.png"
+                        alt="CSS"
+                    /></span>
+                  </figure>
+
+                  <figure
+                    class="swiper-slide swiper-slide-duplicate"
+                    data-swiper-slide-index="0"
+                    style="width: 125.6px"
+                  >
+                    <span
+                      ><img
+                        class="logo-client"
+                        src="/portfolio/assets/images/skills/JS.png"
+                        alt="JS"
+                    /></span>
+                  </figure>
+                  <figure
+                    class="swiper-slide swiper-slide-duplicate"
+                    data-swiper-slide-index="1"
+                    style="width: 125.6px"
+                  >
+                    <span
+                      ><img
+                        class="logo-client"
+                        src="/portfolio/assets/images/skills/TS.png"
+                        alt="TS"
+                    /></span>
+                  </figure>
+                  <figure
+                    class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-prev"
+                    data-swiper-slide-index="2"
+                    style="width: 125.6px"
+                  >
+                    <span
+                      ><img
+                        class="logo-client"
+                        src="/portfolio/assets/images/skills/NodeJS.png"
+                        alt="NodeJS"
+                    /></span>
+                  </figure>
+                  <figure
+                    class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-next"
+                    data-swiper-slide-index="4"
+                    style="width: 125.6px"
+                  >
+                    <span
+                      ><img
+                        class="logo-client"
+                        src="/portfolio/assets/images/skills/MongoDB.png"
+                        alt="MongoDB"
+                    /></span>
+                  </figure>
+                </div>
+
+                <div class="swiper-pagination"></div>
+                <span
+                  class="swiper-notification"
+                  aria-live="assertive"
+                  aria-atomic="true"
+                ></span>
+              </div>
+
+              <!-- <h2 class="title title--h2 mt-16">Projects</h2> -->
+              <div
+                class="swiper-container js-carousel-clients swiper-container-initialized swiper-container-horizontal"
+                style="cursor: grab"
+              >
+                <div
+                  class="swiper-wrapper"
+                  style="
+                    transform: translate3d(-3265.6px, 0px, 0px);
+                    transition-duration: 0ms;
+                  "
+                >
+                  <!-- <figure
+                    class="swiper-slide swiper-slide-duplicate"
+                    data-swiper-slide-index="24"
+                    style="width: 125.6px"
+                  >
+                    <span
+                      ><img
+                        class="logo-client"
+                        src="/portfolio/assets/images/projects/D.png"
+                        alt="D"
+                    /></span>
+                  </figure> -->
+                </div>
+                <div class="swiper-pagination"></div>
+                <span
+                  class="swiper-notification"
+                  aria-live="assertive"
+                  aria-atomic="true"
+                ></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="/portfolio/assets/js/jquery-3.4.1.min.js"></script>
+    <script src="/portfolio/assets/js/plugins.min.js"></script>
+    <script src="/portfolio/assets/js/common.js"></script>
+  </body>
+</html>
