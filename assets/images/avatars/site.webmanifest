@@ -1,6 +1,6 @@
 {
-  "name": "DELOYPER",
-  "short_name": "Deloyper",
+  "name": "Aydope",
+  "short_name": "aydope",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
@@ -15,7 +15,7 @@
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#ffffff",
+  "theme_color": "#0026ff",
   "background_color": "#e6ecff",
   "display": "standalone"
 }
