@@ -1,123 +1,40 @@
 (function () {
   const portfolioData = [
     {
-      id: "taskflow",
-      title: "TaskFlow Dashboard",
-      subtitle: "Full-stack Project Management",
+      id: "snakid",
+      title: "Snakid",
+      subtitle: "Classic Snake Game",
       description:
-        "A comprehensive project management dashboard with real-time updates, Kanban boards, team collaboration, and analytics.",
-      technologies: [
-        "React",
-        "Node.js",
-        "Express",
-        "MongoDB",
-        "Socket.io",
-        "Tailwind CSS",
-        "Redux",
-        "JWT",
-      ],
+        "A modern take on the classic Snake game with smooth animations, mobile-friendly touch controls, swipe gestures, and real-time FPS counter. Built with HTML5 Canvas and jQuery.",
+      technologies: ["HTML5", "CSS3", "Tailwind CSS", "jQuery", "Canvas API"],
       features: [
-        "Real-time task updates",
-        "Drag-and-drop Kanban",
-        "Team roles & permissions",
-        "Analytics dashboard",
-        "JWT authentication",
+        "Smooth 60 FPS gameplay",
+        "Mobile-friendly touch controls",
+        "Swipe gesture support",
+        "Keyboard controls (WASD/Arrow keys)",
+        "High score saved locally",
         "Responsive design",
       ],
-      images: [
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800",
-        "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800",
-      ],
-      link: "#",
-      thumbnail:
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600",
-      color: "#0ea5e9",
-    },
-    {
-      id: "chatter",
-      title: "Chatter API",
-      subtitle: "Real-time Messaging Backend",
-      description:
-        "Scalable messaging backend with WebSocket support, multiple chat rooms, private messaging, and message persistence.",
-      technologies: [
-        "Express",
-        "Socket.io",
-        "MongoDB",
-        "JWT",
-        "Redis",
-        "Docker",
-      ],
-      features: [
-        "Real-time messaging",
-        "Chat rooms",
-        "Private messages",
-        "Message history",
-        "User presence",
-        "RESTful API",
-      ],
-      images: [
-        "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800",
-        "https://images.unsplash.com/photo-1556155092-490a1ba16284?w=800",
-      ],
-      link: "#",
-      thumbnail:
-        "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600",
-      color: "#38bdf8",
-    },
-    {
-      id: "cloudnotes",
-      title: "CloudNotes",
-      subtitle: "Cloud-synced Note Taking",
-      description:
-        "Full-stack note app with markdown support, cloud sync, folder organization, and collaborative sharing.",
-      technologies: [
-        "MongoDB",
-        "Express",
-        "React",
-        "Node.js",
-        "AWS S3",
-        "Markdown",
-        "PWA",
-      ],
-      features: [
-        "Markdown editor",
-        "Cloud sync",
-        "Organization",
-        "Full-text search",
-        "Sharing",
-        "PWA support",
-      ],
-      images: [
-        "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800",
-        "https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?w=800",
-      ],
-      link: "#",
-      thumbnail:
-        "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=600",
-      color: "#7dd3fc",
+      images: ["src/assets/images/image2.png", "src/assets/images/image3.png"],
+      link: "https://aydope.github.io/Snakid/",
+      thumbnail: "src/assets/images/image1.png",
+      color: "#030712",
     },
   ];
 
   const testimonialsData = [
     {
       text: "Aydope delivered a clean API and polished UI. Great junior talent!",
-      author: "Sarah Chen",
-      role: "Founder",
-      initial: "S",
+      author: "John Doe",
+      role: "Tech Lead",
+      initial: "J",
       rating: 5,
     },
     {
       text: "Very dedicated to best practices. A pleasure to work with.",
-      author: "Marcus Rivera",
-      role: "Senior Dev",
-      initial: "M",
-      rating: 5,
-    },
-    {
-      text: "Impressive skills for a junior. Highly recommended.",
-      author: "Lisa Park",
-      role: "Tech Lead",
-      initial: "L",
+      author: "Jane Doe",
+      role: "Senior Developer",
+      initial: "J",
       rating: 5,
     },
   ];
@@ -183,7 +100,7 @@
       .map(
         (p) => `
           <div class="project-card-new group cursor-pointer" data-project-id="${p.id}">
-            <div class="card-image" style="background-image:url('${p.thumbnail}&auto=format&fit=crop')"></div>
+            <div class="card-image" style="background-image:url('${p.thumbnail}')"></div>
             <div class="p-5 flex flex-col flex-grow">
               <div class="flex items-center gap-2 mb-2"><span class="w-2 h-2 rounded-full" style="background:${p.color || "#0ea5e9"}"></span><span class="text-xs text-white/30">${p.technologies[0]}</span></div>
               <h3 class="font-bold text-lg mb-1 group-hover:text-sky-400 transition">${p.title}</h3>
@@ -220,7 +137,7 @@
     if (!p) return;
     const m = document.getElementById("projectModal"),
       ct = document.getElementById("projectModalContent");
-    ct.innerHTML = `<div class="h-56 md:h-64 bg-cover bg-center relative" style="background-image:url('${p.images[0]}&auto=format&fit=crop')"><div class="absolute inset-0 bg-gradient-to-t from-[#020617] to-transparent"></div></div><div class="p-6"><h3 class="text-2xl font-bold mb-1">${p.title}</h3><p class="text-sky-400 text-sm mb-4">${p.subtitle}</p><p class="text-white/60 text-sm leading-relaxed mb-5">${p.description}</p><div class="mb-5"><h4 class="text-xs uppercase tracking-wider text-white/30 mb-2">Technologies</h4><div class="flex flex-wrap gap-2">${p.technologies.map((t) => `<span class="text-[11px] bg-sky-400/10 text-sky-400 px-2.5 py-1 rounded-full">${t}</span>`).join("")}</div></div><div class="mb-5"><h4 class="text-xs uppercase tracking-wider text-white/30 mb-2">Features</h4><ul class="space-y-1.5 text-sm text-white/50">${p.features.map((f) => `<li class="flex items-start gap-2"><i class="bi bi-check2 text-sky-400 mt-0.5"></i> ${f}</li>`).join("")}</ul></div>${p.images.length > 1 ? `<div class="mb-5"><h4 class="text-xs uppercase tracking-wider text-white/30 mb-2">Screenshots</h4><div class="grid grid-cols-2 gap-2">${p.images.map((i) => `<div class="h-24 rounded-lg bg-cover bg-center" style="background-image:url('${i}&w=300')"></div>`).join("")}</div></div>` : ""}<a href="${p.link}" target="_blank" class="btn-primary text-sm w-full justify-center mt-2">View Live Project <i class="bi bi-box-arrow-up-right"></i></a></div>`;
+    ct.innerHTML = `<div class="h-56 md:h-64 bg-cover bg-center relative" style="background-image:url('${p.images[0]}')"><div class="absolute inset-0 bg-gradient-to-t from-[#020617] to-transparent"></div></div><div class="p-6"><h3 class="text-2xl font-bold mb-1">${p.title}</h3><p class="text-sky-400 text-sm mb-4">${p.subtitle}</p><p class="text-white/60 text-sm leading-relaxed mb-5">${p.description}</p><div class="mb-5"><h4 class="text-xs uppercase tracking-wider text-white/30 mb-2">Technologies</h4><div class="flex flex-wrap gap-2">${p.technologies.map((t) => `<span class="text-[11px] bg-sky-400/10 text-sky-400 px-2.5 py-1 rounded-full">${t}</span>`).join("")}</div></div><div class="mb-5"><h4 class="text-xs uppercase tracking-wider text-white/30 mb-2">Features</h4><ul class="space-y-1.5 text-sm text-white/50">${p.features.map((f) => `<li class="flex items-start gap-2"><i class="bi bi-check2 text-sky-400 mt-0.5"></i> ${f}</li>`).join("")}</ul></div>${p.images.length > 1 ? `<div class="mb-5"><h4 class="text-xs uppercase tracking-wider text-white/30 mb-2">Screenshots</h4><div class="grid grid-cols-2 gap-2">${p.images.map((i) => `<div class="h-24 rounded-lg bg-cover bg-center" style="background-image:url('${i}')"></div>`).join("")}</div></div>` : ""}<a href="${p.link}" target="_blank" class="btn-primary text-sm w-full justify-center mt-2">View Live Project <i class="bi bi-box-arrow-up-right"></i></a></div>`;
     m.classList.add("active");
     document.body.style.overflow = "hidden";
   }
