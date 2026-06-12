@@ -16,7 +16,7 @@
         "Responsive design",
       ],
       images: ["src/assets/images/image2.png", "src/assets/images/image3.png"],
-      link: "https://aydope.github.io/Snakid/",
+      link: "https://aydope.github.io/snakid/",
       thumbnail: "src/assets/images/image1.png",
       color: "#030712",
     },
