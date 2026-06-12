@@ -1,0 +1,1211 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes"
+    />
+    <meta name="description" content="Aydope - Junior MERN Stack Developer" />
+    <meta name="theme-color" content="#0ea5e9" />
+    <title>Aydope · Junior MERN Developer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <link rel="stylesheet" href="src/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            animation: {
+              float: "float 7s ease-in-out infinite",
+              "pulse-glow": "pulseGlow 2s ease-in-out infinite",
+              slideUp: "slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+              fadeIn: "fadeIn 0.8s ease-out forwards",
+              "spin-slow": "spin 12s linear infinite",
+              "liquid-shift": "liquidShift 8s ease-in-out infinite",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body>
+    <!-- SCROLL TO TOP -->
+    <button class="scroll-top-btn" id="scrollTopBtn" title="Back to top">
+      <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- SIDEBAR OVERLAY -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- DESKTOP/MOBILE SIDEBAR -->
+    <div
+      class="desktop-sidebar"
+      id="desktopSidebar"
+      style="display: flex; flex-direction: column; padding: 1.75rem 1.5rem"
+    >
+      <!-- Glow effect -->
+      <div
+        style="
+          position: absolute;
+          top: -60px;
+          right: -60px;
+          width: 180px;
+          height: 180px;
+          background: radial-gradient(
+            circle,
+            rgba(14, 165, 233, 0.15) 0%,
+            transparent 70%
+          );
+          pointer-events: none;
+        "
+      ></div>
+
+      <!-- Header -->
+      <div
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 0 0.25rem;
+          margin-bottom: 1.75rem;
+          position: relative;
+          flex-shrink: 0;
+        "
+      >
+        <div>
+          <span
+            style="
+              font-size: 1.5rem;
+              font-weight: 800;
+              color: #0ea5e9;
+              letter-spacing: -0.5px;
+            "
+            >AYDOPE<span style="color: rgba(255, 255, 255, 0.3)">.</span></span
+          >
+          <p
+            style="
+              font-size: 0.65rem;
+              color: rgba(255, 255, 255, 0.25);
+              margin-top: 0.15rem;
+            "
+          >
+            Junior MERN Developer
+          </p>
+        </div>
+        <button
+          id="closeSidebar"
+          style="
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.04);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 1.1rem;
+            transition: all 0.3s;
+          "
+          onmouseover="
+            this.style.background = 'rgba(255,255,255,0.1)';
+            this.style.color = '#fff';
+          "
+          onmouseout="
+            this.style.background = 'rgba(255,255,255,0.04)';
+            this.style.color = 'rgba(255,255,255,0.5)';
+          "
+        >
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+
+      <!-- Divider -->
+      <div
+        style="
+          height: 1px;
+          background: linear-gradient(
+            to right,
+            transparent,
+            rgba(255, 255, 255, 0.08),
+            transparent
+          );
+          margin-bottom: 1.5rem;
+          flex-shrink: 0;
+        "
+      ></div>
+
+      <!-- Navigation -->
+      <nav
+        style="
+          display: flex;
+          flex-direction: column;
+          gap: 2px;
+          flex: 1;
+          overflow-y: auto;
+        "
+      >
+        <a
+          href="#home"
+          class="sidebar-link"
+          style="
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 13px 16px;
+            border-radius: 14px;
+            color: rgba(255, 255, 255, 0.45);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+          "
+          onmouseover="
+            this.style.color = '#fff';
+            this.style.background = 'rgba(14,165,233,0.08)';
+            this.style.transform = 'translateX(6px)';
+          "
+          onmouseout="
+            this.style.color = 'rgba(255,255,255,0.45)';
+            this.style.background = 'transparent';
+            this.style.transform = 'translateX(0)';
+          "
+        >
+          <i
+            class="bi bi-house-door"
+            style="
+              font-size: 1.25rem;
+              color: rgba(14, 165, 233, 0.55);
+              width: 22px;
+              text-align: center;
+              transition: all 0.3s;
+            "
+          ></i>
+          Home
+          <i
+            class="bi bi-chevron-right"
+            style="
+              margin-left: auto;
+              font-size: 0.7rem;
+              opacity: 0;
+              transform: translateX(-8px);
+              transition: all 0.3s;
+            "
+          ></i>
+        </a>
+        <a
+          href="#about"
+          class="sidebar-link"
+          style="
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 13px 16px;
+            border-radius: 14px;
+            color: rgba(255, 255, 255, 0.45);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          "
+        >
+          <i
+            class="bi bi-person"
+            style="
+              font-size: 1.25rem;
+              color: rgba(14, 165, 233, 0.55);
+              width: 22px;
+              text-align: center;
+              transition: all 0.3s;
+            "
+          ></i>
+          About
+          <i
+            class="bi bi-chevron-right"
+            style="
+              margin-left: auto;
+              font-size: 0.7rem;
+              opacity: 0;
+              transform: translateX(-8px);
+              transition: all 0.3s;
+            "
+          ></i>
+        </a>
+        <a
+          href="#skills"
+          class="sidebar-link"
+          style="
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 13px 16px;
+            border-radius: 14px;
+            color: rgba(255, 255, 255, 0.45);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          "
+        >
+          <i
+            class="bi bi-stars"
+            style="
+              font-size: 1.25rem;
+              color: rgba(14, 165, 233, 0.55);
+              width: 22px;
+              text-align: center;
+              transition: all 0.3s;
+            "
+          ></i>
+          Skills
+          <i
+            class="bi bi-chevron-right"
+            style="
+              margin-left: auto;
+              font-size: 0.7rem;
+              opacity: 0;
+              transform: translateX(-8px);
+              transition: all 0.3s;
+            "
+          ></i>
+        </a>
+        <a
+          href="#portfolio"
+          class="sidebar-link"
+          style="
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 13px 16px;
+            border-radius: 14px;
+            color: rgba(255, 255, 255, 0.45);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          "
+        >
+          <i
+            class="bi bi-grid"
+            style="
+              font-size: 1.25rem;
+              color: rgba(14, 165, 233, 0.55);
+              width: 22px;
+              text-align: center;
+              transition: all 0.3s;
+            "
+          ></i>
+          Work
+          <i
+            class="bi bi-chevron-right"
+            style="
+              margin-left: auto;
+              font-size: 0.7rem;
+              opacity: 0;
+              transform: translateX(-8px);
+              transition: all 0.3s;
+            "
+          ></i>
+        </a>
+        <a
+          href="#testimonials"
+          class="sidebar-link"
+          style="
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 13px 16px;
+            border-radius: 14px;
+            color: rgba(255, 255, 255, 0.45);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          "
+        >
+          <i
+            class="bi bi-people"
+            style="
+              font-size: 1.25rem;
+              color: rgba(14, 165, 233, 0.55);
+              width: 22px;
+              text-align: center;
+              transition: all 0.3s;
+            "
+          ></i>
+          Praise
+          <i
+            class="bi bi-chevron-right"
+            style="
+              margin-left: auto;
+              font-size: 0.7rem;
+              opacity: 0;
+              transform: translateX(-8px);
+              transition: all 0.3s;
+            "
+          ></i>
+        </a>
+        <a
+          href="#contact"
+          class="sidebar-link"
+          style="
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 13px 16px;
+            border-radius: 14px;
+            color: rgba(255, 255, 255, 0.45);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          "
+        >
+          <i
+            class="bi bi-send"
+            style="
+              font-size: 1.25rem;
+              color: rgba(14, 165, 233, 0.55);
+              width: 22px;
+              text-align: center;
+              transition: all 0.3s;
+            "
+          ></i>
+          Contact
+          <i
+            class="bi bi-chevron-right"
+            style="
+              margin-left: auto;
+              font-size: 0.7rem;
+              opacity: 0;
+              transform: translateX(-8px);
+              transition: all 0.3s;
+            "
+          ></i>
+        </a>
+      </nav>
+
+      <!-- Bottom Card -->
+      <div
+        style="
+          margin-top: auto;
+          padding-top: 1.25rem;
+          border-top: 1px solid rgba(255, 255, 255, 0.05);
+          flex-shrink: 0;
+        "
+      >
+        <div
+          style="
+            background: rgba(14, 165, 233, 0.05);
+            border: 1px solid rgba(14, 165, 233, 0.12);
+            border-radius: 18px;
+            padding: 1.15rem;
+            position: relative;
+            overflow: hidden;
+          "
+        >
+          <div
+            style="
+              position: absolute;
+              top: -25px;
+              right: -25px;
+              width: 70px;
+              height: 70px;
+              background: radial-gradient(
+                circle,
+                rgba(14, 165, 233, 0.18) 0%,
+                transparent 70%
+              );
+              pointer-events: none;
+            "
+          ></div>
+          <div style="position: relative">
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                margin-bottom: 8px;
+              "
+            >
+              <span
+                style="
+                  width: 8px;
+                  height: 8px;
+                  background: #10b981;
+                  border-radius: 50%;
+                  animation: pulseGlow 2s ease-in-out infinite;
+                "
+              ></span>
+              <span style="font-size: 0.7rem; color: #10b981; font-weight: 600"
+                >Open to work</span
+              >
+            </div>
+            <p
+              style="
+                color: rgba(255, 255, 255, 0.35);
+                font-size: 0.7rem;
+                line-height: 1.5;
+                margin-bottom: 12px;
+              "
+            >
+              Available for junior MERN roles, freelance projects &
+              collaborations.
+            </p>
+            <button
+              class="btn-primary"
+              id="hire-sidebar"
+              style="
+                width: 100%;
+                justify-content: center;
+                font-size: 0.8rem;
+                padding: 0.6rem 1.5rem;
+              "
+            >
+              Hire Me <i class="bi bi-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION NAV -->
+    <nav class="section-nav">
+      <div class="section-dot active" data-section="home">
+        <span class="tooltip">Home</span>
+      </div>
+      <div class="section-dot" data-section="about">
+        <span class="tooltip">About</span>
+      </div>
+      <div class="section-dot" data-section="skills">
+        <span class="tooltip">Skills</span>
+      </div>
+      <div class="section-dot" data-section="portfolio">
+        <span class="tooltip">Work</span>
+      </div>
+      <div class="section-dot" data-section="testimonials">
+        <span class="tooltip">Praise</span>
+      </div>
+      <div class="section-dot" data-section="contact">
+        <span class="tooltip">Contact</span>
+      </div>
+    </nav>
+
+    <!-- LIQUID GLASS HEADER - STICKY WITH ANIMATION -->
+    <header id="mainHeader" class="sticky-header">
+      <div
+        class="liquid-glass max-w-5xl mx-auto rounded-[2rem] px-6 py-4 flex items-center justify-between"
+      >
+        <a
+          href="#home"
+          class="text-xl font-bold text-sky-400 no-underline tracking-tight hover:scale-105 transition-transform"
+          >AYDOPE<span class="text-white/40">.</span></a
+        >
+        <div class="flex items-center gap-3">
+          <span
+            class="hidden md:flex items-center gap-2 text-xs text-green-400"
+          >
+            <span
+              class="w-2 h-2 bg-green-400 rounded-full animate-pulse"
+            ></span>
+            Open to work
+          </span>
+          <button class="btn-primary text-xs !py-2 !px-4" id="hire-btn-header">
+            Hire Me <i class="bi bi-arrow-right"></i>
+          </button>
+          <button
+            id="menuToggle"
+            class="text-xl opacity-60 hover:opacity-100 transition ml-1"
+            aria-label="Menu"
+          >
+            <i class="bi bi-list"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="relative z-10 pt-24">
+      <!-- HOME -->
+      <section
+        id="home"
+        class="min-h-[90vh] flex items-center px-5 md:px-12 lg:px-20 py-8"
+      >
+        <div class="grid lg:grid-cols-2 gap-10 items-center w-full">
+          <div>
+            <p
+              class="text-sky-400/80 tracking-[0.3em] text-xs mb-3 font-medium"
+            >
+              ✦ JUNIOR MERN STACK DEVELOPER
+            </p>
+            <h1
+              class="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] mb-5"
+            >
+              Building <span class="gradient-text" id="typing-text"></span
+              ><span class="animate-pulse">|</span>
+            </h1>
+            <p class="text-white/50 text-base max-w-lg mb-7">
+              MongoDB, Express, React, Node — creating modern full‑stack apps
+              with clean architecture.
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <a href="#portfolio" class="btn-primary no-underline"
+                >View Projects <i class="bi bi-arrow-right"></i
+              ></a>
+              <button class="btn-outline" id="resume-btn">
+                Resume <i class="bi bi-download"></i>
+              </button>
+            </div>
+            <div class="flex gap-5 mt-8 text-lg opacity-50">
+              <a href="#" class="hover:text-sky-400 transition"
+                ><i class="bi bi-github"></i
+              ></a>
+              <a href="#" class="hover:text-sky-400 transition"
+                ><i class="bi bi-linkedin"></i
+              ></a>
+              <a href="#" class="hover:text-sky-400 transition"
+                ><i class="bi bi-twitter-x"></i
+              ></a>
+              <a href="#" class="hover:text-sky-400 transition"
+                ><i class="bi bi-instagram"></i
+              ></a>
+            </div>
+          </div>
+          <div class="relative flex justify-center">
+            <div
+              class="w-64 h-64 md:w-80 md:h-80 rounded-[2.5rem] bg-gradient-to-br from-sky-400/10 to-transparent border border-sky-400/20 flex items-center justify-center animate-float relative"
+            >
+              <i class="bi bi-code-slash text-6xl md:text-7xl text-sky-400"></i>
+              <div class="absolute inset-0 animate-spin-slow">
+                <div
+                  class="absolute top-4 left-1/2 -translate-x-1/2 w-2 h-2 bg-sky-400 rounded-full"
+                ></div>
+                <div
+                  class="absolute bottom-4 left-1/2 -translate-x-1/2 w-2 h-2 bg-sky-400/60 rounded-full"
+                ></div>
+              </div>
+            </div>
+            <div
+              class="absolute -bottom-3 -right-3 liquid-glass !rounded-xl px-4 py-3 text-xs"
+            >
+              <span
+                class="text-2xl font-bold text-sky-400 counter"
+                data-target="1"
+                >0</span
+              ><span class="text-sky-400">+</span><br /><span class="opacity-50"
+                >years exp.</span
+              >
+            </div>
+            <div
+              class="absolute -top-3 -left-3 liquid-glass !rounded-xl px-4 py-3 text-xs"
+            >
+              <span
+                class="text-2xl font-bold text-sky-400 counter"
+                data-target="3"
+                >0</span
+              ><span class="text-sky-400">+</span><br /><span class="opacity-50"
+                >projects</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT - REDESIGNED -->
+      <section id="about" class="px-5 md:px-12 lg:px-20 py-20">
+        <div class="grid lg:grid-cols-5 gap-10">
+          <!-- Left - About text -->
+          <div class="lg:col-span-3">
+            <h2 class="text-3xl md:text-4xl font-bold mb-5">
+              <span class="gradient-text">About</span> Me
+            </h2>
+            <p class="text-white/50 leading-relaxed mb-4 text-base">
+              I'm Amin, a passionate web developer from Iran who loves coding
+              and building cool things. As a Junior developer in both Front-End
+              and Back-End, I have more experience in Back-End development.
+            </p>
+            <p class="text-white/50 leading-relaxed mb-5 text-base">
+              My focus is on continuous learning — and I truly love learning.
+              While I don't have professional work experience yet, I'm
+              constantly improving myself through problem-solving and building
+              personal projects. Every project teaches me something new.
+            </p>
+
+            <!-- Stats row -->
+            <div class="grid grid-cols-3 gap-3 mt-6">
+              <div class="about-stat-card">
+                <span class="text-2xl font-bold text-sky-400 block">1+</span>
+                <span class="text-white/40 text-xs">Year Learning</span>
+              </div>
+              <div class="about-stat-card">
+                <span class="text-2xl font-bold text-sky-400 block">3+</span>
+                <span class="text-white/40 text-xs">Projects Built</span>
+              </div>
+              <div class="about-stat-card">
+                <span class="text-2xl font-bold text-sky-400 block">24/7</span>
+                <span class="text-white/40 text-xs">Learning Mode</span>
+              </div>
+            </div>
+
+            <!-- Quick info -->
+            <div class="flex flex-wrap gap-4 mt-6 text-sm">
+              <div class="flex items-center gap-2">
+                <i class="bi bi-person text-sky-400"></i>
+                <span class="opacity-70">Amin (Aydope)</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="bi bi-pin-map text-sky-400"></i>
+                <span class="opacity-70">Iran</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="bi bi-envelope text-sky-400"></i>
+                <span class="opacity-70">amin0xa1b@gmail.com</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right - Timeline -->
+          <div class="lg:col-span-2">
+            <div class="timeline-new">
+              <!-- Item 1 -->
+              <div class="timeline-item">
+                <span class="timeline-year">2026</span>
+                <h4 class="text-lg font-semibold mb-1">Building Projects</h4>
+                <p class="text-white/40 text-sm leading-relaxed">
+                  Creating full-stack apps with React, Node.js, Express, and
+                  MongoDB. Improving skills through hands-on practice and
+                  real-world projects.
+                </p>
+                <div class="flex flex-wrap gap-1.5 mt-2">
+                  <span
+                    class="text-[10px] bg-sky-400/10 text-sky-400 px-2 py-0.5 rounded-full"
+                    >React</span
+                  >
+                  <span
+                    class="text-[10px] bg-sky-400/10 text-sky-400 px-2 py-0.5 rounded-full"
+                    >Node.js</span
+                  >
+                  <span
+                    class="text-[10px] bg-sky-400/10 text-sky-400 px-2 py-0.5 rounded-full"
+                    >MongoDB</span
+                  >
+                </div>
+              </div>
+
+              <!-- Item 2 -->
+              <div class="timeline-item">
+                <span class="timeline-year">2026</span>
+                <h4 class="text-lg font-semibold mb-1">Back-End Deep Dive</h4>
+                <p class="text-white/40 text-sm leading-relaxed">
+                  Mastered Express.js, explored Nest.js and Fastify. Built
+                  RESTful APIs and learned database design with MongoDB.
+                </p>
+                <div class="flex flex-wrap gap-1.5 mt-2">
+                  <span
+                    class="text-[10px] bg-sky-400/10 text-sky-400 px-2 py-0.5 rounded-full"
+                    >Express.js</span
+                  >
+                  <span
+                    class="text-[10px] bg-sky-400/10 text-sky-400 px-2 py-0.5 rounded-full"
+                    >Nest.js</span
+                  >
+                  <span
+                    class="text-[10px] bg-sky-400/10 text-sky-400 px-2 py-0.5 rounded-full"
+                    >REST APIs</span
+                  >
+                </div>
+              </div>
+
+              <!-- Item 3 -->
+              <div class="timeline-item">
+                <span class="timeline-year">2025</span>
+                <h4 class="text-lg font-semibold mb-1">Web Dev Beginnings</h4>
+                <p class="text-white/40 text-sm leading-relaxed">
+                  Started with HTML, CSS, and JavaScript. Built first static
+                  websites and fell in love with coding.
+                </p>
+                <div class="flex flex-wrap gap-1.5 mt-2">
+                  <span
+                    class="text-[10px] bg-sky-400/10 text-sky-400 px-2 py-0.5 rounded-full"
+                    >HTML5</span
+                  >
+                  <span
+                    class="text-[10px] bg-sky-400/10 text-sky-400 px-2 py-0.5 rounded-full"
+                    >CSS3</span
+                  >
+                  <span
+                    class="text-[10px] bg-sky-400/10 text-sky-400 px-2 py-0.5 rounded-full"
+                    >JavaScript</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS - REDESIGNED -->
+      <section id="skills" class="px-5 md:px-12 lg:px-20 py-20">
+        <div class="text-center mb-10">
+          <h2 class="text-3xl md:text-4xl font-bold mb-3">
+            Technical <span class="gradient-text">Skills</span>
+          </h2>
+          <p class="text-white/40 text-sm">Technologies I work with daily</p>
+        </div>
+
+        <!-- Skills Grid -->
+        <div class="skills-grid" id="skillsGrid">
+          <!-- Generated by JavaScript -->
+        </div>
+
+        <!-- Legend -->
+        <div class="skills-legend">
+          <div class="legend-item">
+            <span
+              class="legend-dot"
+              style="background: #10b981; box-shadow: 0 0 6px #10b981"
+            ></span>
+            Expert
+          </div>
+          <div class="legend-item">
+            <span
+              class="legend-dot"
+              style="background: #0ea5e9; box-shadow: 0 0 6px #0ea5e9"
+            ></span>
+            Advanced
+          </div>
+          <div class="legend-item">
+            <span
+              class="legend-dot"
+              style="background: #f59e0b; box-shadow: 0 0 6px #f59e0b"
+            ></span>
+            Intermediate
+          </div>
+          <div class="legend-item">
+            <span
+              class="legend-dot"
+              style="background: #f97316; box-shadow: 0 0 6px #f97316"
+            ></span>
+            Beginner
+          </div>
+          <div class="legend-item">
+            <span
+              class="legend-dot"
+              style="background: #6366f1; box-shadow: 0 0 6px #6366f1"
+            ></span>
+            Learning
+          </div>
+        </div>
+      </section>
+
+      <!-- PORTFOLIO -->
+      <section id="portfolio" class="px-5 md:px-12 lg:px-20 py-20">
+        <div class="mb-10">
+          <h2 class="text-3xl md:text-4xl font-bold mb-3">
+            Recent <span class="gradient-text">Works</span>
+          </h2>
+          <p class="text-white/40 text-sm">
+            Click any project for full details
+          </p>
+        </div>
+        <div
+          id="portfolioGrid"
+          class="grid md:grid-cols-2 lg:grid-cols-3 gap-5"
+        ></div>
+      </section>
+
+      <!-- TESTIMONIALS -->
+      <section id="testimonials" class="px-5 md:px-12 lg:px-20 py-20">
+        <div class="mb-10">
+          <h2 class="text-3xl md:text-4xl font-bold mb-3">
+            Client <span class="gradient-text">Feedback</span>
+          </h2>
+          <p class="text-white/40 text-sm">What people say about my work</p>
+        </div>
+        <div
+          id="testimonialsGrid"
+          class="grid md:grid-cols-2 lg:grid-cols-3 gap-5"
+        ></div>
+      </section>
+
+      <!-- CONTACT - COMPLETELY REDESIGNED -->
+      <section
+        id="contact"
+        class="px-5 md:px-12 lg:px-20 py-20 relative overflow-hidden"
+      >
+        <!-- Liquid blobs -->
+        <div class="liquid-blob w-96 h-96 -top-20 -left-20"></div>
+        <div
+          class="liquid-blob w-80 h-80 -bottom-20 -right-20"
+          style="animation-delay: -5s"
+        ></div>
+
+        <div class="max-w-5xl mx-auto relative">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold mb-3">
+              Get In <span class="gradient-text">Touch</span>
+            </h2>
+            <p class="text-white/40 text-sm max-w-md mx-auto">
+              Have a project in mind? Let's build something exceptional
+              together.
+            </p>
+          </div>
+
+          <!-- Main contact card - liquid glass -->
+          <div class="liquid-glass !rounded-[2.5rem] p-8 md:p-10">
+            <div class="grid md:grid-cols-7 gap-8">
+              <!-- Left - Contact info -->
+              <div class="md:col-span-3 space-y-6">
+                <div class="flex items-start gap-4 group cursor-pointer">
+                  <div
+                    class="w-12 h-12 rounded-2xl bg-sky-400/10 flex items-center justify-center text-xl text-sky-400 shrink-0 group-hover:bg-sky-400/20 transition"
+                  >
+                    <i class="bi bi-envelope-fill"></i>
+                  </div>
+                  <div>
+                    <p
+                      class="text-xs text-white/30 uppercase tracking-wider mb-1"
+                    >
+                      Email
+                    </p>
+                    <a
+                      href="mailto:amin0xa1b@gmail.com"
+                      class="text-sm font-medium hover:text-sky-400 transition no-underline"
+                      >amin0xa1b@gmail.com</a
+                    >
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-4 group">
+                  <div
+                    class="w-12 h-12 rounded-2xl bg-sky-400/10 flex items-center justify-center text-xl text-sky-400 shrink-0 group-hover:bg-sky-400/20 transition"
+                  >
+                    <i class="bi bi-geo-alt-fill"></i>
+                  </div>
+                  <div>
+                    <p
+                      class="text-xs text-white/30 uppercase tracking-wider mb-1"
+                    >
+                      Location
+                    </p>
+                    <p class="text-sm font-medium">Remote / Tehran, Iran</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-4 group">
+                  <div
+                    class="w-12 h-12 rounded-2xl bg-sky-400/10 flex items-center justify-center text-xl text-sky-400 shrink-0 group-hover:bg-sky-400/20 transition"
+                  >
+                    <i class="bi bi-telephone-fill"></i>
+                  </div>
+                  <div>
+                    <p
+                      class="text-xs text-white/30 uppercase tracking-wider mb-1"
+                    >
+                      Phone
+                    </p>
+                    <p class="text-sm font-medium">
+                      <a
+                        href="tel:+989915867462"
+                        class="text-sm font-medium hover:text-sky-400 transition no-underline"
+                        >+98 991 586 7462</a
+                      >
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Social links -->
+                <div class="pt-4 border-t border-white/5">
+                  <p
+                    class="text-xs text-white/30 uppercase tracking-wider mb-3"
+                  >
+                    Connect With Me
+                  </p>
+                  <div class="flex gap-3">
+                    <a
+                      href="https://github.com/aydope"
+                      class="w-11 h-11 rounded-2xl bg-white/5 flex items-center justify-center hover:bg-sky-400/15 hover:text-sky-400 transition text-white/40 text-lg"
+                      title="GitHub"
+                      ><i class="bi bi-github"></i
+                    ></a>
+                    <a
+                      href="https://www.linkedin.com/in/amin-sadeghi-a34b873b1"
+                      class="w-11 h-11 rounded-2xl bg-white/5 flex items-center justify-center hover:bg-sky-400/15 hover:text-sky-400 transition text-white/40 text-lg"
+                      title="LinkedIn"
+                      ><i class="bi bi-linkedin"></i
+                    ></a>
+                    <a
+                      href="#"
+                      class="w-11 h-11 rounded-2xl bg-white/5 flex items-center justify-center hover:bg-sky-400/15 hover:text-sky-400 transition text-white/40 text-lg"
+                      title="Twitter"
+                      ><i class="bi bi-twitter-x"></i
+                    ></a>
+                    <a
+                      href="https://instagram.com/aydope.r"
+                      class="w-11 h-11 rounded-2xl bg-white/5 flex items-center justify-center hover:bg-sky-400/15 hover:text-sky-400 transition text-white/40 text-lg"
+                      title="Instagram"
+                      ><i class="bi bi-instagram"></i
+                    ></a>
+                    <a
+                      href="https://t.me/Aydope"
+                      class="w-11 h-11 rounded-2xl bg-white/5 flex items-center justify-center hover:bg-sky-400/15 hover:text-sky-400 transition text-white/40 text-lg"
+                      title="Telegram"
+                      ><i class="bi bi-telegram"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right - Quick action card -->
+              <div class="md:col-span-4 flex flex-col justify-center">
+                <div class="glass p-8 text-center relative overflow-hidden">
+                  <div
+                    class="absolute inset-0 bg-gradient-to-br from-sky-400/5 to-transparent"
+                  ></div>
+                  <div class="relative">
+                    <div
+                      class="w-16 h-16 rounded-2xl bg-sky-400/10 flex items-center justify-center mx-auto mb-5 text-3xl text-sky-400"
+                    >
+                      <i class="bi bi-chat-heart-fill"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">
+                      Let's Start a
+                      <span class="gradient-text">Conversation</span>
+                    </h3>
+                    <p class="text-white/40 text-sm mb-6 leading-relaxed">
+                      I'm currently available for junior MERN roles, freelance
+                      projects, and collaborations. Don't hesitate to reach out!
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                      <a
+                        href="mailto:aydope@devfolio.io"
+                        class="btn-primary text-sm justify-center"
+                      >
+                        Send Email <i class="bi bi-arrow-right"></i>
+                      </a>
+                      <button
+                        class="btn-outline text-sm justify-center"
+                        id="hire-btn-contact"
+                      >
+                        Hire Me <i class="bi bi-briefcase"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Availability badge -->
+          <div class="text-center mt-8">
+            <span
+              class="inline-flex items-center gap-2 text-xs text-green-400 glass !rounded-full px-4 py-2"
+            >
+              <span
+                class="w-2 h-2 bg-green-400 rounded-full animate-pulse"
+              ></span>
+              Available for new opportunities
+            </span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER - REDESIGNED -->
+    <footer class="relative z-10 border-t border-white/5">
+      <div class="max-w-5xl mx-auto px-5 py-10">
+        <div class="grid md:grid-cols-4 gap-8 mb-8">
+          <!-- Brand -->
+          <div class="md:col-span-1">
+            <a href="#home" class="text-xl font-bold text-sky-400 no-underline"
+              >AYDOPE<span class="text-white/40">.</span></a
+            >
+            <p class="text-white/30 text-xs mt-2 leading-relaxed">
+              Junior MERN Stack Developer.
+            </p>
+          </div>
+          <!-- Quick links -->
+          <div class="md:col-span-1">
+            <h4
+              class="text-xs uppercase tracking-wider text-white/30 mb-3 font-medium"
+            >
+              Navigation
+            </h4>
+            <div class="space-y-2">
+              <a
+                href="#home"
+                class="block text-sm text-white/40 hover:text-sky-400 transition no-underline"
+                >Home</a
+              >
+              <a
+                href="#about"
+                class="block text-sm text-white/40 hover:text-sky-400 transition no-underline"
+                >About</a
+              >
+              <a
+                href="#skills"
+                class="block text-sm text-white/40 hover:text-sky-400 transition no-underline"
+                >Skills</a
+              >
+              <a
+                href="#portfolio"
+                class="block text-sm text-white/40 hover:text-sky-400 transition no-underline"
+                >Work</a
+              >
+            </div>
+          </div>
+          <!-- Contact -->
+          <div class="md:col-span-1">
+            <h4
+              class="text-xs uppercase tracking-wider text-white/30 mb-3 font-medium"
+            >
+              Contact
+            </h4>
+            <div class="space-y-2 text-sm text-white/40">
+              <p>amin0xa1b@gmail.com</p>
+              <p>Remote / Tehran</p>
+              <a
+                class="block text-sm text-white/40 hover:text-sky-400 transition no-underline"
+                href="https://ble.ir/Aydope"
+                >Bale</a
+              >
+              <a
+                class="block text-sm text-white/40 hover:text-sky-400 transition no-underline"
+                href="https://eitaa.com/aydope"
+                >Eitaa</a
+              >
+            </div>
+          </div>
+          <!-- Social -->
+          <div class="md:col-span-1">
+            <h4
+              class="text-xs uppercase tracking-wider text-white/30 mb-3 font-medium"
+            >
+              Follow
+            </h4>
+            <div class="flex gap-3 text-lg">
+              <a
+                href="https://github.com/aydope"
+                class="text-white/30 hover:text-sky-400 transition"
+                ><i class="bi bi-github"></i
+              ></a>
+              <a
+                href="https://www.linkedin.com/in/amin-sadeghi-a34b873b1"
+                class="text-white/30 hover:text-sky-400 transition"
+                ><i class="bi bi-linkedin"></i
+              ></a>
+              <a href="#" class="text-white/30 hover:text-sky-400 transition"
+                ><i class="bi bi-twitter-x"></i
+              ></a>
+              <a href="#" class="text-white/30 hover:text-sky-400 transition"
+                ><i class="bi bi-discord"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <!-- Bottom bar -->
+        <div
+          class="pt-6 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-white/20"
+        >
+          <span>&copy; 2025 Aydope. All rights reserved.</span>
+          <span class="flex items-center gap-1">
+            Developed with
+            <i class="bi bi-heart-fill text-red-400/50 text-[10px]"></i> using
+            MERN Stack
+          </span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- PROJECT MODAL -->
+    <div id="projectModal" class="modal-overlay">
+      <div
+        class="glass max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto relative p-0"
+      >
+        <button
+          class="absolute top-4 right-4 z-10 opacity-50 hover:opacity-100 text-xl bg-[#020617]/60 rounded-full w-8 h-8 flex items-center justify-center"
+          id="closeProjectModal"
+        >
+          <i class="bi bi-x-lg"></i>
+        </button>
+        <div id="projectModalContent"></div>
+      </div>
+    </div>
+
+    <!-- HIRE MODAL -->
+    <div id="hireModal" class="modal-overlay">
+      <div
+        class="liquid-glass !rounded-[2rem] p-7 max-w-sm w-full mx-4 text-center relative"
+      >
+        <button
+          class="absolute top-3 right-3 opacity-50 hover:opacity-100 text-lg"
+          id="closeHireModal"
+        >
+          <i class="bi bi-x-lg"></i>
+        </button>
+        <div
+          class="w-12 h-12 rounded-xl bg-sky-400/10 flex items-center justify-center mx-auto mb-4 text-2xl text-sky-400"
+        >
+          <i class="bi bi-briefcase"></i>
+        </div>
+        <h3 class="text-lg font-bold mb-2">Let's Work Together</h3>
+        <p class="text-white/40 text-sm mb-5">
+          Available for junior MERN roles and freelance projects.
+        </p>
+        <a
+          href="https://www.linkedin.com/in/amin-sadeghi-a34b873b1"
+          target="_blank"
+          class="btn-primary w-full justify-center text-sm"
+          >LinkedIn <i class="bi bi-linkedin"></i
+        ></a>
+      </div>
+    </div>
+
+    <!-- RESUME MODAL -->
+    <div id="resumeModal" class="modal-overlay">
+      <div
+        class="liquid-glass !rounded-[2rem] p-7 max-w-sm w-full mx-4 text-center relative"
+      >
+        <button
+          class="absolute top-3 right-3 opacity-50 hover:opacity-100 text-lg"
+          id="closeResumeModal"
+        >
+          <i class="bi bi-x-lg"></i>
+        </button>
+        <div
+          class="w-12 h-12 rounded-xl bg-sky-400/10 flex items-center justify-center mx-auto mb-4 text-2xl text-sky-400"
+        >
+          <i class="bi bi-file-earmark-text"></i>
+        </div>
+        <h3 class="text-lg font-bold mb-4">Choose Resume</h3>
+        <div class="space-y-3">
+          <a
+            href="#src/resume/frontend"
+            class="btn-primary w-full justify-center text-sm"
+            >Frontend <i class="bi bi-window-stack"></i
+          ></a>
+          <a
+            href="#src/resume/backend"
+            class="btn-outline w-full justify-center text-sm"
+            >Backend <i class="bi bi-server"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+
+    <script src="src/app.js"></script>
+  </body>
+</html>
