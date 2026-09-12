@@ -1,449 +1,321 @@
-(function () {
-  const portfolioData = [
-    {
-      id: "snakid",
-      title: "Snakid",
-      subtitle: "Classic Snake Game",
-      description:
-        "A modern take on the classic Snake game with smooth animations, mobile-friendly touch controls, swipe gestures, and real-time FPS counter. Built with HTML5 Canvas and jQuery.",
-      technologies: ["HTML5", "CSS3", "Tailwind CSS", "jQuery", "Canvas API"],
-      features: [
-        "Smooth 60 FPS gameplay",
-        "Mobile-friendly touch controls",
-        "Swipe gesture support",
-        "Keyboard controls (WASD/Arrow keys)",
-        "High score saved locally",
-        "Responsive design",
-      ],
-      images: ["src/assets/images/snakid/img2.png", "src/assets/images/snakid/img3.png"],
-      link: "https://aydope.github.io/snakid/",
-      thumbnail: "src/assets/images/snakid/img1.png",
-      color: "#030712",
-    },
-    {
-      id: "farmaan",
-      title: "Farmaan",
-      subtitle: "Persian Task Master",
-      description:
-        "A beautifully simple Persian (RTL) to-do app with drag & drop, session management, dual themes (Dark & Achaemenid), and full backup/restore functionality. Built with HTML5, Tailwind CSS, jQuery, and GSAP.",
-      technologies: [
-        "HTML5",
-        "CSS3",
-        "Tailwind CSS",
-        "JavaScript",
-        "jQuery",
-        "GSAP",
-        "Bootstrap Icons",
-      ],
-      features: [
-        "Add tasks with title, description & category tags",
-        "Categorize tasks (Personal, Work, Urgent)",
-        "Mark tasks as completed with animation",
-        "Pin important tasks to the top",
-        "Drag & drop to reorder tasks",
-        "Live search & filter (All, Active, Completed)",
-        "Dark & Achaemenid themes with harmonious colors",
-        "Session storage info panel (size + item count)",
-        "Backup tasks as a JSON file",
-        "Restore tasks from a backup file",
-        "Undo delete with 5-second timeout",
-        "Smooth GSAP animations",
-        "Fully responsive design",
-      ],
-      images: [
-        "src/assets/images/farmaan/img2.png",
-        "src/assets/images/farmaan/img3.png",
-      ],
-      link: "https://aydope.github.io/farmaan/",
-      thumbnail: "src/assets/images/farmaan/img1.png",
-      color: "#1a1a2e",
-    },
-    {
-      id: "peek",
-      title: "Peek",
-      subtitle: "Node.js Static File Server",
-      description:
-        "A powerful static file explorer server with a modern Windows 11-style file manager interface. Features include file/folder management (create, edit, delete, rename), real-time search, bulk operations, clipboard support, and full CLI control. Built with Node.js.",
-      technologies: [
-        "Node.js",
-        "JavaScript",
-        "HTML5",
-        "CSS3",
-        "M- Commander.js",
-        "M- chalk",
-        "M- clipboardy",
-        "M- ora",
-      ],
-      features: [
-        "Modern Windows 11-style file explorer UI",
-        "Create, edit, delete, and rename files & folders",
-        "Directory navigation with breadcrumb trail",
-        "Real-time file name search filter",
-        "Bulk select and delete multiple items",
-        "Security restrictions (file type, size, & path)",
-        "Copy server URL to clipboard",
-        "Full CLI control (start, stop, restart, status)",
-        "REST API for all file operations",
-        "Cross-platform (Windows, macOS, Linux)",
-        "Can be used as a global CLI tool",
-        "Interactive CLI mode for server management",
-      ],
-      images: [
-        "src/assets/images/peek/img2.png",
-        "src/assets/images/peek/img3.png",
-      ],
-      link: "https://github.com/aydope/peek",
-      thumbnail: "src/assets/images/peek/img1.png",
-      color: "#3b82f6",
-    },
-  ];
+// Year
+document.getElementById("year").textContent = new Date().getFullYear();
 
-  const testimonialsData = [
-    {
-      text: "Aydope delivered a clean API and polished UI. Great junior talent!",
-      author: "John Doe",
-      role: "Tech Lead",
-      initial: "J",
-      rating: 5,
-    },
-    {
-      text: "Very dedicated to best practices. A pleasure to work with.",
-      author: "Jane Doe",
-      role: "Senior Developer",
-      initial: "J",
-      rating: 5,
-    },
-  ];
+// Mobile sidebar
+const menuToggle = document.getElementById("menuToggle");
+const mobileSidebar = document.getElementById("mobileSidebar");
+const sidebarOverlay = document.getElementById("sidebarOverlay");
+const sidebarClose = document.getElementById("sidebarClose");
 
-  function renderSkills() {
-    const container = document.getElementById("skillsGrid");
-    if (!container) return;
+function openSidebar() {
+  mobileSidebar.classList.remove("translate-x-full");
+  mobileSidebar.setAttribute("aria-hidden", "false");
+  sidebarOverlay.classList.remove("hidden");
+  menuToggle.setAttribute("aria-expanded", "true");
+  document.body.style.overflow = "hidden";
+}
+function closeSidebar() {
+  mobileSidebar.classList.add("translate-x-full");
+  mobileSidebar.setAttribute("aria-hidden", "true");
+  sidebarOverlay.classList.add("hidden");
+  menuToggle.setAttribute("aria-expanded", "false");
+  document.body.style.overflow = "";
+}
+menuToggle.addEventListener("click", openSidebar);
+sidebarClose.addEventListener("click", closeSidebar);
+sidebarOverlay.addEventListener("click", closeSidebar);
+document
+  .querySelectorAll("#mobileSidebar a")
+  .forEach((a) => a.addEventListener("click", closeSidebar));
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeSidebar();
+});
 
-    // Skills data - based on actual skills
-    const skills = [
-      { name: "HTML", level: "intermediate", icon: "bi-filetype-html" },
-      { name: "CSS", level: "intermediate", icon: "bi-filetype-css" },
-      { name: "JavaScript", level: "advanced", icon: "bi-filetype-js" },
-      { name: "TypeScript", level: "advanced", icon: "bi-filetype-tsx" },
-      { name: "React", level: "beginner", icon: "bi-react" },
-      { name: "Node.js", level: "intermediate", icon: "bi-node-plus" },
-      { name: "Express.js", level: "advanced", icon: "bi-diagram-3" },
-      { name: "Fastify", level: "advanced", icon: "bi-lightning-charge" },
-      { name: "Nest.js", level: "beginner", icon: "bi-box" },
-      { name: "MongoDB", level: "intermediate", icon: "bi-database" },
-      { name: "Git", level: "advanced", icon: "bi-git" },
-      { name: "GitHub", level: "advanced", icon: "bi-github" },
-      { name: "GitLab", level: "advanced", icon: "bi-gitlab" },
-      { name: "REST APIs", level: "advanced", icon: "bi-globe2" },
-      { name: "PWA", level: "advanced", icon: "bi-phone" },
-      { name: "WebSocket", level: "intermediate", icon: "bi-ethernet" },
-      { name: "Socket.io", level: "intermediate", icon: "bi-chat-dots" },
-      { name: "Service Workers", level: "learning", icon: "bi-gear" },
-      { name: "Sequelize", level: "beginner", icon: "bi-stack" },
-    ];
-
-    // Level colors
-    const levelColors = {
-      expert: "#10b981",
-      advanced: "#0ea5e9",
-      intermediate: "#f59e0b",
-      beginner: "#f97316",
-      learning: "#6366f1",
-    };
-
-    // Render skills
-    container.innerHTML = skills
-      .map(
-        (skill) => `
-            <div class="skill-card">
-              <span class="skill-dot" style="background: ${levelColors[skill.level]}; color: ${levelColors[skill.level]};"></span>
-              <i class="bi ${skill.icon} text-sm" style="color: ${levelColors[skill.level]}; opacity: 0.8;"></i>
-              <span class="skill-name">${skill.name}</span>
-            </div>
-          `,
-      )
-      .join("");
-  }
-
-  function renderPortfolio() {
-    const c = document.getElementById("portfolioGrid");
-    if (!c) return;
-    if (portfolioData.length === 0) {
-      c.innerHTML = `<div class="col-span-full text-center py-16 opacity-50"><i class="bi bi-folder2-open text-5xl block mb-3"></i><p>No projects yet</p></div>`;
-      return;
-    }
-    c.innerHTML = portfolioData
-      .map(
-        (p) => `
-          <div class="project-card-new group cursor-pointer" data-project-id="${p.id}">
-            <div class="card-image" style="background-image:url('${p.thumbnail}')"></div>
-            <div class="p-5 flex flex-col flex-grow">
-              <div class="flex items-center gap-2 mb-2"><span class="w-2 h-2 rounded-full" style="background:${p.color || "#0ea5e9"}"></span><span class="text-xs text-white/30">${p.technologies[0]}</span></div>
-              <h3 class="font-bold text-lg mb-1 group-hover:text-sky-400 transition">${p.title}</h3>
-              <p class="text-white/40 text-xs mb-4 flex-grow">${p.subtitle}</p>
-              <div class="flex items-center justify-between"><span class="text-xs text-sky-400 font-medium flex items-center gap-1">Details <i class="bi bi-arrow-right group-hover:translate-x-1 transition-transform"></i></span><span class="text-[10px] text-white/20">${p.technologies.length} techs</span></div>
-            </div>
-          </div>`,
-      )
-      .join("");
-  }
-
-  function renderTestimonials() {
-    const c = document.getElementById("testimonialsGrid");
-    if (!c) return;
-    if (testimonialsData.length === 0) {
-      c.innerHTML = `<div class="col-span-full text-center py-16 opacity-50"><i class="bi bi-chat-square-text text-5xl block mb-3"></i><p>No testimonials yet</p></div>`;
-      return;
-    }
-    c.innerHTML = testimonialsData
-      .map(
-        (t) => `
-          <div class="liquid-glass !rounded-[1.5rem] p-6 relative group">
-            <div class="flex gap-0.5 mb-3 text-sky-400 text-sm">${'<i class="bi bi-star-fill"></i>'.repeat(t.rating || 5)}</div>
-            <i class="bi bi-quote text-4xl text-sky-400/10 absolute top-4 right-4"></i>
-            <p class="text-sm italic leading-relaxed text-white/60 mb-4">"${t.text}"</p>
-            <div class="flex items-center gap-2.5 mt-auto pt-3 border-t border-white/5"><div class="w-9 h-9 rounded-full bg-sky-400/10 flex items-center justify-center text-sky-400 text-xs font-bold">${t.initial}</div><div><span class="text-sm font-medium">${t.author}</span><br><span class="text-white/30 text-xs">${t.role}</span></div></div>
-          </div>`,
-      )
-      .join("");
-  }
-
-  function openProjectModal(pid) {
-    const p = portfolioData.find((x) => x.id === pid);
-    if (!p) return;
-    const m = document.getElementById("projectModal"),
-      ct = document.getElementById("projectModalContent");
-    ct.innerHTML = `<div class="h-56 md:h-64 bg-cover bg-center relative" style="background-image:url('${p.images[0]}')"><div class="absolute inset-0 bg-gradient-to-t from-[#020617] to-transparent"></div></div><div class="p-6"><h3 class="text-2xl font-bold mb-1">${p.title}</h3><p class="text-sky-400 text-sm mb-4">${p.subtitle}</p><p class="text-white/60 text-sm leading-relaxed mb-5">${p.description}</p><div class="mb-5"><h4 class="text-xs uppercase tracking-wider text-white/30 mb-2">Technologies</h4><div class="flex flex-wrap gap-2">${p.technologies.map((t) => `<span class="text-[11px] bg-sky-400/10 text-sky-400 px-2.5 py-1 rounded-full">${t}</span>`).join("")}</div></div><div class="mb-5"><h4 class="text-xs uppercase tracking-wider text-white/30 mb-2">Features</h4><ul class="space-y-1.5 text-sm text-white/50">${p.features.map((f) => `<li class="flex items-start gap-2"><i class="bi bi-check2 text-sky-400 mt-0.5"></i> ${f}</li>`).join("")}</ul></div>${p.images.length > 1 ? `<div class="mb-5"><h4 class="text-xs uppercase tracking-wider text-white/30 mb-2">Screenshots</h4><div class="grid grid-cols-2 gap-2">${p.images.map((i) => `<div class="h-24 rounded-lg bg-cover bg-center" style="background-image:url('${i}')"></div>`).join("")}</div></div>` : ""}<a href="${p.link}" target="_blank" class="btn-primary text-sm w-full justify-center mt-2">View Live Project <i class="bi bi-box-arrow-up-right"></i></a></div>`;
-    m.classList.add("active");
-    document.body.style.overflow = "hidden";
-  }
-
-  function init() {
-    renderSkills();
-    renderPortfolio();
-    renderTestimonials();
-
-    const typingEl = document.getElementById("typing-text");
-    const words = ["scalable", "modern", "robust", "elegant"];
-    let wi = 0,
-      ci = 0,
-      del = false;
-    function type() {
-      if (!typingEl) return;
-      const cur = words[wi];
-      typingEl.textContent = cur.substring(0, ci);
-      if (!del && ci < cur.length) {
-        ci++;
-        setTimeout(type, 100);
-      } else if (del && ci > 0) {
-        ci--;
-        setTimeout(type, 50);
-      } else if (!del && ci === cur.length) {
-        del = true;
-        setTimeout(type, 1800);
-      } else {
-        del = false;
-        wi = (wi + 1) % words.length;
-        setTimeout(type, 400);
-      }
-    }
-    type();
-
-    const co = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            document.querySelectorAll(".counter").forEach((c) => {
-              const t = parseInt(c.dataset.target);
-              let n = 0;
-              const iv = setInterval(() => {
-                if (n >= t) {
-                  clearInterval(iv);
-                  c.textContent = t;
-                } else {
-                  n += Math.max(1, Math.ceil(t / 30));
-                  c.textContent = n;
-                }
-              }, 30);
-            });
-            co.disconnect();
-          }
-        });
-      },
-      { threshold: 0.5 },
-    );
-    document.querySelectorAll(".counter").forEach((c) => co.observe(c));
-
-    document
-      .getElementById("portfolioGrid")
-      ?.addEventListener("click", function (e) {
-        const card = e.target.closest(".project-card-new");
-        if (card) openProjectModal(card.dataset.projectId);
-      });
-    document
-      .getElementById("closeProjectModal")
-      ?.addEventListener("click", () => {
-        document.getElementById("projectModal").classList.remove("active");
-        document.body.style.overflow = "";
-      });
-
-    function om(id) {
-      document.getElementById(id).classList.add("active");
-    }
-    function cm(id) {
-      document.getElementById(id).classList.remove("active");
-    }
-    document
-      .getElementById("hire-btn-header")
-      ?.addEventListener("click", (e) => {
-        e.preventDefault();
-        om("hireModal");
-      });
-    document.getElementById("hire-sidebar")?.addEventListener("click", (e) => {
-      e.preventDefault();
-      om("hireModal");
-      closeDesktopSidebar();
-    });
-    document
-      .getElementById("hire-btn-contact")
-      ?.addEventListener("click", (e) => {
-        e.preventDefault();
-        om("hireModal");
-      });
-    document.getElementById("resume-btn")?.addEventListener("click", (e) => {
-      e.preventDefault();
-      om("resumeModal");
-    });
-    document
-      .getElementById("closeHireModal")
-      ?.addEventListener("click", () => cm("hireModal"));
-    document
-      .getElementById("closeResumeModal")
-      ?.addEventListener("click", () => cm("resumeModal"));
-    document.querySelectorAll(".modal-overlay").forEach((m) =>
-      m.addEventListener("click", function (e) {
-        if (e.target === this) {
-          this.classList.remove("active");
-          document.body.style.overflow = "";
-        }
-      }),
-    );
-
-    function openDesktopSidebar() {
-      document.getElementById("desktopSidebar").classList.add("open");
-      document.getElementById("sidebarOverlay").classList.add("active");
-    }
-    function closeDesktopSidebar() {
-      document.getElementById("desktopSidebar").classList.remove("open");
-      document.getElementById("sidebarOverlay").classList.remove("active");
-    }
-    document
-      .getElementById("menuToggle")
-      ?.addEventListener("click", openDesktopSidebar);
-    document
-      .getElementById("closeSidebar")
-      ?.addEventListener("click", closeDesktopSidebar);
-    document
-      .getElementById("sidebarOverlay")
-      ?.addEventListener("click", closeDesktopSidebar);
-    document.querySelectorAll(".sidebar-link").forEach((l) => {
-      l.addEventListener("click", function (e) {
-        e.preventDefault();
-        const t = document.querySelector(this.getAttribute("href"));
-        if (t) {
-          closeDesktopSidebar();
-          setTimeout(
-            () =>
-              window.scrollTo({
-                top: t.offsetTop - 70,
-                behavior: "smooth",
-              }),
-            300,
-          );
-        }
-      });
-    });
-    document.querySelectorAll(".section-dot").forEach((d) => {
-      d.addEventListener("click", function () {
-        const t = document.getElementById(this.dataset.section);
-        if (t) window.scrollTo({ top: t.offsetTop - 70, behavior: "smooth" });
-      });
-    });
-
-    const sb = document.getElementById("scrollTopBtn");
-    sb?.addEventListener("click", () =>
-      window.scrollTo({ top: 0, behavior: "smooth" }),
-    );
-    window.addEventListener("scroll", () => {
-      if (sb) sb.style.display = window.scrollY > 400 ? "flex" : "none";
-      let cur = "";
-      document.querySelectorAll("section").forEach((s) => {
-        const top = s.offsetTop - 120;
-        if (window.scrollY >= top && window.scrollY <= top + s.offsetHeight)
-          cur = s.id;
-      });
-      document
-        .querySelectorAll(".section-dot")
-        .forEach((d) =>
-          d.classList.toggle("active", d.dataset.section === cur),
+// Active nav highlighting
+const sections = [
+  "about",
+  "skills",
+  "work",
+  "github",
+  "now",
+  "faq",
+  "contact",
+].map((id) => document.getElementById(id));
+const navLinks = document.querySelectorAll("[data-nav]");
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        navLinks.forEach((l) =>
+          l.classList.toggle("active", l.dataset.nav === entry.target.id),
         );
-    });
-
-    // STICKY HEADER ANIMATION
-    const mainHeader = document.getElementById("mainHeader");
-    let lastScroll = 0;
-    let scrollTimeout;
-
-    window.addEventListener(
-      "scroll",
-      () => {
-        const currentScroll = window.scrollY;
-
-        if (currentScroll <= 0) {
-          mainHeader.classList.remove("header-hidden", "header-scrolled");
-          return;
-        }
-
-        if (currentScroll > lastScroll && currentScroll > 200) {
-          mainHeader.classList.add("header-hidden");
-          mainHeader.classList.remove("header-scrolled");
-        } else if (currentScroll < lastScroll) {
-          mainHeader.classList.remove("header-hidden");
-          if (currentScroll > 100) {
-            mainHeader.classList.add("header-scrolled");
-          } else {
-            mainHeader.classList.remove("header-scrolled");
-          }
-        }
-
-        lastScroll = currentScroll;
-
-        clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(() => {
-          if (
-            currentScroll > 100 &&
-            !mainHeader.classList.contains("header-hidden")
-          ) {
-            mainHeader.classList.add("header-scrolled");
-          }
-        }, 100);
-      },
-      { passive: true },
-    );
-
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") {
-        document
-          .querySelectorAll(".modal-overlay")
-          .forEach((m) => m.classList.remove("active"));
-        closeDesktopSidebar();
-        document.body.style.overflow = "";
       }
     });
-    window.dispatchEvent(new Event("scroll"));
-  }
+  },
+  { rootMargin: "-45% 0px -50% 0px" },
+);
+sections.forEach((s) => s && observer.observe(s));
 
-  if (document.readyState === "loading")
-    document.addEventListener("DOMContentLoaded", init);
-  else init();
-})();
+// Contact form -> mailto
+document.getElementById("contactForm").addEventListener("submit", (e) => {
+  e.preventDefault();
+  const name = document.getElementById("cf-name").value;
+  const email = document.getElementById("cf-email").value;
+  const msg = document.getElementById("cf-msg").value;
+  const body = encodeURIComponent(`${msg}\n\n— ${name} (${email})`);
+  window.location.href = `mailto:amin0xa1b@gmail.com?subject=${encodeURIComponent("Portfolio contact from " + name)}&body=${body}`;
+});
+
+// Resume dialog — track (backend/frontend) then language (en/fa), handled from one object
+const resumeLinks = {
+  backend: {
+    en: "src/assets/resume/backend-en.pdf",
+    fa: "src/assets/resume/backend-fa.pdf",
+  },
+  frontend: {
+    en: "src/assets/resume/frontend-en.pdf",
+    fa: "src/assets/resume/frontend-fa.pdf",
+  },
+};
+
+const resumeOverlay = document.getElementById("resumeOverlay");
+const resumeStep1 = document.getElementById("resumeStep1");
+const resumeStep2 = document.getElementById("resumeStep2");
+const resumeStep2Sub = document.getElementById("resumeStep2Sub");
+let selectedTrack = null;
+
+function openResumeDialog() {
+  selectedTrack = null;
+  resumeStep1.classList.remove("hidden");
+  resumeStep2.classList.add("hidden");
+  resumeOverlay.classList.remove("hidden");
+  resumeOverlay.classList.add("flex");
+  document.body.style.overflow = "hidden";
+}
+function closeResumeDialog() {
+  resumeOverlay.classList.add("hidden");
+  resumeOverlay.classList.remove("flex");
+  document.body.style.overflow = "";
+}
+
+["resumeBtnHeader", "resumeBtnHero", "resumeBtnMobile"].forEach((id) => {
+  const el = document.getElementById(id);
+  if (el) el.addEventListener("click", openResumeDialog);
+});
+document
+  .getElementById("resumeClose")
+  .addEventListener("click", closeResumeDialog);
+resumeOverlay.addEventListener("click", (e) => {
+  if (e.target === resumeOverlay) closeResumeDialog();
+});
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeResumeDialog();
+});
+
+document.querySelectorAll(".resume-track").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    selectedTrack = btn.dataset.track;
+    resumeStep2Sub.textContent = `${selectedTrack === "backend" ? "Backend" : "Frontend"} resume — pick a language.`;
+    resumeStep1.classList.add("hidden");
+    resumeStep2.classList.remove("hidden");
+  });
+});
+
+document.getElementById("resumeBack").addEventListener("click", () => {
+  resumeStep2.classList.add("hidden");
+  resumeStep1.classList.remove("hidden");
+});
+
+document.querySelectorAll(".resume-lang").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const lang = btn.dataset.lang;
+    const url = resumeLinks[selectedTrack] && resumeLinks[selectedTrack][lang];
+    closeResumeDialog();
+    if (url) window.open(url, "_blank");
+  });
+});
+
+// FAQ accordion
+document.querySelectorAll(".faq-trigger").forEach((trigger) => {
+  trigger.addEventListener("click", () => {
+    const panel = trigger.nextElementSibling;
+    const open = trigger.getAttribute("aria-expanded") === "true";
+    trigger.setAttribute("aria-expanded", String(!open));
+    panel.classList.toggle("hidden", open);
+    trigger.querySelector(".faq-icon").className =
+      "faq-icon bi text-muted-foreground " + (open ? "bi-plus" : "bi-dash");
+  });
+});
+
+// GitHub stats — live from the public API
+fetch("https://api.github.com/users/aydope")
+  .then((r) => {
+    if (!r.ok) throw new Error("bad response");
+    return r.json();
+  })
+  .then((data) => {
+    document.getElementById("gh-repos").textContent = data.public_repos ?? "—";
+    document.getElementById("gh-followers").textContent = data.followers ?? "—";
+    document.getElementById("gh-following").textContent = data.following ?? "—";
+    if (data.created_at) {
+      document.getElementById("gh-since").textContent = new Date(
+        data.created_at,
+      ).getFullYear();
+    }
+  })
+  .catch(() => {
+    document.getElementById("gh-error").classList.remove("hidden");
+  });
+
+// Terminal typewriter — single orchestrated hero animation
+const lines = [
+  { text: "$ whoami", pause: 350 },
+  {
+    text: "amin@aydope — junior mern developer",
+    pause: 500,
+    muted: false,
+  },
+  { text: "", pause: 150 },
+  { text: "$ cat stack.json", pause: 350 },
+  { text: "  frontend  react · typescript · tailwind", pause: 250 },
+  { text: "  backend   node · express · mongodb", pause: 250 },
+  { text: "  learning  nest.js · fastify", pause: 500 },
+  { text: "", pause: 150 },
+  { text: "$ status", pause: 350 },
+  { text: "open to new opportunities ●", pause: 0 },
+];
+
+const termEl = document.getElementById("terminal");
+const reduceMotion = window.matchMedia(
+  "(prefers-reduced-motion: reduce)",
+).matches;
+
+async function typeTerminal() {
+  if (reduceMotion) {
+    termEl.textContent = lines.map((l) => l.text).join("\n");
+    return;
+  }
+  let output = "";
+  for (const line of lines) {
+    for (const ch of line.text) {
+      output += ch;
+      termEl.textContent = output;
+      await new Promise((r) => setTimeout(r, 12));
+    }
+    output += "\n";
+    termEl.textContent = output;
+    await new Promise((r) => setTimeout(r, line.pause));
+  }
+  termEl.classList.add("terminal-caret");
+}
+typeTerminal();
+
+// PWA — register service worker + handle version updates
+let refreshing = false;
+
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("src/js/sw.js")
+      .then((registration) => {
+        // An update was already found and is waiting (e.g. user reopened the tab)
+        if (registration.waiting) {
+          showUpdateModal(registration.waiting);
+        }
+
+        // A new service worker is being installed right now
+        registration.addEventListener("updatefound", () => {
+          const newWorker = registration.installing;
+          if (!newWorker) return;
+          newWorker.addEventListener("statechange", () => {
+            // "installed" + an existing controller means this is an update,
+            // not the very first install
+            if (
+              newWorker.state === "installed" &&
+              navigator.serviceWorker.controller
+            ) {
+              showUpdateModal(newWorker);
+            }
+          });
+        });
+      })
+      .catch(() => {
+        /* offline support is a progressive enhancement — fail silently */
+      });
+
+    // Reload once the new service worker takes control
+    navigator.serviceWorker.addEventListener("controllerchange", () => {
+      if (refreshing) return;
+      refreshing = true;
+      window.location.reload();
+    });
+  });
+}
+
+const updateOverlay = document.getElementById("updateOverlay");
+const updateReloadBtn = document.getElementById("updateReloadBtn");
+const updateLaterBtn = document.getElementById("updateLaterBtn");
+let pendingWorker = null;
+
+function showUpdateModal(worker) {
+  pendingWorker = worker;
+  updateOverlay.classList.remove("hidden");
+  updateOverlay.classList.add("flex");
+}
+function hideUpdateModal() {
+  updateOverlay.classList.add("hidden");
+  updateOverlay.classList.remove("flex");
+}
+updateReloadBtn.addEventListener("click", () => {
+  if (pendingWorker) pendingWorker.postMessage("SKIP_WAITING");
+  hideUpdateModal();
+});
+updateLaterBtn.addEventListener("click", hideUpdateModal);
+
+// PWA — custom install prompt
+const installBanner = document.getElementById("installBanner");
+const installBtn = document.getElementById("installBtn");
+const installDismiss = document.getElementById("installDismiss");
+const installClose = document.getElementById("installClose");
+const INSTALL_SNOOZE_KEY = "aydope-install-snoozed-until";
+let deferredInstallPrompt = null;
+
+function installBannerSnoozed() {
+  const until = Number(localStorage.getItem(INSTALL_SNOOZE_KEY) || 0);
+  return Date.now() < until;
+}
+function snoozeInstallBanner(days) {
+  const until = Date.now() + days * 24 * 60 * 60 * 1000;
+  localStorage.setItem(INSTALL_SNOOZE_KEY, String(until));
+}
+function hideInstallBanner() {
+  installBanner.classList.add("hidden");
+}
+
+window.addEventListener("beforeinstallprompt", (event) => {
+  event.preventDefault();
+  deferredInstallPrompt = event;
+  if (!installBannerSnoozed()) {
+    installBanner.classList.remove("hidden");
+  }
+});
+
+installBtn.addEventListener("click", async () => {
+  hideInstallBanner();
+  if (!deferredInstallPrompt) return;
+  deferredInstallPrompt.prompt();
+  await deferredInstallPrompt.userChoice;
+  deferredInstallPrompt = null;
+});
+installDismiss.addEventListener("click", () => {
+  hideInstallBanner();
+  snoozeInstallBanner(7);
+});
+installClose.addEventListener("click", () => {
+  hideInstallBanner();
+  snoozeInstallBanner(7);
+});
+window.addEventListener("appinstalled", () => {
+  hideInstallBanner();
+  deferredInstallPrompt = null;
+});

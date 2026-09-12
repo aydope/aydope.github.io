@@ -1,0 +1,28 @@
+{
+  "name": "AydOpe Portfolio",
+  "short_name": "Aydope",
+  "description": "Mohammad Amin Sadeghi (Aydope) — MERN Stack Developer portfolio.",
+  "start_url": "/",
+  "scope": "/",
+  "id": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#09090b",
+  "theme_color": "#09090b",
+  "lang": "en",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "src/assets/logo/favicon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "src/assets/logo/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

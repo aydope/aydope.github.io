@@ -1,39 +1,36 @@
-# 👨‍💻 Aydope - Junior MERN Stack Developer
+# Aydope - MERN Stack Developer
 
 [![Website](https://img.shields.io/badge/Portfolio-aydope.github.io-0ea5e9?style=for-the-badge&logo=google-chrome&logoColor=white)](https://aydope.github.io/)
 [![GitHub](https://img.shields.io/badge/GitHub-aydope-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/aydope)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Amin_Sadeghi-0a66c2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/amin-sadeghi-a34b873b1)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Amin_Sadeghi-0a66c2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mohammad-amin-sadeghi)
 
 ---
 
-## 🚀 About Me
+## About Me
 
-I'm **Amin Sadeghi** (Aydope), a Junior Web Developer from Iran passionate about building modern web applications with the **MERN Stack** (MongoDB, Express.js, React, Node.js).
+I’m a Full-Stack Web Developer focused on building modern web applications with JavaScript, TypeScript, Node.js, React, and MongoDB.
 
-- 🔭 Currently building personal projects and improving my skills
-- 🌱 Learning Back-End development with **Express.js**, **Nest.js**, and **Fastify**
-- 💡 Interested in **REST APIs**, **WebSockets**, and **PWA**
-- 📫 Reach me at: **amin0xa1b@gmail.com**
+My main focus is backend development, especially building REST APIs, authentication systems, database-driven applications, and real-time features. I also work with React and enjoy building complete products from the backend to the frontend.
 
----
+I’ve built several projects to develop my practical experience, including REST APIs, authentication systems, management platforms, and web applications. I care about clean code, good architecture, problem-solving, and building things that are actually useful.
 
-## 🛠️ Tech Stack
-
-| Frontend | Backend | Tools & Others |
-|----------|---------|----------------|
-| HTML5 · CSS3 | Node.js · Express.js | Git · GitHub · GitLab |
-| JavaScript · TypeScript | Nest.js · Fastify | REST APIs · WebSocket |
-| React · Tailwind CSS | MongoDB · Sequelize | Socket.io · PWA · Service Workers |
+I’m currently looking for an opportunity where I can contribute to real-world projects, work with a development team, and continue growing as a developer.
 
 ---
 
-## 📁 Projects
+## Featured Projects
 
-- **Snakid** — Advanced todo app with storage management feature
+- peek — Node.js static file server
+
+- mokat — A professional logging and timeout utility for Node.js. Built with TypeScript, and - full type support.
+
+- farmaan — Persian task mastery, beautifully simple
+
+- snakid — Snakid, a modern classic Snake game
 
 ---
 
-## 🌐 Iranian Platforms
+## Iranian Platforms
 
 Due to internet restrictions in Iran, you can also find me on:
 
@@ -42,7 +39,7 @@ Due to internet restrictions in Iran, you can also find me on:
 
 ---
 
-## 📄 License
+## License
 
 This project is open source and available under the [MIT License](LICENSE).
 
