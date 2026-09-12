@@ -21,11 +21,8 @@ I’m currently looking for an opportunity where I can contribute to real-world 
 ## Featured Projects
 
 - peek — Node.js static file server
-
 - mokat — A professional logging and timeout utility for Node.js. Built with TypeScript, and - full type support.
-
 - farmaan — Persian task mastery, beautifully simple
-
 - snakid — Snakid, a modern classic Snake game
 
 ---
