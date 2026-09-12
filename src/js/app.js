@@ -171,7 +171,7 @@ fetch("https://api.github.com/users/aydope")
 const lines = [
   { text: "$ whoami", pause: 350 },
   {
-    text: "amin@aydope — junior mern developer",
+    text: "amin@aydope — mern developer",
     pause: 500,
     muted: false,
   },
