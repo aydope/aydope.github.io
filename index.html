@@ -2,17 +2,14 @@
 <html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta
       name="description"
-      content="Amin Sadeghi (Aydope) — Junior MERN Stack Developer. Building full-stack apps with MongoDB, Express, React and Node."
+      content="MERN Stack Developer building full-stack apps with clean architecture."
     />
     <meta
       name="keywords"
-      content="Aydope, Amin Sadeghi, MERN developer, React developer, Node.js developer, junior web developer, Iran"
+      content="Aydope, Amin Sadeghi, MERN developer, React developer, Node.js developer, web developer, Iran"
     />
     <meta name="author" content="Amin Sadeghi (Aydope)" />
     <meta name="robots" content="index, follow" />
@@ -23,7 +20,7 @@
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Aydope Portfolio" />
-    <meta property="og:title" content="Aydope · Junior MERN Developer" />
+    <meta property="og:title" content="Aydope · MERN Stack Developer" />
     <meta property="og:url" content="https://aydope.github.io" />
     <meta
       property="og:image"
@@ -31,23 +28,23 @@
     />
     <meta
       property="og:description"
-      content="Junior MERN Stack Developer building full-stack apps with clean architecture."
+      content="MERN Stack Developer building full-stack apps with clean architecture."
     />
     <meta property="og:locale" content="en_US" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Aydope · Junior MERN Developer" />
+    <meta name="twitter:title" content="Aydope · MERN Stack Developer" />
     <meta
       name="twitter:description"
-      content="Junior MERN Stack Developer building full-stack apps with clean architecture."
+      content="MERN Stack Developer building full-stack apps with clean architecture."
     />
     <meta
       name="twitter:image"
       content="https://aydope.github.io/src/assets/logo/favicon-96x96.png"
     />
 
-    <title>Aydope · Junior MERN Developer</title>
+    <title>Aydope · MERN Stack Developer</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -59,37 +56,18 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
-    <link
-      rel="stylesheet"
-      href="src/styles/style.css"
-    />
+    <link rel="stylesheet" href="src/styles/style.css" />
 
-    <link
-      rel="shortcut icon"
-      href="src/assets/logo/favicon.ico"
-      type="image/x-icon"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      href="src/assets/logo/favicon-96x96.png"
-      sizes="96x96"
-    />
+    <link rel="shortcut icon" href="src/assets/logo/favicon.ico" type="image/x-icon" />
+    <link rel="icon" type="image/png" href="src/assets/logo/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="src/assets/logo/favicon.svg" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="src/assets/logo/apple-touch-icon.png"
-    />
+    <link rel="apple-touch-icon" sizes="180x180" href="src/assets/logo/apple-touch-icon.png" />
 
     <!-- PWA -->
     <link rel="manifest" href="manifest.json" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta
-      name="apple-mobile-web-app-status-bar-style"
-      content="black-translucent"
-    />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="apple-mobile-web-app-title" content="Aydope" />
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -115,12 +93,7 @@
             },
             fontFamily: {
               sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
-              mono: [
-                "'JetBrains Mono'",
-                "ui-monospace",
-                "SFMono-Regular",
-                "monospace",
-              ],
+              mono: ["'JetBrains Mono'", "ui-monospace", "SFMono-Regular", "monospace"],
             },
             borderRadius: {
               lg: "var(--radius)",
@@ -137,16 +110,9 @@
     <a href="#home" class="skip-link">Skip to content</a>
 
     <!-- HEADER -->
-    <header
-      class="sticky top-0 z-40 border-b border-border/80 bg-background/85 backdrop-blur"
-    >
-      <div
-        class="max-w-5xl mx-auto h-16 px-5 md:px-6 flex items-center justify-between"
-      >
-        <a
-          href="#home"
-          class="flex items-center gap-2 font-mono text-sm font-medium"
-        >
+    <header class="sticky top-0 z-40 border-b border-border/80 bg-background/85 backdrop-blur">
+      <div class="max-w-5xl mx-auto h-16 px-5 md:px-6 flex items-center justify-between">
+        <a href="#home" class="flex items-center gap-2 font-mono text-sm font-medium">
           <span class="text-muted-foreground">~/</span><span>aydope</span>
         </a>
 
@@ -161,16 +127,10 @@
         </nav>
 
         <div class="flex items-center gap-2">
-          <button
-            id="resumeBtnHeader"
-            class="btn btn-outline hidden sm:inline-flex"
-          >
+          <button id="resumeBtnHeader" class="btn btn-outline hidden sm:inline-flex">
             Resume <i class="bi bi-file-earmark-text"></i>
           </button>
-          <a
-            href="mailto:amin0xa1b@gmail.com"
-            class="btn btn-primary hidden sm:inline-flex"
-          >
+          <a href="mailto:amin0xa1b@gmail.com" class="btn btn-primary hidden sm:inline-flex">
             Get in touch
           </a>
           <button
@@ -197,64 +157,32 @@
       class="fixed top-0 right-0 z-50 h-full w-[82%] max-w-xs bg-card border-l border-border md:hidden flex flex-col translate-x-full transition-transform duration-300 ease-out"
       aria-hidden="true"
     >
-      <div
-        class="flex items-center justify-between h-16 px-5 border-b border-border shrink-0"
-      >
+      <div class="flex items-center justify-between h-16 px-5 border-b border-border shrink-0">
         <span class="flex items-center gap-2 font-mono text-sm font-medium">
           <span class="text-muted-foreground">~/</span><span>aydope</span>
         </span>
-        <button
-          id="sidebarClose"
-          class="btn-ghost !h-9 !w-9 !p-0"
-          aria-label="Close menu"
-        >
+        <button id="sidebarClose" class="btn-ghost !h-9 !w-9 !p-0" aria-label="Close menu">
           <i class="bi bi-x-lg text-lg"></i>
         </button>
       </div>
 
       <nav class="flex flex-col gap-1 px-3 py-4 overflow-y-auto">
-        <a href="#about" class="nav-link px-3 py-2.5 rounded-md hover:bg-muted"
-          >About</a
-        >
-        <a href="#skills" class="nav-link px-3 py-2.5 rounded-md hover:bg-muted"
-          >Skills</a
-        >
-        <a
-          href="#education"
-          class="nav-link px-3 py-2.5 rounded-md hover:bg-muted"
-          >Education</a
-        >
-        <a href="#work" class="nav-link px-3 py-2.5 rounded-md hover:bg-muted"
-          >Work</a
-        >
-        <a href="#github" class="nav-link px-3 py-2.5 rounded-md hover:bg-muted"
-          >GitHub</a
-        >
-        <a href="#now" class="nav-link px-3 py-2.5 rounded-md hover:bg-muted"
-          >Now</a
-        >
-        <a href="#faq" class="nav-link px-3 py-2.5 rounded-md hover:bg-muted"
-          >FAQ</a
-        >
-        <a
-          href="#contact"
-          class="nav-link px-3 py-2.5 rounded-md hover:bg-muted"
-          >Contact</a
-        >
+        <a href="#about" class="nav-link px-3 py-2.5 rounded-md hover:bg-muted">About</a>
+        <a href="#skills" class="nav-link px-3 py-2.5 rounded-md hover:bg-muted">Skills</a>
+        <a href="#education" class="nav-link px-3 py-2.5 rounded-md hover:bg-muted">Education</a>
+        <a href="#work" class="nav-link px-3 py-2.5 rounded-md hover:bg-muted">Work</a>
+        <a href="#github" class="nav-link px-3 py-2.5 rounded-md hover:bg-muted">GitHub</a>
+        <a href="#now" class="nav-link px-3 py-2.5 rounded-md hover:bg-muted">Now</a>
+        <a href="#faq" class="nav-link px-3 py-2.5 rounded-md hover:bg-muted">FAQ</a>
+        <a href="#contact" class="nav-link px-3 py-2.5 rounded-md hover:bg-muted">Contact</a>
       </nav>
 
-      <div
-        class="mt-auto px-4 py-4 border-t border-border flex flex-col gap-2 shrink-0"
-      >
+      <div class="mt-auto px-4 py-4 border-t border-border flex flex-col gap-2 shrink-0">
         <button id="resumeBtnMobile" class="btn btn-outline w-full">
           Resume <i class="bi bi-file-earmark-text"></i>
         </button>
-        <a href="mailto:amin0xa1b@gmail.com" class="btn btn-primary w-full"
-          >Get in touch</a
-        >
-        <div
-          class="flex items-center justify-center gap-4 pt-2 text-lg text-muted-foreground"
-        >
+        <a href="mailto:amin0xa1b@gmail.com" class="btn btn-primary w-full">Get in touch</a>
+        <div class="flex items-center justify-center gap-4 pt-2 text-lg text-muted-foreground">
           <a
             href="https://github.com/aydope"
             class="hover:text-foreground transition"
@@ -262,7 +190,7 @@
             ><i class="bi bi-github"></i
           ></a>
           <a
-            href="https://www.linkedin.com/in/amin-sadeghi-a34b873b1"
+            href="https://www.linkedin.com/in/mohammad-amin-sadeghi"
             class="hover:text-foreground transition"
             aria-label="LinkedIn"
             ><i class="bi bi-linkedin"></i
@@ -274,7 +202,7 @@
             ><i class="bi bi-instagram"></i
           ></a>
           <a
-            href="https://t.me/Aydope"
+            href="https://t.me/aydope"
             class="hover:text-foreground transition"
             aria-label="Telegram"
             ><i class="bi bi-telegram"></i
@@ -304,12 +232,8 @@
 
         <!-- Step 1: choose track -->
         <div id="resumeStep1">
-          <h3 id="resumeTitle" class="font-semibold text-lg mb-1.5">
-            Which resume?
-          </h3>
-          <p class="text-sm text-muted-foreground mb-5">
-            Pick the version that fits the role.
-          </p>
+          <h3 id="resumeTitle" class="font-semibold text-lg mb-1.5">Which resume?</h3>
+          <p class="text-sm text-muted-foreground mb-5">Pick the version that fits the role.</p>
           <div class="grid grid-cols-2 gap-3">
             <button
               class="resume-track card p-4 text-left hover:bg-muted transition"
@@ -339,16 +263,10 @@
           <h3 class="font-semibold text-lg mb-1.5">Choose a language</h3>
           <p class="text-sm text-muted-foreground mb-5" id="resumeStep2Sub"></p>
           <div class="grid grid-cols-2 gap-3">
-            <button
-              class="resume-lang card p-4 text-left hover:bg-muted transition"
-              data-lang="en"
-            >
+            <button class="resume-lang card p-4 text-left hover:bg-muted transition" data-lang="en">
               <span class="text-sm font-medium">English</span>
             </button>
-            <button
-              class="resume-lang card p-4 text-left hover:bg-muted transition"
-              data-lang="fa"
-            >
+            <button class="resume-lang card p-4 text-left hover:bg-muted transition" data-lang="fa">
               <span class="text-sm font-medium">فارسی</span>
             </button>
           </div>
@@ -375,22 +293,11 @@
             Add Aydope to your home screen for quick, offline-friendly access.
           </p>
           <div class="flex gap-2">
-            <button id="installBtn" class="btn btn-primary !h-8 !px-3 !text-xs">
-              Install
-            </button>
-            <button
-              id="installDismiss"
-              class="btn btn-ghost !h-8 !px-3 !text-xs"
-            >
-              Not now
-            </button>
+            <button id="installBtn" class="btn btn-primary !h-8 !px-3 !text-xs">Install</button>
+            <button id="installDismiss" class="btn btn-ghost !h-8 !px-3 !text-xs">Not now</button>
           </div>
         </div>
-        <button
-          id="installClose"
-          class="btn-ghost !h-7 !w-7 !p-0 shrink-0"
-          aria-label="Close"
-        >
+        <button id="installClose" class="btn-ghost !h-7 !w-7 !p-0 shrink-0" aria-label="Close">
           <i class="bi bi-x-lg text-sm"></i>
         </button>
       </div>
@@ -412,19 +319,13 @@
         >
           <i class="bi bi-arrow-repeat"></i>
         </span>
-        <h3 id="updateTitle" class="font-semibold text-lg mb-1.5">
-          A new version is available
-        </h3>
+        <h3 id="updateTitle" class="font-semibold text-lg mb-1.5">A new version is available</h3>
         <p class="text-sm text-muted-foreground mb-5">
           This site was updated. Reload to get the latest version.
         </p>
         <div class="flex gap-2">
-          <button id="updateReloadBtn" class="btn btn-primary flex-1">
-            Reload now
-          </button>
-          <button id="updateLaterBtn" class="btn btn-outline flex-1">
-            Later
-          </button>
+          <button id="updateReloadBtn" class="btn btn-primary flex-1">Reload now</button>
+          <button id="updateLaterBtn" class="btn btn-outline flex-1">Later</button>
         </div>
       </div>
     </div>
@@ -433,29 +334,22 @@
       <!-- HERO -->
       <section class="relative overflow-hidden">
         <div class="absolute inset-0 bg-grid pointer-events-none"></div>
-        <div
-          class="max-w-5xl mx-auto px-5 md:px-6 pt-16 pb-20 md:pt-24 md:pb-28 relative"
-        >
+        <div class="max-w-5xl mx-auto px-5 md:px-6 pt-16 pb-20 md:pt-24 md:pb-28 relative">
           <div class="grid lg:grid-cols-2 gap-12 items-center">
             <div class="fade-up">
               <span class="badge mb-6">
                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                Open to junior MERN roles
+                Open to MERN roles
               </span>
 
-              <h1
-                class="text-4xl md:text-5xl font-bold leading-[1.15] mb-5 max-w-md"
-              >
+              <h1 class="text-4xl md:text-5xl font-bold leading-[1.15] mb-5 max-w-md">
                 Amin Sadeghi, a full-stack developer working in the MERN stack.
               </h1>
 
-              <p
-                class="text-muted-foreground text-base leading-relaxed max-w-md mb-8"
-              >
-                I build web applications end to end — REST APIs and data models
-                on the back end, React interfaces on the front end. Based in
-                Iran, currently deepening my back-end skills with Nest.js and
-                Fastify.
+              <p class="text-muted-foreground text-base leading-relaxed max-w-md mb-8">
+                I build web applications end to end — REST APIs and data models on the back end,
+                React interfaces on the front end. Based in Iran, currently deepening my back-end
+                skills with Nest.js and Fastify.
               </p>
 
               <div class="flex flex-wrap items-center gap-3">
@@ -465,9 +359,7 @@
                 </button>
               </div>
 
-              <div
-                class="flex items-center gap-5 mt-9 text-lg text-muted-foreground"
-              >
+              <div class="flex items-center gap-5 mt-9 text-lg text-muted-foreground">
                 <a
                   href="https://github.com/aydope"
                   class="hover:text-foreground transition"
@@ -475,7 +367,7 @@
                   ><i class="bi bi-github"></i
                 ></a>
                 <a
-                  href="https://www.linkedin.com/in/amin-sadeghi-a34b873b1"
+                  href="https://www.linkedin.com/in/mohammad-amin-sadeghi"
                   class="hover:text-foreground transition"
                   aria-label="LinkedIn"
                   ><i class="bi bi-linkedin"></i
@@ -487,7 +379,7 @@
                   ><i class="bi bi-instagram"></i
                 ></a>
                 <a
-                  href="https://t.me/Aydope"
+                  href="https://t.me/aydope"
                   class="hover:text-foreground transition"
                   aria-label="Telegram"
                   ><i class="bi bi-telegram"></i
@@ -497,15 +389,11 @@
 
             <div class="fade-up" style="animation-delay: 0.1s">
               <div class="card p-0 overflow-hidden shadow-2xl shadow-black/40">
-                <div
-                  class="flex items-center gap-1.5 px-4 py-3 border-b border-border"
-                >
+                <div class="flex items-center gap-1.5 px-4 py-3 border-b border-border">
                   <span class="w-2.5 h-2.5 rounded-full bg-[#ff5f57]"></span>
                   <span class="w-2.5 h-2.5 rounded-full bg-[#febc2e]"></span>
                   <span class="w-2.5 h-2.5 rounded-full bg-[#28c840]"></span>
-                  <span class="ml-3 text-xs text-muted-foreground font-mono"
-                    >zsh</span
-                  >
+                  <span class="ml-3 text-xs text-muted-foreground font-mono">zsh</span>
                 </div>
                 <pre
                   id="terminal"
@@ -527,15 +415,19 @@
             <h2 class="text-2xl md:text-3xl font-bold mb-5">About</h2>
 
             <p class="text-muted-foreground leading-relaxed mb-4">
-              I'm Amin, a web developer from Iran who enjoys building things end
-              to end. As a junior developer working on both front end and back
-              end, I've spent more time on the back end and it's where I'm most
-              comfortable.
+              I’m a Full-Stack Web Developer focused on building modern web applications with
+              JavaScript, TypeScript, Node.js, React, and MongoDB.
             </p>
             <p class="text-muted-foreground leading-relaxed mb-8">
-              I don't have professional work experience yet, so my focus is
-              continuous, hands-on learning — every project I build teaches me
-              something I take into the next one.
+              My main focus is backend development, especially building REST APIs, authentication
+              systems, database-driven applications, and real-time features. I also work with React
+              and enjoy building complete products from the backend to the frontend.
+            </p>
+            <p class="text-muted-foreground leading-relaxed mb-8">
+              I’ve built several projects to develop my practical experience, including REST APIs,
+              authentication systems, management platforms, and web applications. I care about clean
+              code, good architecture, problem-solving, and building things that are actually
+              useful.
             </p>
 
             <div class="grid grid-cols-3 gap-3 mb-8">
@@ -545,9 +437,7 @@
               </div>
               <div class="card px-4 py-3.5">
                 <span class="text-xl font-bold block">3+</span>
-                <span class="text-muted-foreground text-xs"
-                  >projects built</span
-                >
+                <span class="text-muted-foreground text-xs">projects built</span>
               </div>
               <div class="card px-4 py-3.5">
                 <span class="text-xl font-bold block">24/7</span>
@@ -557,16 +447,13 @@
 
             <div class="flex flex-wrap gap-x-6 gap-y-3 text-sm">
               <span class="flex items-center gap-2 text-muted-foreground"
-                ><i class="bi bi-person text-foreground/70"></i>Amin
-                (Aydope)</span
+                ><i class="bi bi-person text-foreground/70"></i>Amin (Aydope)</span
               >
               <span class="flex items-center gap-2 text-muted-foreground"
-                ><i class="bi bi-pin-map text-foreground/70"></i>Remote /
-                Tehran, Iran</span
+                ><i class="bi bi-pin-map text-foreground/70"></i>Remote / Tehran, Iran</span
               >
               <span class="flex items-center gap-2 text-muted-foreground"
-                ><i class="bi bi-envelope text-foreground/70"></i
-                >amin0xa1b@gmail.com</span
+                ><i class="bi bi-envelope text-foreground/70"></i>amin0xa1b@gmail.com</span
               >
             </div>
           </div>
@@ -574,56 +461,40 @@
           <div class="lg:col-span-2">
             <ol class="relative border-l border-border ml-1">
               <li class="pl-6 pb-8">
-                <span
-                  class="absolute -left-[5px] mt-1.5 w-2.5 h-2.5 rounded-full bg-accent"
-                ></span>
-                <span class="font-mono text-xs text-muted-foreground"
-                  >2026</span
-                >
+                <span class="absolute -left-[5px] mt-1.5 w-2.5 h-2.5 rounded-full bg-accent"></span>
+                <span class="font-mono text-xs text-muted-foreground">2026</span>
                 <h4 class="font-semibold mt-1 mb-1.5">Building projects</h4>
                 <p class="text-sm text-muted-foreground leading-relaxed mb-2.5">
-                  Building full-stack apps with React, Node.js, Express and
-                  MongoDB — learning through hands-on, real-world projects.
+                  Building full-stack apps with React, Node.js, Express and MongoDB — learning
+                  through hands-on, real-world projects.
                 </p>
                 <div class="flex flex-wrap gap-1.5">
-                  <span class="badge !py-1">React</span
-                  ><span class="badge !py-1">Node.js</span
+                  <span class="badge !py-1">React</span><span class="badge !py-1">Node.js</span
                   ><span class="badge !py-1">MongoDB</span>
                 </div>
               </li>
               <li class="pl-6 pb-8">
-                <span
-                  class="absolute -left-[5px] mt-1.5 w-2.5 h-2.5 rounded-full bg-border"
-                ></span>
-                <span class="font-mono text-xs text-muted-foreground"
-                  >2026</span
-                >
+                <span class="absolute -left-[5px] mt-1.5 w-2.5 h-2.5 rounded-full bg-border"></span>
+                <span class="font-mono text-xs text-muted-foreground">2026</span>
                 <h4 class="font-semibold mt-1 mb-1.5">Back-end deep dive</h4>
                 <p class="text-sm text-muted-foreground leading-relaxed mb-2.5">
-                  Strengthened Express.js, explored Nest.js and Fastify, and
-                  built REST APIs with proper database design in MongoDB.
+                  Strengthened Express.js, explored Nest.js and Fastify, and built REST APIs with
+                  proper database design in MongoDB.
                 </p>
                 <div class="flex flex-wrap gap-1.5">
-                  <span class="badge !py-1">Express.js</span
-                  ><span class="badge !py-1">Nest.js</span
+                  <span class="badge !py-1">Express.js</span><span class="badge !py-1">Nest.js</span
                   ><span class="badge !py-1">REST APIs</span>
                 </div>
               </li>
               <li class="pl-6">
-                <span
-                  class="absolute -left-[5px] mt-1.5 w-2.5 h-2.5 rounded-full bg-border"
-                ></span>
-                <span class="font-mono text-xs text-muted-foreground"
-                  >2025</span
-                >
+                <span class="absolute -left-[5px] mt-1.5 w-2.5 h-2.5 rounded-full bg-border"></span>
+                <span class="font-mono text-xs text-muted-foreground">2025</span>
                 <h4 class="font-semibold mt-1 mb-1.5">Web dev beginnings</h4>
                 <p class="text-sm text-muted-foreground leading-relaxed mb-2.5">
-                  Started with HTML, CSS and JavaScript, and built my first
-                  static sites.
+                  Started with HTML, CSS and JavaScript, and built my first static sites.
                 </p>
                 <div class="flex flex-wrap gap-1.5">
-                  <span class="badge !py-1">HTML5</span
-                  ><span class="badge !py-1">CSS3</span
+                  <span class="badge !py-1">HTML5</span><span class="badge !py-1">CSS3</span
                   ><span class="badge !py-1">JavaScript</span>
                 </div>
               </li>
@@ -638,9 +509,7 @@
         class="max-w-5xl mx-auto px-5 md:px-6 py-16 md:py-20 border-t border-border"
       >
         <h2 class="text-2xl md:text-3xl font-bold mb-2">Skills</h2>
-        <p class="text-muted-foreground text-sm mb-10">
-          Technologies I work with regularly.
-        </p>
+        <p class="text-muted-foreground text-sm mb-10">Technologies I work with regularly.</p>
 
         <div class="grid md:grid-cols-3 gap-4">
           <div class="card p-5">
@@ -649,10 +518,8 @@
             </h3>
             <div class="flex flex-wrap gap-2">
               <span class="badge">HTML5</span><span class="badge">CSS3</span
-              ><span class="badge">JavaScript</span>
-              <span class="badge">TypeScript</span
-              ><span class="badge">React</span
-              ><span class="badge">Tailwind CSS</span>
+              ><span class="badge">JavaScript</span> <span class="badge">TypeScript</span
+              ><span class="badge">React</span><span class="badge">Tailwind CSS</span>
             </div>
           </div>
           <div class="card p-5">
@@ -660,12 +527,9 @@
               <i class="bi bi-hdd-network text-muted-foreground"></i>Backend
             </h3>
             <div class="flex flex-wrap gap-2">
-              <span class="badge">Node.js</span
-              ><span class="badge">Express.js</span
-              ><span class="badge">Nest.js</span>
-              <span class="badge">Fastify</span
-              ><span class="badge">MongoDB</span
-              ><span class="badge">Sequelize</span>
+              <span class="badge">Node.js</span><span class="badge">Express.js</span
+              ><span class="badge">Nest.js</span> <span class="badge">Fastify</span
+              ><span class="badge">MongoDB</span><span class="badge">Sequelize</span>
             </div>
           </div>
           <div class="card p-5">
@@ -674,10 +538,8 @@
             </h3>
             <div class="flex flex-wrap gap-2">
               <span class="badge">Git</span><span class="badge">GitHub</span
-              ><span class="badge">GitLab</span>
-              <span class="badge">REST APIs</span
-              ><span class="badge">WebSocket</span
-              ><span class="badge">Socket.io</span
+              ><span class="badge">GitLab</span> <span class="badge">REST APIs</span
+              ><span class="badge">WebSocket</span><span class="badge">Socket.io</span
               ><span class="badge">PWA</span>
             </div>
           </div>
@@ -689,9 +551,7 @@
         id="education"
         class="max-w-5xl mx-auto px-5 md:px-6 py-16 md:py-20 border-t border-border"
       >
-        <h2 class="text-2xl md:text-3xl font-bold mb-2">
-          Education &amp; certificates
-        </h2>
+        <h2 class="text-2xl md:text-3xl font-bold mb-2">Education &amp; certificates</h2>
         <p class="text-muted-foreground text-sm mb-10">
           Self-taught, with structured courses along the way.
         </p>
@@ -704,15 +564,11 @@
               <i class="bi bi-mortarboard"></i>
             </span>
             <div>
-              <h3 class="font-medium text-sm mb-1">
-                Self-directed MERN stack study
-              </h3>
-              <p class="text-xs text-muted-foreground leading-relaxed mb-1">
-                2025 — present
-              </p>
+              <h3 class="font-medium text-sm mb-1">Self-directed MERN stack study</h3>
+              <p class="text-xs text-muted-foreground leading-relaxed mb-1">2025 — present</p>
               <p class="text-sm text-muted-foreground leading-relaxed">
-                Learning full-stack development through documentation, courses
-                and building real projects.
+                Learning full-stack development through documentation, courses and building real
+                projects.
               </p>
             </div>
           </div>
@@ -724,12 +580,9 @@
             </span>
             <div>
               <h3 class="font-medium text-sm mb-1">Certificates</h3>
-              <p class="text-xs text-muted-foreground leading-relaxed mb-1">
-                Add yours here
-              </p>
+              <p class="text-xs text-muted-foreground leading-relaxed mb-1">No certificate yet</p>
               <p class="text-sm text-muted-foreground leading-relaxed">
-                Placeholder card — replace with any course or certificate you've
-                completed.
+                I'm currently learning and building things.
               </p>
             </div>
           </div>
@@ -756,22 +609,17 @@
               </span>
               <span class="badge">Personal project</span>
             </div>
-            <h3 class="font-semibold text-lg mb-2">Snakid</h3>
+            <h3 class="font-semibold text-lg mb-2">Peek</h3>
             <p class="text-sm text-muted-foreground leading-relaxed mb-5">
-              An advanced todo app with a storage-management feature, built to
-              practice state handling and persistence patterns.
+              A powerful static file explorer server. Built with Node.js, this tool allows you to
+              serve static files and manage them through a beautiful web-based file explorer.
             </p>
-            <a
-              href="https://github.com/aydope"
-              class="btn btn-outline mt-auto self-start"
-            >
+            <a href="https://github.com/aydope/peek" class="btn btn-outline mt-auto self-start">
               View on GitHub <i class="bi bi-arrow-up-right"></i>
             </a>
           </div>
 
-          <div
-            class="card p-6 flex flex-col items-start justify-center border-dashed"
-          >
+          <div class="card p-6 flex flex-col items-start justify-center border-dashed">
             <span
               class="w-10 h-10 rounded-md bg-muted flex items-center justify-center text-muted-foreground mb-4"
             >
@@ -779,8 +627,8 @@
             </span>
             <h3 class="font-semibold text-lg mb-2">More on GitHub</h3>
             <p class="text-sm text-muted-foreground leading-relaxed mb-5">
-              I'm actively building new projects. Check my profile for what I'm
-              currently working on.
+              I'm actively building new projects. Check my profile for what I'm currently working
+              on.
             </p>
             <a href="https://github.com/aydope" class="btn btn-outline mt-auto">
               github.com/aydope <i class="bi bi-arrow-up-right"></i>
@@ -795,9 +643,7 @@
         class="max-w-5xl mx-auto px-5 md:px-6 py-16 md:py-20 border-t border-border"
       >
         <h2 class="text-2xl md:text-3xl font-bold mb-2">GitHub activity</h2>
-        <p class="text-muted-foreground text-sm mb-10">
-          Pulled live from the GitHub API.
-        </p>
+        <p class="text-muted-foreground text-sm mb-10">Pulled live from the GitHub API.</p>
 
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-4" id="githubStats">
           <div class="card p-5 text-center">
@@ -828,34 +674,26 @@
         class="max-w-5xl mx-auto px-5 md:px-6 py-16 md:py-20 border-t border-border"
       >
         <h2 class="text-2xl md:text-3xl font-bold mb-2">Now</h2>
-        <p class="text-muted-foreground text-sm mb-10">
-          What I'm focused on at the moment.
-        </p>
+        <p class="text-muted-foreground text-sm mb-10">What I'm focused on at the moment.</p>
 
         <div class="grid sm:grid-cols-3 gap-4">
           <div class="card p-5">
             <i class="bi bi-diagram-3 text-accent text-lg mb-3 block"></i>
-            <h3 class="font-medium text-sm mb-1.5">
-              Learning Nest.js &amp; Fastify
-            </h3>
+            <h3 class="font-medium text-sm mb-1.5">Learning Nest.js &amp; Fastify</h3>
             <p class="text-xs text-muted-foreground leading-relaxed">
               Going deeper into structured, production-style back ends.
             </p>
           </div>
           <div class="card p-5">
             <i class="bi bi-plug text-accent text-lg mb-3 block"></i>
-            <h3 class="font-medium text-sm mb-1.5">
-              REST APIs &amp; WebSockets
-            </h3>
+            <h3 class="font-medium text-sm mb-1.5">REST APIs &amp; WebSockets</h3>
             <p class="text-xs text-muted-foreground leading-relaxed">
               Practicing real-time features with Socket.io.
             </p>
           </div>
           <div class="card p-5">
             <i class="bi bi-briefcase text-accent text-lg mb-3 block"></i>
-            <h3 class="font-medium text-sm mb-1.5">
-              Looking for a junior role
-            </h3>
+            <h3 class="font-medium text-sm mb-1.5">Looking for MERN roles</h3>
             <p class="text-xs text-muted-foreground leading-relaxed">
               Open to MERN roles, freelance work and collaborations.
             </p>
@@ -869,29 +707,20 @@
         class="max-w-5xl mx-auto px-5 md:px-6 py-16 md:py-20 border-t border-border"
       >
         <h2 class="text-2xl md:text-3xl font-bold mb-2">FAQ</h2>
-        <p class="text-muted-foreground text-sm mb-10">
-          Common questions I get asked.
-        </p>
+        <p class="text-muted-foreground text-sm mb-10">Common questions I get asked.</p>
 
-        <div
-          class="max-w-2xl divide-y divide-border border-y border-border"
-          id="faqList"
-        >
+        <div class="max-w-2xl divide-y divide-border border-y border-border" id="faqList">
           <div class="faq-item py-1">
             <button
               class="faq-trigger w-full flex items-center justify-between text-left py-4 gap-4"
               aria-expanded="false"
             >
-              <span class="font-medium text-sm"
-                >Are you available for junior roles right now?</span
-              >
+              <span class="font-medium text-sm">Are you available for MERN roles right now?</span>
               <i class="bi bi-plus faq-icon text-muted-foreground"></i>
             </button>
-            <div
-              class="faq-panel hidden pb-4 text-sm text-muted-foreground leading-relaxed"
-            >
-              Yes — I'm open to junior MERN positions, freelance projects and
-              collaborations, remote or in Tehran.
+            <div class="faq-panel hidden pb-4 text-sm text-muted-foreground leading-relaxed">
+              Yes — I'm open to MERN positions, freelance projects and collaborations, remote or in
+              Tehran.
             </div>
           </div>
           <div class="faq-item py-1">
@@ -899,17 +728,12 @@
               class="faq-trigger w-full flex items-center justify-between text-left py-4 gap-4"
               aria-expanded="false"
             >
-              <span class="font-medium text-sm"
-                >Do you work more on frontend or backend?</span
-              >
+              <span class="font-medium text-sm">Do you work more on frontend or backend?</span>
               <i class="bi bi-plus faq-icon text-muted-foreground"></i>
             </button>
-            <div
-              class="faq-panel hidden pb-4 text-sm text-muted-foreground leading-relaxed"
-            >
-              Both, but I have more experience on the backend with Node.js,
-              Express and MongoDB. I use React and Tailwind CSS for the
-              frontend.
+            <div class="faq-panel hidden pb-4 text-sm text-muted-foreground leading-relaxed">
+              Both, but I have more experience on the backend with Node.js, Express and MongoDB. I
+              use React and Tailwind CSS for the frontend.
             </div>
           </div>
           <div class="faq-item py-1">
@@ -917,17 +741,12 @@
               class="faq-trigger w-full flex items-center justify-between text-left py-4 gap-4"
               aria-expanded="false"
             >
-              <span class="font-medium text-sm"
-                >Do you have a resume I can download?</span
-              >
+              <span class="font-medium text-sm">Do you have a resume I can download?</span>
               <i class="bi bi-plus faq-icon text-muted-foreground"></i>
             </button>
-            <div
-              class="faq-panel hidden pb-4 text-sm text-muted-foreground leading-relaxed"
-            >
-              Yes — use the "Resume" button in the header or hero. You can
-              choose a backend- or frontend-focused version, in English or
-              Persian.
+            <div class="faq-panel hidden pb-4 text-sm text-muted-foreground leading-relaxed">
+              Yes — use the "Resume" button in the header or hero. You can choose a backend- or
+              frontend-focused version, in English or Persian.
             </div>
           </div>
           <div class="faq-item py-1">
@@ -935,16 +754,11 @@
               class="faq-trigger w-full flex items-center justify-between text-left py-4 gap-4"
               aria-expanded="false"
             >
-              <span class="font-medium text-sm"
-                >What's the best way to reach you?</span
-              >
+              <span class="font-medium text-sm">What's the best way to reach you?</span>
               <i class="bi bi-plus faq-icon text-muted-foreground"></i>
             </button>
-            <div
-              class="faq-panel hidden pb-4 text-sm text-muted-foreground leading-relaxed"
-            >
-              Email is fastest, or send a message on LinkedIn — both are checked
-              daily.
+            <div class="faq-panel hidden pb-4 text-sm text-muted-foreground leading-relaxed">
+              Email is fastest, or send a message on LinkedIn — both are checked daily.
             </div>
           </div>
         </div>
@@ -960,34 +774,23 @@
             <div class="md:col-span-2">
               <h2 class="text-2xl md:text-3xl font-bold mb-3">Get in touch</h2>
               <p class="text-muted-foreground text-sm leading-relaxed mb-7">
-                Have a project in mind, or a role that fits? I'd like to hear
-                about it.
+                Have a project in mind, or a role that fits? I'd like to hear about it.
               </p>
 
               <div class="space-y-4 mb-7 text-sm">
-                <a
-                  href="mailto:amin0xa1b@gmail.com"
-                  class="flex items-center gap-3 group"
-                >
+                <a href="mailto:amin0xa1b@gmail.com" class="flex items-center gap-3 group">
                   <span
                     class="w-9 h-9 rounded-md bg-muted flex items-center justify-center text-muted-foreground group-hover:text-accent transition"
                     ><i class="bi bi-envelope"></i
                   ></span>
-                  <span class="group-hover:text-accent transition"
-                    >amin0xa1b@gmail.com</span
-                  >
+                  <span class="group-hover:text-accent transition">amin0xa1b@gmail.com</span>
                 </a>
-                <a
-                  href="tel:+989915867462"
-                  class="flex items-center gap-3 group"
-                >
+                <a href="tel:+989915867462" class="flex items-center gap-3 group">
                   <span
                     class="w-9 h-9 rounded-md bg-muted flex items-center justify-center text-muted-foreground group-hover:text-accent transition"
                     ><i class="bi bi-telephone"></i
                   ></span>
-                  <span class="group-hover:text-accent transition"
-                    >+98 991 586 7462</span
-                  >
+                  <span class="group-hover:text-accent transition">+98 991 586 7462</span>
                 </a>
                 <div class="flex items-center gap-3">
                   <span
@@ -1006,7 +809,7 @@
                   ><i class="bi bi-github"></i
                 ></a>
                 <a
-                  href="https://www.linkedin.com/in/amin-sadeghi-a34b873b1"
+                  href="https://www.linkedin.com/in/mohammad-amin-sadeghi"
                   class="btn btn-outline !h-10 !w-10 !p-0"
                   aria-label="LinkedIn"
                   ><i class="bi bi-linkedin"></i
@@ -1018,7 +821,7 @@
                   ><i class="bi bi-instagram"></i
                 ></a>
                 <a
-                  href="https://t.me/Aydope"
+                  href="https://t.me/aydope"
                   class="btn btn-outline !h-10 !w-10 !p-0"
                   aria-label="Telegram"
                   ><i class="bi bi-telegram"></i
@@ -1029,23 +832,13 @@
             <form class="md:col-span-3 grid gap-4" id="contactForm">
               <div class="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <label
-                    class="text-xs text-muted-foreground mb-1.5 block"
-                    for="cf-name"
+                  <label class="text-xs text-muted-foreground mb-1.5 block" for="cf-name"
                     >Name</label
                   >
-                  <input
-                    id="cf-name"
-                    class="input"
-                    type="text"
-                    placeholder="Your name"
-                    required
-                  />
+                  <input id="cf-name" class="input" type="text" placeholder="Your name" required />
                 </div>
                 <div>
-                  <label
-                    class="text-xs text-muted-foreground mb-1.5 block"
-                    for="cf-email"
+                  <label class="text-xs text-muted-foreground mb-1.5 block" for="cf-email"
                     >Email</label
                   >
                   <input
@@ -1058,9 +851,7 @@
                 </div>
               </div>
               <div>
-                <label
-                  class="text-xs text-muted-foreground mb-1.5 block"
-                  for="cf-msg"
+                <label class="text-xs text-muted-foreground mb-1.5 block" for="cf-msg"
                   >Message</label
                 >
                 <textarea
@@ -1071,16 +862,10 @@
                   required
                 ></textarea>
               </div>
-              <button
-                type="submit"
-                class="btn btn-primary w-full sm:w-auto justify-self-start"
-              >
+              <button type="submit" class="btn btn-primary w-full sm:w-auto justify-self-start">
                 Send message <i class="bi bi-send"></i>
               </button>
-              <p class="text-xs text-muted-foreground -mt-1">
-                This opens your email client — replace with a form backend when
-                ready.
-              </p>
+              <p class="text-xs text-muted-foreground -mt-1">This opens your email client.</p>
             </form>
           </div>
         </div>
@@ -1091,9 +876,7 @@
       <div
         class="max-w-5xl mx-auto px-5 md:px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground"
       >
-        <span
-          >© <span id="year"></span> Amin Sadeghi. All rights reserved.</span
-        >
+        <span>© <span id="year"></span> Amin Sadeghi. All rights reserved.</span>
         <span class="font-mono">built with tailwind, no framework</span>
       </div>
     </footer>
