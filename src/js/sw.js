@@ -6,7 +6,7 @@
 // whenever sw.js itself changes byte-for-byte, and the version-update modal
 // in index.html only appears for that new worker.
 
-const CACHE_NAME = "aydope-cache-v1";
+const CACHE_NAME = "aydope-cache-v2";
 const APP_SHELL = [
   "/",
   "/index.html",
