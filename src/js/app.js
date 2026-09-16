@@ -27,53 +27,44 @@ async function notifyTelegram(text) {
 function showToast(message, type = "success") {
   document.getElementById("app-toast")?.remove();
 
-  const isSuccess = type === "success";
-  const isError = type === "error";
-
-  const borderColor = isSuccess
-    ? "border-l-emerald-400"
-    : isError
-      ? "border-l-red-400"
-      : "border-l-amber-400";
-
-  const iconColor = isSuccess ? "text-emerald-400" : isError ? "text-red-400" : "text-amber-400";
-
-  const icon = isSuccess
-    ? "bi-check-circle-fill"
-    : isError
-      ? "bi-x-circle-fill"
-      : "bi-info-circle-fill";
+  const styles = {
+    success: { icon: "bi-check-circle-fill", iconColor: "text-accent", stripe: "bg-accent" },
+    error: { icon: "bi-x-circle-fill", iconColor: "text-red-400", stripe: "bg-red-500/80" },
+    info: { icon: "bi-info-circle-fill", iconColor: "text-amber-400", stripe: "bg-amber-500/80" },
+  };
+  const s = styles[type] || styles.info;
 
   const toast = document.createElement("div");
   toast.id = "app-toast";
   toast.setAttribute("role", "status");
   toast.setAttribute("aria-live", "polite");
-  toast.className = `fixed bottom-6 left-1/2 -translate-x-1/2 z-[100]
-    w-[92%] max-w-sm
-    bg-card border border-border ${borderColor} border-l-4
-    rounded-lg shadow-2xl shadow-black/40
-    px-4 py-3.5
-    flex items-start gap-3
-    opacity-0 translate-y-4 transition-all duration-300 ease-out`;
+  toast.className = `fixed inset-x-4 bottom-4 z-[100]
+    ltr:sm:left-auto ltr:sm:right-4 rtl:sm:right-auto rtl:sm:left-4 sm:w-80
+    opacity-0 translate-y-3 transition-all duration-300 ease-out`;
 
   toast.innerHTML = `
-    <i class="bi ${icon} ${iconColor} text-lg shrink-0 mt-0.5"></i>
-    <div class="flex-1 min-w-0">
-      <p class="text-sm text-foreground leading-relaxed break-words">${message}</p>
+    <div class="card relative overflow-hidden p-4 flex items-start gap-3 shadow-2xl shadow-black/40">
+      <span class="absolute inset-y-0 ltr:left-0 rtl:right-0 w-1 ${s.stripe}"></span>
+      <span class="w-9 h-9 rounded-md bg-muted flex items-center justify-center shrink-0 ${s.iconColor}">
+        <i class="bi ${s.icon}"></i>
+      </span>
+      <div class="flex-1 min-w-0 pt-0.5">
+        <p class="text-sm text-foreground leading-relaxed break-words">${message}</p>
+      </div>
+      <button class="btn-ghost !h-7 !w-7 !p-0 shrink-0" aria-label="Close">
+        <i class="bi bi-x-lg text-xs"></i>
+      </button>
     </div>
-    <button class="btn-ghost !h-6 !w-6 !p-0 shrink-0 -mt-0.5" aria-label="Close">
-      <i class="bi bi-x-lg text-xs"></i>
-    </button>
   `;
   document.body.appendChild(toast);
 
   const dismiss = () => {
-    toast.classList.add("opacity-0", "translate-y-4");
+    toast.classList.add("opacity-0", "translate-y-3");
     setTimeout(() => toast.remove(), 300);
   };
 
   toast.querySelector("button").addEventListener("click", dismiss);
-  requestAnimationFrame(() => toast.classList.remove("opacity-0", "translate-y-4"));
+  requestAnimationFrame(() => toast.classList.remove("opacity-0", "translate-y-3"));
 
   setTimeout(() => {
     if (document.getElementById("app-toast")) dismiss();
@@ -180,9 +171,12 @@ const translations = {
     "hero.requestConsult": "Request consultation",
     "about.h2": "About",
     "about.p1":
-      "I'm Amin, a web developer from Iran who enjoys building things end to end. I work across both front end and back end, and I've spent more time on the back end — it's where I'm most comfortable.",
+      "My main focus is backend development, especially building REST APIs, authentication systems, database-driven applications, and real-time features. I also work with React and enjoy building complete products from the backend to the frontend.",
     "about.p2":
-      "I don't have professional work experience yet, so my focus is continuous, hands-on learning — every project I build teaches me something I take into the next one.",
+      "I've built several projects to develop my practical experience, including REST APIs, authentication systems, management platforms, and web applications. I care about clean code, good architecture, problem-solving, and building things that are actually useful.",
+    "about.p3":
+      "I'm currently looking for an opportunity where I can contribute to real-world projects, work with a development team, and continue growing as a developer.",
+
     "about.stat1": "year learning",
     "about.stat2": "projects built",
     "about.stat3": "learning mode",
@@ -228,14 +222,14 @@ const translations = {
     "education.item1.desc":
       "Learning full-stack development through documentation, courses and building real projects.",
     "education.item2.title": "Certificates",
-    "education.item2.date": "Add yours here",
+    "education.item2.date": "  No certificates yet",
     "education.item2.desc":
-      "Placeholder card — replace with any course or certificate you've completed.",
+      "Nothing to show here for now — I'll add certificates here as I complete them.",
     "work.h2": "Work",
     "work.p": "A project I've been building — more in progress.",
     "work.personalProject": "Personal project",
-    "work.snakidDesc":
-      "An advanced todo app with a storage-management feature, built to practice state handling and persistence patterns.",
+    "work.peekDesc":
+      "A powerful static file explorer server. Built with Node.js, this tool allows you to serve static files and manage them through a beautiful web-based file explorer.",
     "work.viewOnGithub": "View on GitHub",
     "work.moreTitle": "More on GitHub",
     "work.moreDesc":
@@ -277,7 +271,7 @@ const translations = {
     "contact.form.message": "Message",
     "contact.form.messagePlaceholder": "What are you building?",
     "contact.form.send": "Send message",
-    "contact.form.note": "This opens your email client — replace with a form backend when ready.",
+    "contact.form.note": "This opens your email client.",
     "footer.rights": "Amin Sadeghi. All rights reserved.",
     "footer.builtWith": "built with tailwind, no framework",
   },
@@ -336,9 +330,11 @@ const translations = {
     "hero.requestConsult": "درخواست مشاوره",
     "about.h2": "درباره‌ی من",
     "about.p1":
-      "من امین هستم، یه توسعه‌دهنده‌ی وب از ایران که از ساختن چیزها از صفر تا صد لذت می‌برم. هم روی فرانت‌اند کار می‌کنم هم بک‌اند، ولی بیشتر وقتم رو صرف بک‌اند کردم — جایی که راحت‌ترم.",
+      "تمرکز اصلیم روی توسعه‌ی بک‌اند هست، مخصوصاً ساخت REST API، سیستم‌های احراز هویت، اپلیکیشن‌های مبتنی بر دیتابیس و قابلیت‌های بلادرنگ. با ری‌اکت هم کار می‌کنم و از ساختن محصول کامل از بک‌اند تا فرانت‌اند لذت می‌برم.",
     "about.p2":
-      "هنوز تجربه‌ی کاری حرفه‌ای ندارم، برای همین تمرکزم روی یادگیری مداوم و عملیه — هر پروژه‌ای که می‌سازم یه چیزی یادم می‌ده که توی پروژه‌ی بعدی به کار می‌برم.",
+      "چندتا پروژه ساختم تا تجربه‌ی عملیم رو بالا ببرم، از جمله REST API، سیستم‌های احراز هویت، پلتفرم‌های مدیریتی و اپلیکیشن‌های وب. برام کد تمیز، معماری خوب، حل مسئله، و ساختن چیزهایی که واقعاً به‌کار میان مهمه.",
+    "about.p3":
+      "الان دنبال یه فرصتم که بتونم توی پروژه‌های واقعی مشارکت کنم، با یه تیم توسعه کار کنم، و به‌عنوان یه دولوپر همچنان رشد کنم.",
     "about.stat1": "سال یادگیری",
     "about.stat2": "پروژه‌ی ساخته‌شده",
     "about.stat3": "حالت یادگیری",
@@ -383,13 +379,14 @@ const translations = {
     "education.item1.desc":
       "یادگیری توسعه‌ی فول‌استک از طریق مستندات، دوره‌ها و ساخت پروژه‌های واقعی.",
     "education.item2.title": "گواهینامه‌ها",
-    "education.item2.date": "مال خودت رو اینجا اضافه کن",
-    "education.item2.desc": "کارت نمونه — با هر دوره یا گواهینامه‌ای که گذروندی جایگزینش کن.",
+    "education.item2.date": "هنوز گواهینامه‌ای نیست",
+    "education.item2.desc":
+      "فعلاً چیزی برای نشون دادن نیست — به‌محض گذروندن، گواهینامه‌ها رو اینجا اضافه می‌کنم.",
     "work.h2": "نمونه‌کارها",
     "work.p": "پروژه‌ای که در حال ساختشم — بیشترش در حال انجامه.",
     "work.personalProject": "پروژه‌ی شخصی",
-    "work.snakidDesc":
-      "یه اپلیکیشن پیشرفته‌ی لیست کارها با قابلیت مدیریت ذخیره‌سازی، برای تمرین مدیریت state و الگوهای پایداری داده.",
+    "work.peekDesc":
+      "یه سرور قدرتمند برای مرور فایل‌های استاتیکه. با Node.js ساخته شده و بهت اجازه می‌ده فایل‌ها رو سرو کنی و از طریق یه فایل‌اکسپلورر تحت وب مدیریتشون کنی.",
     "work.viewOnGithub": "مشاهده در گیت‌هاب",
     "work.moreTitle": "بیشتر توی گیت‌هاب",
     "work.moreDesc":
@@ -431,8 +428,7 @@ const translations = {
     "contact.form.message": "پیام",
     "contact.form.messagePlaceholder": "چی داری می‌سازی؟",
     "contact.form.send": "ارسال پیام",
-    "contact.form.note":
-      "این کار ایمیلت رو باز می‌کنه — وقتی آماده بودی، با یه بک‌اند واقعی برای فرم جایگزینش کن.",
+    "contact.form.note": "این کار ایمیلت رو باز می‌کنه.",
     "footer.rights": "امین صادقی. تمامی حقوق محفوظ است.",
     "footer.builtWith": "ساخته‌شده با Tailwind، بدون فریم‌ورک",
   },
