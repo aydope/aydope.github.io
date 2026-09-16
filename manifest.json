@@ -1,7 +1,7 @@
 {
   "name": "AydOpe Portfolio",
   "short_name": "Aydope",
-  "description": "Mohammad Amin Sadeghi (Aydope) — MERN Stack Developer portfolio.",
+  "description": "Amin Sadeghi (Aydope) — Full-Stack Developer portfolio.",
   "start_url": "/",
   "scope": "/",
   "id": "/",
@@ -13,16 +13,34 @@
   "dir": "ltr",
   "icons": [
     {
-      "src": "src/assets/logo/favicon-96x96.png",
+      "src": "/src/assets/logo/favicon-96x96.png",
       "sizes": "96x96",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "src/assets/logo/apple-touch-icon.png",
+      "src": "/src/assets/logo/apple-touch-icon.png",
       "sizes": "180x180",
       "type": "image/png",
       "purpose": "any"
+    },
+    {
+      "src": "/src/assets/logo/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/src/assets/logo/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/src/assets/logo/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }
