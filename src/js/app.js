@@ -1,7 +1,5 @@
-// Year
 document.getElementById("year").textContent = new Date().getFullYear();
 
-// Mobile sidebar
 const menuToggle = document.getElementById("menuToggle");
 const mobileSidebar = document.getElementById("mobileSidebar");
 const sidebarOverlay = document.getElementById("sidebarOverlay");
@@ -31,24 +29,15 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") closeSidebar();
 });
 
-// Active nav highlighting
-const sections = [
-  "about",
-  "skills",
-  "work",
-  "github",
-  "now",
-  "faq",
-  "contact",
-].map((id) => document.getElementById(id));
+const sections = ["about", "skills", "work", "github", "now", "faq", "contact"].map((id) =>
+  document.getElementById(id),
+);
 const navLinks = document.querySelectorAll("[data-nav]");
 const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        navLinks.forEach((l) =>
-          l.classList.toggle("active", l.dataset.nav === entry.target.id),
-        );
+        navLinks.forEach((l) => l.classList.toggle("active", l.dataset.nav === entry.target.id));
       }
     });
   },
@@ -56,7 +45,6 @@ const observer = new IntersectionObserver(
 );
 sections.forEach((s) => s && observer.observe(s));
 
-// Contact form -> mailto
 document.getElementById("contactForm").addEventListener("submit", (e) => {
   e.preventDefault();
   const name = document.getElementById("cf-name").value;
@@ -66,7 +54,6 @@ document.getElementById("contactForm").addEventListener("submit", (e) => {
   window.location.href = `mailto:amin0xa1b@gmail.com?subject=${encodeURIComponent("Portfolio contact from " + name)}&body=${body}`;
 });
 
-// Resume dialog — track (backend/frontend) then language (en/fa), handled from one object
 const resumeLinks = {
   backend: {
     en: "src/assets/resume/backend-en.pdf",
@@ -102,9 +89,7 @@ function closeResumeDialog() {
   const el = document.getElementById(id);
   if (el) el.addEventListener("click", openResumeDialog);
 });
-document
-  .getElementById("resumeClose")
-  .addEventListener("click", closeResumeDialog);
+document.getElementById("resumeClose").addEventListener("click", closeResumeDialog);
 resumeOverlay.addEventListener("click", (e) => {
   if (e.target === resumeOverlay) closeResumeDialog();
 });
@@ -135,7 +120,6 @@ document.querySelectorAll(".resume-lang").forEach((btn) => {
   });
 });
 
-// FAQ accordion
 document.querySelectorAll(".faq-trigger").forEach((trigger) => {
   trigger.addEventListener("click", () => {
     const panel = trigger.nextElementSibling;
@@ -147,7 +131,6 @@ document.querySelectorAll(".faq-trigger").forEach((trigger) => {
   });
 });
 
-// GitHub stats — live from the public API
 fetch("https://api.github.com/users/aydope")
   .then((r) => {
     if (!r.ok) throw new Error("bad response");
@@ -158,37 +141,28 @@ fetch("https://api.github.com/users/aydope")
     document.getElementById("gh-followers").textContent = data.followers ?? "—";
     document.getElementById("gh-following").textContent = data.following ?? "—";
     if (data.created_at) {
-      document.getElementById("gh-since").textContent = new Date(
-        data.created_at,
-      ).getFullYear();
+      document.getElementById("gh-since").textContent = new Date(data.created_at).getFullYear();
     }
   })
   .catch(() => {
     document.getElementById("gh-error").classList.remove("hidden");
   });
 
-// Terminal typewriter — single orchestrated hero animation
 const lines = [
   { text: "$ whoami", pause: 350 },
-  {
-    text: "amin@aydope — mern developer",
-    pause: 500,
-    muted: false,
-  },
+  { text: "amin@aydope — full-stack developer", pause: 500, muted: false },
   { text: "", pause: 150 },
   { text: "$ cat stack.json", pause: 350 },
   { text: "  frontend  react · typescript · tailwind", pause: 250 },
-  { text: "  backend   node · express · mongodb", pause: 250 },
-  { text: "  learning  nest.js · fastify", pause: 500 },
+  { text: "  backend   node · express · fastify · mongodb", pause: 250 },
+  { text: "  learning  nest.js", pause: 500 },
   { text: "", pause: 150 },
   { text: "$ status", pause: 350 },
   { text: "open to new opportunities ●", pause: 0 },
 ];
 
 const termEl = document.getElementById("terminal");
-const reduceMotion = window.matchMedia(
-  "(prefers-reduced-motion: reduce)",
-).matches;
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 async function typeTerminal() {
   if (reduceMotion) {
@@ -210,55 +184,59 @@ async function typeTerminal() {
 }
 typeTerminal();
 
-// PWA — register service worker + handle version updates
 let refreshing = false;
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker
-      .register("src/js/sw.js")
+      .register("/sw.js", { updateViaCache: "none" })
       .then((registration) => {
-        // An update was already found and is waiting (e.g. user reopened the tab)
         if (registration.waiting) {
           showUpdateModal(registration.waiting);
         }
 
-        // A new service worker is being installed right now
         registration.addEventListener("updatefound", () => {
           const newWorker = registration.installing;
           if (!newWorker) return;
           newWorker.addEventListener("statechange", () => {
-            // "installed" + an existing controller means this is an update,
-            // not the very first install
-            if (
-              newWorker.state === "installed" &&
-              navigator.serviceWorker.controller
-            ) {
+            if (newWorker.state === "installed" && navigator.serviceWorker.controller) {
               showUpdateModal(newWorker);
             }
           });
         });
+
+        registration.update();
+        document.addEventListener("visibilitychange", () => {
+          if (document.visibilityState === "visible") registration.update();
+        });
+        setInterval(() => registration.update(), 5 * 60 * 1000);
       })
-      .catch(() => {
-        /* offline support is a progressive enhancement — fail silently */
+      .catch((err) => {
+        console.error("[PWA] registration failed:", err);
       });
 
-    // Reload once the new service worker takes control
     navigator.serviceWorker.addEventListener("controllerchange", () => {
       if (refreshing) return;
       refreshing = true;
       window.location.reload();
     });
   });
+} else {
+  console.warn("[PWA] this browser has no serviceWorker support");
 }
 
 const updateOverlay = document.getElementById("updateOverlay");
 const updateReloadBtn = document.getElementById("updateReloadBtn");
+const updateReloadSpinner = document.getElementById("updateReloadSpinner");
+const updateReloadLabel = document.getElementById("updateReloadLabel");
 const updateLaterBtn = document.getElementById("updateLaterBtn");
 let pendingWorker = null;
+let updateAvailable = false;
 
 function showUpdateModal(worker) {
   pendingWorker = worker;
+  updateAvailable = true;
+  hideInstallBanner();
   updateOverlay.classList.remove("hidden");
   updateOverlay.classList.add("flex");
 }
@@ -267,12 +245,54 @@ function hideUpdateModal() {
   updateOverlay.classList.remove("flex");
 }
 updateReloadBtn.addEventListener("click", () => {
-  if (pendingWorker) pendingWorker.postMessage("SKIP_WAITING");
-  hideUpdateModal();
+  updateReloadBtn.disabled = true;
+  updateLaterBtn.disabled = true;
+  updateReloadSpinner.classList.remove("hidden");
+  updateReloadLabel.textContent = "Updating…";
+  if (pendingWorker) {
+    pendingWorker.postMessage("SKIP_WAITING");
+    setTimeout(() => {
+      if (!refreshing) window.location.reload();
+    }, 4000);
+  } else {
+    window.location.reload();
+  }
 });
 updateLaterBtn.addEventListener("click", hideUpdateModal);
 
-// PWA — custom install prompt
+const consultOverlay = document.getElementById("consultOverlay");
+const consultClose = document.getElementById("consultClose");
+const consultForm = document.getElementById("consultForm");
+
+function openConsultDialog() {
+  consultOverlay.classList.remove("hidden");
+  consultOverlay.classList.add("flex");
+  document.body.style.overflow = "hidden";
+}
+function closeConsultDialog() {
+  consultOverlay.classList.add("hidden");
+  consultOverlay.classList.remove("flex");
+  document.body.style.overflow = "";
+}
+["consultBtnHero", "consultBtnContact"].forEach((id) => {
+  const el = document.getElementById(id);
+  if (el) el.addEventListener("click", openConsultDialog);
+});
+consultClose.addEventListener("click", closeConsultDialog);
+consultOverlay.addEventListener("click", (e) => {
+  if (e.target === consultOverlay) closeConsultDialog();
+});
+
+consultForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const name = document.getElementById("consult-name").value;
+  const phone = document.getElementById("consult-phone").value;
+  const area = document.getElementById("consult-area").value;
+  const body = encodeURIComponent(`Name: ${name}\nPhone: ${phone}\nWork area: ${area}`);
+  closeConsultDialog();
+  window.location.href = `mailto:amin0xa1b@gmail.com?subject=${encodeURIComponent("Consultation request from " + name)}&body=${body}`;
+});
+
 const installBanner = document.getElementById("installBanner");
 const installBtn = document.getElementById("installBtn");
 const installDismiss = document.getElementById("installDismiss");
@@ -295,7 +315,7 @@ function hideInstallBanner() {
 window.addEventListener("beforeinstallprompt", (event) => {
   event.preventDefault();
   deferredInstallPrompt = event;
-  if (!installBannerSnoozed()) {
+  if (!updateAvailable && !installBannerSnoozed()) {
     installBanner.classList.remove("hidden");
   }
 });

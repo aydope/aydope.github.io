@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta
       name="description"
-      content="MERN Stack Developer building full-stack apps with clean architecture."
+      content="Amin Sadeghi (Aydope) — Full-Stack Developer. Building full-stack apps with MongoDB, Express, React and Node."
     />
     <meta
       name="keywords"
-      content="Aydope, Amin Sadeghi, MERN developer, React developer, Node.js developer, web developer, Iran"
+      content="Aydope, Amin Sadeghi, full-stack developer, MERN developer, React developer, Node.js developer, Nest.js, Iran"
     />
     <meta name="author" content="Amin Sadeghi (Aydope)" />
     <meta name="robots" content="index, follow" />
@@ -20,7 +20,7 @@
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Aydope Portfolio" />
-    <meta property="og:title" content="Aydope · MERN Stack Developer" />
+    <meta property="og:title" content="Aydope · Full-Stack Developer" />
     <meta property="og:url" content="https://aydope.github.io" />
     <meta
       property="og:image"
@@ -28,23 +28,23 @@
     />
     <meta
       property="og:description"
-      content="MERN Stack Developer building full-stack apps with clean architecture."
+      content="Full-stack developer building clean, well-structured web apps with MERN and Nest.js/Fastify."
     />
     <meta property="og:locale" content="en_US" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Aydope · MERN Stack Developer" />
+    <meta name="twitter:title" content="Aydope · Full-Stack Developer" />
     <meta
       name="twitter:description"
-      content="MERN Stack Developer building full-stack apps with clean architecture."
+      content="Full-stack developer building clean, well-structured web apps with MERN and Nest.js/Fastify."
     />
     <meta
       name="twitter:image"
       content="https://aydope.github.io/src/assets/logo/favicon-96x96.png"
     />
 
-    <title>Aydope · MERN Stack Developer</title>
+    <title>Aydope · Full-Stack Developer</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -56,7 +56,6 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
-    <link rel="stylesheet" href="src/styles/style.css" />
 
     <link rel="shortcut icon" href="src/assets/logo/favicon.ico" type="image/x-icon" />
     <link rel="icon" type="image/png" href="src/assets/logo/favicon-96x96.png" sizes="96x96" />
@@ -104,6 +103,265 @@
         },
       };
     </script>
+
+    <style>
+      :root {
+        --background: 240 6% 6%;
+        --foreground: 220 14% 96%;
+        --card: 240 6% 8.5%;
+        --card-foreground: 220 14% 96%;
+        --border: 240 5% 16%;
+        --input: 240 5% 16%;
+        --ring: 240 5% 34%;
+        --muted: 240 5% 13%;
+        --muted-foreground: 240 4% 62%;
+        --accent: 158 44% 52%;
+        --accent-foreground: 240 6% 6%;
+        --primary: 220 14% 96%;
+        --primary-foreground: 240 6% 6%;
+        --radius: 0.6rem;
+      }
+
+      * {
+        border-color: hsl(var(--border));
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background-color: hsl(var(--background));
+        color: hsl(var(--foreground));
+        font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+
+      ::selection {
+        background: hsl(var(--accent) / 0.3);
+        color: hsl(var(--foreground));
+      }
+
+      /* faint dot-grid texture instead of gradient blobs */
+      .bg-grid {
+        background-image: radial-gradient(hsl(var(--foreground) / 0.06) 1px, transparent 1px);
+        background-size: 22px 22px;
+        -webkit-mask-image: radial-gradient(ellipse 70% 55% at 50% 0%, #000 45%, transparent 100%);
+        mask-image: radial-gradient(ellipse 70% 55% at 50% 0%, #000 45%, transparent 100%);
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        height: 2.5rem;
+        padding: 0 1.1rem;
+        border-radius: var(--radius);
+        font-size: 0.875rem;
+        font-weight: 500;
+        white-space: nowrap;
+        transition:
+          background-color 0.15s ease,
+          border-color 0.15s ease,
+          opacity 0.15s ease;
+      }
+
+      .btn:focus-visible {
+        outline: 2px solid hsl(var(--ring));
+        outline-offset: 2px;
+      }
+
+      .btn:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        pointer-events: none;
+      }
+
+      .spinner {
+        display: inline-block;
+        width: 0.9rem;
+        height: 0.9rem;
+        border: 2px solid hsl(var(--primary-foreground) / 0.35);
+        border-top-color: hsl(var(--primary-foreground));
+        border-radius: 50%;
+        margin-right: 0.5rem;
+        vertical-align: -2px;
+        animation: spin 0.6s linear infinite;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .spinner {
+          animation-duration: 1.5s;
+        }
+      }
+
+      .btn-primary {
+        background: hsl(var(--primary));
+        color: hsl(var(--primary-foreground));
+      }
+
+      .btn-primary:hover {
+        opacity: 0.88;
+      }
+
+      .btn-outline {
+        background: transparent;
+        color: hsl(var(--foreground));
+        border: 1px solid hsl(var(--border));
+      }
+
+      .btn-outline:hover {
+        background: hsl(var(--muted));
+      }
+
+      .btn-ghost {
+        background: transparent;
+        color: hsl(var(--muted-foreground));
+      }
+
+      .btn-ghost:hover {
+        color: hsl(var(--foreground));
+        background: hsl(var(--muted));
+      }
+
+      .card {
+        background: hsl(var(--card));
+        border: 1px solid hsl(var(--border));
+        border-radius: var(--radius);
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-size: 0.72rem;
+        font-weight: 500;
+        line-height: 1;
+        padding: 0.4rem 0.65rem;
+        border-radius: 9999px;
+        background: hsl(var(--muted));
+        color: hsl(var(--muted-foreground));
+        border: 1px solid hsl(var(--border));
+      }
+
+      .input {
+        width: 100%;
+        height: 2.5rem;
+        border-radius: var(--radius);
+        background: hsl(var(--muted) / 0.5);
+        border: 1px solid hsl(var(--border));
+        color: hsl(var(--foreground));
+        padding: 0 0.85rem;
+        font-size: 0.875rem;
+      }
+
+      .input:focus {
+        outline: 2px solid hsl(var(--ring));
+        outline-offset: 1px;
+      }
+
+      textarea.input {
+        height: auto;
+        padding: 0.7rem 0.85rem;
+        resize: vertical;
+      }
+
+      .nav-link {
+        color: hsl(var(--muted-foreground));
+        font-size: 0.875rem;
+        transition: color 0.15s ease;
+      }
+
+      .nav-link:hover,
+      .nav-link.active {
+        color: hsl(var(--foreground));
+      }
+
+      .kbd {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.68rem;
+        padding: 0.1rem 0.4rem;
+        border-radius: 0.3rem;
+        background: hsl(var(--muted));
+        border: 1px solid hsl(var(--border));
+        color: hsl(var(--muted-foreground));
+      }
+
+      .terminal-caret::after {
+        content: "▍";
+        margin-left: 2px;
+        color: hsl(var(--accent));
+        animation: blink 1s steps(1) infinite;
+      }
+
+      @keyframes blink {
+        50% {
+          opacity: 0;
+        }
+      }
+
+      .fade-up {
+        opacity: 0;
+        transform: translateY(10px);
+        animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+
+      @keyframes fadeUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        .fade-up {
+          animation: none;
+          opacity: 1;
+          transform: none;
+        }
+
+        .terminal-caret::after {
+          animation: none;
+        }
+      }
+
+      #mobileSidebar {
+        will-change: transform;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        #mobileSidebar {
+          transition: none;
+        }
+      }
+
+      .skip-link {
+        position: absolute;
+        left: -9999px;
+        top: 0;
+        z-index: 100;
+        background: hsl(var(--foreground));
+        color: hsl(var(--background));
+        padding: 0.6rem 1rem;
+        border-radius: 0 0 0.4rem 0;
+      }
+
+      .skip-link:focus {
+        left: 0;
+      }
+    </style>
   </head>
 
   <body class="min-h-screen">
@@ -187,24 +445,28 @@
             href="https://github.com/aydope"
             class="hover:text-foreground transition"
             aria-label="GitHub"
+            target="_blank"
             ><i class="bi bi-github"></i
           ></a>
           <a
             href="https://www.linkedin.com/in/mohammad-amin-sadeghi"
             class="hover:text-foreground transition"
             aria-label="LinkedIn"
+            target="_blank"
             ><i class="bi bi-linkedin"></i
           ></a>
           <a
             href="https://instagram.com/aydope.r"
             class="hover:text-foreground transition"
             aria-label="Instagram"
+            target="_blank"
             ><i class="bi bi-instagram"></i
           ></a>
           <a
             href="https://t.me/aydope"
             class="hover:text-foreground transition"
             aria-label="Telegram"
+            target="_blank"
             ><i class="bi bi-telegram"></i
           ></a>
         </div>
@@ -324,9 +586,73 @@
           This site was updated. Reload to get the latest version.
         </p>
         <div class="flex gap-2">
-          <button id="updateReloadBtn" class="btn btn-primary flex-1">Reload now</button>
+          <button id="updateReloadBtn" class="btn btn-primary flex-1 relative">
+            <span id="updateReloadSpinner" class="spinner hidden" aria-hidden="true"></span>
+            <span id="updateReloadLabel">Reload now</span>
+          </button>
           <button id="updateLaterBtn" class="btn btn-outline flex-1">Later</button>
         </div>
+      </div>
+    </div>
+
+    <!-- CONSULTATION REQUEST MODAL -->
+    <div
+      id="consultOverlay"
+      class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 backdrop-blur-sm px-5"
+    >
+      <div
+        class="card w-full max-w-sm p-6 relative"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="consultTitle"
+      >
+        <button
+          id="consultClose"
+          class="absolute top-3.5 right-3.5 btn-ghost !h-8 !w-8 !p-0"
+          aria-label="Close"
+        >
+          <i class="bi bi-x-lg"></i>
+        </button>
+        <h3 id="consultTitle" class="font-semibold text-lg mb-1.5">Request a consultation</h3>
+        <p class="text-sm text-muted-foreground mb-5">
+          Tell me a bit about it — this opens your email client so you can review and send.
+        </p>
+        <form id="consultForm" class="grid gap-4">
+          <div>
+            <label class="text-xs text-muted-foreground mb-1.5 block" for="consult-name"
+              >Name</label
+            >
+            <input id="consult-name" class="input" type="text" placeholder="Your name" required />
+          </div>
+          <div>
+            <label class="text-xs text-muted-foreground mb-1.5 block" for="consult-phone"
+              >Phone</label
+            >
+            <input
+              id="consult-phone"
+              class="input"
+              type="tel"
+              placeholder="+98 9xx xxx xxxx"
+              required
+            />
+          </div>
+          <div>
+            <label class="text-xs text-muted-foreground mb-1.5 block" for="consult-area"
+              >Work area</label
+            >
+            <select id="consult-area" class="input" required>
+              <option value="" disabled selected>Select an area</option>
+              <option value="Frontend development">Frontend development</option>
+              <option value="Backend development">Backend development</option>
+              <option value="Full-stack project">Full-stack project</option>
+              <option value="API / backend consulting">API / backend consulting</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary w-full">
+            Send request <i class="bi bi-send"></i>
+          </button>
+        </form>
       </div>
     </div>
 
@@ -339,7 +665,7 @@
             <div class="fade-up">
               <span class="badge mb-6">
                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                Open to MERN roles
+                Open to full-stack roles
               </span>
 
               <h1 class="text-4xl md:text-5xl font-bold leading-[1.15] mb-5 max-w-md">
@@ -348,8 +674,8 @@
 
               <p class="text-muted-foreground text-base leading-relaxed max-w-md mb-8">
                 I build web applications end to end — REST APIs and data models on the back end,
-                React interfaces on the front end. Based in Iran, currently deepening my back-end
-                skills with Nest.js and Fastify.
+                React interfaces on the front end. Based in Iran, currently learning Nest.js to go
+                deeper on structured, production-style back ends.
               </p>
 
               <div class="flex flex-wrap items-center gap-3">
@@ -364,24 +690,28 @@
                   href="https://github.com/aydope"
                   class="hover:text-foreground transition"
                   aria-label="GitHub"
+                  target="_blank"
                   ><i class="bi bi-github"></i
                 ></a>
                 <a
                   href="https://www.linkedin.com/in/mohammad-amin-sadeghi"
                   class="hover:text-foreground transition"
                   aria-label="LinkedIn"
+                  target="_blank"
                   ><i class="bi bi-linkedin"></i
                 ></a>
                 <a
                   href="https://instagram.com/aydope.r"
                   class="hover:text-foreground transition"
                   aria-label="Instagram"
+                  target="_blank"
                   ><i class="bi bi-instagram"></i
                 ></a>
                 <a
                   href="https://t.me/aydope"
                   class="hover:text-foreground transition"
                   aria-label="Telegram"
+                  target="_blank"
                   ><i class="bi bi-telegram"></i
                 ></a>
               </div>
@@ -478,11 +808,11 @@
                 <span class="font-mono text-xs text-muted-foreground">2026</span>
                 <h4 class="font-semibold mt-1 mb-1.5">Back-end deep dive</h4>
                 <p class="text-sm text-muted-foreground leading-relaxed mb-2.5">
-                  Strengthened Express.js, explored Nest.js and Fastify, and built REST APIs with
-                  proper database design in MongoDB.
+                  Strengthened Express.js and Fastify, built REST APIs with proper database design
+                  in MongoDB, and I'm now learning Nest.js.
                 </p>
                 <div class="flex flex-wrap gap-1.5">
-                  <span class="badge !py-1">Express.js</span><span class="badge !py-1">Nest.js</span
+                  <span class="badge !py-1">Express.js</span><span class="badge !py-1">Fastify</span
                   ><span class="badge !py-1">REST APIs</span>
                 </div>
               </li>
@@ -511,7 +841,7 @@
         <h2 class="text-2xl md:text-3xl font-bold mb-2">Skills</h2>
         <p class="text-muted-foreground text-sm mb-10">Technologies I work with regularly.</p>
 
-        <div class="grid md:grid-cols-3 gap-4">
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
           <div class="card p-5">
             <h3 class="text-sm font-semibold mb-4 flex items-center gap-2">
               <i class="bi bi-window text-muted-foreground"></i>Frontend
@@ -527,20 +857,72 @@
               <i class="bi bi-hdd-network text-muted-foreground"></i>Backend
             </h3>
             <div class="flex flex-wrap gap-2">
-              <span class="badge">Node.js</span><span class="badge">Express.js</span
-              ><span class="badge">Nest.js</span> <span class="badge">Fastify</span
-              ><span class="badge">MongoDB</span><span class="badge">Sequelize</span>
+              <span class="badge">Node.js</span><span class="badge">Express.js</span>
+              <span class="badge !border-accent/40 !text-accent"
+                ><span class="w-1.5 h-1.5 rounded-full bg-accent"></span>Nest.js</span
+              >
+              <span class="badge">Fastify</span><span class="badge">RESTful API Design</span>
             </div>
           </div>
           <div class="card p-5">
             <h3 class="text-sm font-semibold mb-4 flex items-center gap-2">
-              <i class="bi bi-tools text-muted-foreground"></i>Tools &amp; other
+              <i class="bi bi-database text-muted-foreground"></i>Database
+            </h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="badge">MongoDB</span><span class="badge">Mongoose ODM</span>
+              <span class="badge">Schema Design</span><span class="badge">CRUD Operations</span>
+            </div>
+          </div>
+          <div class="card p-5">
+            <h3 class="text-sm font-semibold mb-4 flex items-center gap-2">
+              <i class="bi bi-shield-lock text-muted-foreground"></i>Auth &amp; Security
+            </h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="badge">JWT Authentication</span
+              ><span class="badge">Session-Based Auth</span> <span class="badge">RBAC</span
+              ><span class="badge">Password Hashing</span
+              ><span class="badge">Input Validation</span>
+            </div>
+          </div>
+          <div class="card p-5">
+            <h3 class="text-sm font-semibold mb-4 flex items-center gap-2">
+              <i class="bi bi-diagram-3 text-muted-foreground"></i>Architecture &amp; Patterns
+            </h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="badge">MVC Architecture</span
+              ><span class="badge">Modular Architecture</span>
+              <span class="badge">Service/Repository Pattern</span
+              ><span class="badge">Singleton Pattern</span>
+              <span class="badge">Centralized Error Handling</span>
+            </div>
+          </div>
+          <div class="card p-5">
+            <h3 class="text-sm font-semibold mb-4 flex items-center gap-2">
+              <i class="bi bi-broadcast text-muted-foreground"></i>Real-Time
+            </h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="badge">WebSocket</span><span class="badge">Socket.io</span>
+            </div>
+          </div>
+          <div class="card p-5">
+            <h3 class="text-sm font-semibold mb-4 flex items-center gap-2">
+              <i class="bi bi-tools text-muted-foreground"></i>Tools &amp; Deployment
             </h3>
             <div class="flex flex-wrap gap-2">
               <span class="badge">Git</span><span class="badge">GitHub</span
-              ><span class="badge">GitLab</span> <span class="badge">REST APIs</span
-              ><span class="badge">WebSocket</span><span class="badge">Socket.io</span
-              ><span class="badge">PWA</span>
+              ><span class="badge">GitLab</span> <span class="badge">Postman</span
+              ><span class="badge">Railway</span><span class="badge">Render</span>
+            </div>
+          </div>
+          <div class="card p-5">
+            <h3 class="text-sm font-semibold mb-4 flex items-center gap-2">
+              <i class="bi bi-stars text-muted-foreground"></i>Other Skills
+            </h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="badge">Progressive Web Apps (PWA)</span
+              ><span class="badge">Service Workers</span>
+              <span class="badge">Regular Expressions (RegEx)</span
+              ><span class="badge">Canvas API</span>
             </div>
           </div>
         </div>
@@ -582,7 +964,7 @@
               <h3 class="font-medium text-sm mb-1">Certificates</h3>
               <p class="text-xs text-muted-foreground leading-relaxed mb-1">No certificate yet</p>
               <p class="text-sm text-muted-foreground leading-relaxed">
-                I'm currently learning and building things.
+                Nothing to show here for now — I'll add certificates here as I complete them.
               </p>
             </div>
           </div>
@@ -679,7 +1061,7 @@
         <div class="grid sm:grid-cols-3 gap-4">
           <div class="card p-5">
             <i class="bi bi-diagram-3 text-accent text-lg mb-3 block"></i>
-            <h3 class="font-medium text-sm mb-1.5">Learning Nest.js &amp; Fastify</h3>
+            <h3 class="font-medium text-sm mb-1.5">Learning Nest.js</h3>
             <p class="text-xs text-muted-foreground leading-relaxed">
               Going deeper into structured, production-style back ends.
             </p>
@@ -693,9 +1075,9 @@
           </div>
           <div class="card p-5">
             <i class="bi bi-briefcase text-accent text-lg mb-3 block"></i>
-            <h3 class="font-medium text-sm mb-1.5">Looking for MERN roles</h3>
+            <h3 class="font-medium text-sm mb-1.5">Looking for my next role</h3>
             <p class="text-xs text-muted-foreground leading-relaxed">
-              Open to MERN roles, freelance work and collaborations.
+              Open to full-stack roles, freelance work and collaborations.
             </p>
           </div>
         </div>
@@ -715,12 +1097,12 @@
               class="faq-trigger w-full flex items-center justify-between text-left py-4 gap-4"
               aria-expanded="false"
             >
-              <span class="font-medium text-sm">Are you available for MERN roles right now?</span>
+              <span class="font-medium text-sm">Are you available for work right now?</span>
               <i class="bi bi-plus faq-icon text-muted-foreground"></i>
             </button>
             <div class="faq-panel hidden pb-4 text-sm text-muted-foreground leading-relaxed">
-              Yes — I'm open to MERN positions, freelance projects and collaborations, remote or in
-              Tehran.
+              Yes — I'm open to full-stack roles, freelance projects and collaborations, remote or
+              in Tehran.
             </div>
           </div>
           <div class="faq-item py-1">
@@ -773,9 +1155,12 @@
           <div class="grid md:grid-cols-5 gap-10">
             <div class="md:col-span-2">
               <h2 class="text-2xl md:text-3xl font-bold mb-3">Get in touch</h2>
-              <p class="text-muted-foreground text-sm leading-relaxed mb-7">
+              <p class="text-muted-foreground text-sm leading-relaxed mb-4">
                 Have a project in mind, or a role that fits? I'd like to hear about it.
               </p>
+              <button id="consultBtnContact" class="btn btn-outline !h-9 !text-xs mb-6">
+                Or request a consultation <i class="bi bi-arrow-up-right"></i>
+              </button>
 
               <div class="space-y-4 mb-7 text-sm">
                 <a href="mailto:amin0xa1b@gmail.com" class="flex items-center gap-3 group">
@@ -806,24 +1191,28 @@
                   href="https://github.com/aydope"
                   class="btn btn-outline !h-10 !w-10 !p-0"
                   aria-label="GitHub"
+                  target="_blank"
                   ><i class="bi bi-github"></i
                 ></a>
                 <a
                   href="https://www.linkedin.com/in/mohammad-amin-sadeghi"
                   class="btn btn-outline !h-10 !w-10 !p-0"
                   aria-label="LinkedIn"
+                  target="_blank"
                   ><i class="bi bi-linkedin"></i
                 ></a>
                 <a
                   href="https://instagram.com/aydope.r"
                   class="btn btn-outline !h-10 !w-10 !p-0"
                   aria-label="Instagram"
+                  target="_blank"
                   ><i class="bi bi-instagram"></i
                 ></a>
                 <a
                   href="https://t.me/aydope"
                   class="btn btn-outline !h-10 !w-10 !p-0"
                   aria-label="Telegram"
+                  target="_blank"
                   ><i class="bi bi-telegram"></i
                 ></a>
               </div>
