@@ -338,24 +338,6 @@
       .skip-link:focus {
         left: 0;
       }
-
-      /* Persian mode: swap font, flip direction. Elements that must stay LTR
-     regardless of page direction (logo, terminal, tech-stack badges) opt
-     out with .ltr-always. */
-      html[lang="fa"] body {
-        font-family: Vazirmatn, Inter, ui-sans-serif, system-ui, sans-serif;
-      }
-      html[lang="fa"] .font-mono {
-        font-family: "JetBrains Mono", monospace;
-      }
-      .ltr-always {
-        direction: ltr;
-        unicode-bidi: isolate;
-      }
-      html[lang="fa"] .lang-toggle-en,
-      html:not([lang="fa"]) .lang-toggle-fa {
-        display: none;
-      }
     </style>
   </head>
 
@@ -370,28 +352,21 @@
         </a>
 
         <nav class="hidden md:flex items-center gap-7" id="desktopNav">
-          <a href="#about" class="nav-link" data-nav="about" data-i18n="nav.about">About</a>
-          <a href="#skills" class="nav-link" data-nav="skills" data-i18n="nav.skills">Skills</a>
-          <a href="#work" class="nav-link" data-nav="work" data-i18n="nav.work">Work</a>
-          <a href="#github" class="nav-link" data-nav="github" data-i18n="nav.github">GitHub</a>
-          <a href="#now" class="nav-link" data-nav="now" data-i18n="nav.now">Now</a>
-          <a href="#faq" class="nav-link" data-nav="faq" data-i18n="nav.faq">FAQ</a>
-          <a href="#contact" class="nav-link" data-nav="contact" data-i18n="nav.contact">Contact</a>
+          <a href="#about" class="nav-link" data-nav="about">About</a>
+          <a href="#skills" class="nav-link" data-nav="skills">Skills</a>
+          <a href="#work" class="nav-link" data-nav="work">Work</a>
+          <a href="#github" class="nav-link" data-nav="github">GitHub</a>
+          <a href="#now" class="nav-link" data-nav="now">Now</a>
+          <a href="#faq" class="nav-link" data-nav="faq">FAQ</a>
+          <a href="#contact" class="nav-link" data-nav="contact">Contact</a>
         </nav>
 
         <div class="flex items-center gap-2">
-          <button
-            id="langToggle"
-            class="btn btn-ghost !px-2.5 !text-xs font-mono ltr-always"
-            aria-label="Toggle language"
-          >
-            <span class="lang-toggle-en">FA</span><span class="lang-toggle-fa">EN</span>
-          </button>
           <button id="resumeBtnHeader" class="btn btn-outline hidden sm:inline-flex">
-            <span data-i18n="header.resume">Resume</span> <i class="bi bi-file-earmark-text"></i>
+            <span>Resume</span> <i class="bi bi-file-earmark-text"></i>
           </button>
           <a href="mailto:amin0xa1b@gmail.com" class="btn btn-primary hidden sm:inline-flex">
-            <span data-i18n="header.getInTouch">Get in touch</span>
+            <span>Get in touch</span>
           </a>
           <button
             id="menuToggle"
@@ -427,56 +402,22 @@
       </div>
 
       <nav class="flex flex-col gap-1 px-3 py-4 overflow-y-auto">
-        <a
-          href="#about"
-          class="nav-link px-3 py-2.5 rounded-md hover:bg-muted"
-          data-i18n="nav.about"
-          >About</a
-        >
-        <a
-          href="#skills"
-          class="nav-link px-3 py-2.5 rounded-md hover:bg-muted"
-          data-i18n="nav.skills"
-          >Skills</a
-        >
-        <a
-          href="#education"
-          class="nav-link px-3 py-2.5 rounded-md hover:bg-muted"
-          data-i18n="nav.education"
-          >Education</a
-        >
-        <a href="#work" class="nav-link px-3 py-2.5 rounded-md hover:bg-muted" data-i18n="nav.work"
-          >Work</a
-        >
-        <a
-          href="#github"
-          class="nav-link px-3 py-2.5 rounded-md hover:bg-muted"
-          data-i18n="nav.github"
-          >GitHub</a
-        >
-        <a href="#now" class="nav-link px-3 py-2.5 rounded-md hover:bg-muted" data-i18n="nav.now"
-          >Now</a
-        >
-        <a href="#faq" class="nav-link px-3 py-2.5 rounded-md hover:bg-muted" data-i18n="nav.faq"
-          >FAQ</a
-        >
-        <a
-          href="#contact"
-          class="nav-link px-3 py-2.5 rounded-md hover:bg-muted"
-          data-i18n="nav.contact"
-          >Contact</a
-        >
+        <a href="#about" class="nav-link px-3 py-2.5 rounded-md hover:bg-muted">About</a>
+        <a href="#skills" class="nav-link px-3 py-2.5 rounded-md hover:bg-muted">Skills</a>
+        <a href="#education" class="nav-link px-3 py-2.5 rounded-md hover:bg-muted">Education</a>
+        <a href="#work" class="nav-link px-3 py-2.5 rounded-md hover:bg-muted">Work</a>
+        <a href="#github" class="nav-link px-3 py-2.5 rounded-md hover:bg-muted">GitHub</a>
+        <a href="#now" class="nav-link px-3 py-2.5 rounded-md hover:bg-muted">Now</a>
+        <a href="#faq" class="nav-link px-3 py-2.5 rounded-md hover:bg-muted">FAQ</a>
+        <a href="#contact" class="nav-link px-3 py-2.5 rounded-md hover:bg-muted">Contact</a>
       </nav>
 
       <div class="mt-auto px-4 py-4 border-t border-border flex flex-col gap-2 shrink-0">
-        <button id="langToggleMobile" class="btn btn-outline w-full ltr-always">
-          <span class="lang-toggle-en">فارسی</span><span class="lang-toggle-fa">English</span>
-        </button>
         <button id="resumeBtnMobile" class="btn btn-outline w-full">
-          <span data-i18n="header.resume">Resume</span> <i class="bi bi-file-earmark-text"></i>
+          <span>Resume</span> <i class="bi bi-file-earmark-text"></i>
         </button>
         <a href="mailto:amin0xa1b@gmail.com" class="btn btn-primary w-full"
-          ><span data-i18n="header.getInTouch">Get in touch</span></a
+          ><span>Get in touch</span></a
         >
         <div class="flex items-center justify-center gap-4 pt-2 text-lg text-muted-foreground">
           <a
@@ -532,26 +473,22 @@
 
         <!-- Step 1: choose track -->
         <div id="resumeStep1">
-          <h3 id="resumeTitle" class="font-semibold text-lg mb-1.5" data-i18n="resume.title">
-            Which resume?
-          </h3>
-          <p class="text-sm text-muted-foreground mb-5" data-i18n="resume.subtitle">
-            Pick the version that fits the role.
-          </p>
+          <h3 id="resumeTitle" class="font-semibold text-lg mb-1.5">Which resume?</h3>
+          <p class="text-sm text-muted-foreground mb-5">Pick the version that fits the role.</p>
           <div class="grid grid-cols-2 gap-3">
             <button
               class="resume-track card p-4 text-left hover:bg-muted transition"
               data-track="backend"
             >
               <i class="bi bi-hdd-network text-accent mb-2 block"></i>
-              <span class="text-sm font-medium" data-i18n="resume.backend">Backend</span>
+              <span class="text-sm font-medium">Backend</span>
             </button>
             <button
               class="resume-track card p-4 text-left hover:bg-muted transition"
               data-track="frontend"
             >
               <i class="bi bi-window text-accent mb-2 block"></i>
-              <span class="text-sm font-medium" data-i18n="resume.frontend">Frontend</span>
+              <span class="text-sm font-medium">Frontend</span>
             </button>
           </div>
         </div>
@@ -562,11 +499,9 @@
             id="resumeBack"
             class="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition mb-4"
           >
-            <i class="bi bi-arrow-left"></i> <span data-i18n="resume.back">Back</span>
+            <i class="bi bi-arrow-left"></i> <span>Back</span>
           </button>
-          <h3 class="font-semibold text-lg mb-1.5" data-i18n="resume.step2Title">
-            Choose a language
-          </h3>
+          <h3 class="font-semibold text-lg mb-1.5">Choose a language</h3>
           <p class="text-sm text-muted-foreground mb-5" id="resumeStep2Sub"></p>
           <div class="grid grid-cols-2 gap-3">
             <button class="resume-lang card p-4 text-left hover:bg-muted transition" data-lang="en">
@@ -594,25 +529,13 @@
           <i class="bi bi-download"></i>
         </span>
         <div class="flex-1 min-w-0">
-          <h3 class="text-sm font-semibold mb-0.5" data-i18n="install.title">Install this app</h3>
-          <p class="text-xs text-muted-foreground leading-relaxed mb-3" data-i18n="install.desc">
+          <h3 class="text-sm font-semibold mb-0.5">Install this app</h3>
+          <p class="text-xs text-muted-foreground leading-relaxed mb-3">
             Add Aydope to your home screen for quick, offline-friendly access.
           </p>
           <div class="flex gap-2">
-            <button
-              id="installBtn"
-              class="btn btn-primary !h-8 !px-3 !text-xs"
-              data-i18n="install.install"
-            >
-              Install
-            </button>
-            <button
-              id="installDismiss"
-              class="btn btn-ghost !h-8 !px-3 !text-xs"
-              data-i18n="install.notNow"
-            >
-              Not now
-            </button>
+            <button id="installBtn" class="btn btn-primary !h-8 !px-3 !text-xs">Install</button>
+            <button id="installDismiss" class="btn btn-ghost !h-8 !px-3 !text-xs">Not now</button>
           </div>
         </div>
         <button id="installClose" class="btn-ghost !h-7 !w-7 !p-0 shrink-0" aria-label="Close">
@@ -637,20 +560,16 @@
         >
           <i class="bi bi-arrow-repeat"></i>
         </span>
-        <h3 id="updateTitle" class="font-semibold text-lg mb-1.5" data-i18n="update.title">
-          A new version is available
-        </h3>
-        <p class="text-sm text-muted-foreground mb-5" data-i18n="update.desc">
+        <h3 id="updateTitle" class="font-semibold text-lg mb-1.5">A new version is available</h3>
+        <p class="text-sm text-muted-foreground mb-5">
           This site was updated. Reload to get the latest version.
         </p>
         <div class="flex gap-2">
           <button id="updateReloadBtn" class="btn btn-primary flex-1 relative">
             <span id="updateReloadSpinner" class="spinner hidden" aria-hidden="true"></span>
-            <span id="updateReloadLabel" data-i18n="update.reload">Reload now</span>
+            <span id="updateReloadLabel">Reload now</span>
           </button>
-          <button id="updateLaterBtn" class="btn btn-outline flex-1" data-i18n="update.later">
-            Later
-          </button>
+          <button id="updateLaterBtn" class="btn btn-outline flex-1">Later</button>
         </div>
       </div>
     </div>
@@ -673,34 +592,19 @@
         >
           <i class="bi bi-x-lg"></i>
         </button>
-        <h3 id="consultTitle" class="font-semibold text-lg mb-1.5" data-i18n="consult.title">
-          Request a consultation
-        </h3>
-        <p class="text-sm text-muted-foreground mb-5" data-i18n="consult.desc">
+        <h3 id="consultTitle" class="font-semibold text-lg mb-1.5">Request a consultation</h3>
+        <p class="text-sm text-muted-foreground mb-5">
           Tell me a bit about it — this opens your email client so you can review and send.
         </p>
         <form id="consultForm" class="grid gap-4">
           <div>
-            <label
-              class="text-xs text-muted-foreground mb-1.5 block"
-              for="consult-name"
-              data-i18n="consult.name"
+            <label class="text-xs text-muted-foreground mb-1.5 block" for="consult-name"
               >Name</label
             >
-            <input
-              id="consult-name"
-              class="input"
-              type="text"
-              data-i18n-placeholder="contact.form.namePlaceholder"
-              placeholder="Your name"
-              required
-            />
+            <input id="consult-name" class="input" type="text" placeholder="Your name" required />
           </div>
           <div>
-            <label
-              class="text-xs text-muted-foreground mb-1.5 block"
-              for="consult-phone"
-              data-i18n="consult.phone"
+            <label class="text-xs text-muted-foreground mb-1.5 block" for="consult-phone"
               >Phone</label
             >
             <input
@@ -712,33 +616,20 @@
             />
           </div>
           <div>
-            <label
-              class="text-xs text-muted-foreground mb-1.5 block"
-              for="consult-area"
-              data-i18n="consult.area"
+            <label class="text-xs text-muted-foreground mb-1.5 block" for="consult-area"
               >Work area</label
             >
             <select id="consult-area" class="input" required>
-              <option value="" disabled selected data-i18n="consult.areaSelect">
-                Select an area
-              </option>
-              <option value="Frontend development" data-i18n="consult.area1">
-                Frontend development
-              </option>
-              <option value="Backend development" data-i18n="consult.area2">
-                Backend development
-              </option>
-              <option value="Full-stack project" data-i18n="consult.area3">
-                Full-stack project
-              </option>
-              <option value="API / backend consulting" data-i18n="consult.area4">
-                API / backend consulting
-              </option>
-              <option value="Other" data-i18n="consult.area5">Other</option>
+              <option value="" disabled selected>Select an area</option>
+              <option value="Frontend development">Frontend development</option>
+              <option value="Backend development">Backend development</option>
+              <option value="Full-stack project">Full-stack project</option>
+              <option value="API / backend consulting">API / backend consulting</option>
+              <option value="Other">Other</option>
             </select>
           </div>
           <button type="submit" class="btn btn-primary w-full">
-            <span data-i18n="consult.send">Send request</span> <i class="bi bi-send"></i>
+            <span>Send request</span> <i class="bi bi-send"></i>
           </button>
         </form>
       </div>
@@ -753,31 +644,23 @@
             <div class="fade-up">
               <span class="badge mb-6">
                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                <span data-i18n="hero.badge">Open to full-stack roles</span>
+                <span>Open to full-stack roles</span>
               </span>
 
-              <h1
-                class="text-4xl md:text-5xl font-bold leading-[1.15] mb-5 max-w-md"
-                data-i18n="hero.h1"
-              >
+              <h1 class="text-4xl md:text-5xl font-bold leading-[1.15] mb-5 max-w-md">
                 Amin Sadeghi, a full-stack developer working in the MERN stack.
               </h1>
 
-              <p
-                class="text-muted-foreground text-base leading-relaxed max-w-md mb-8"
-                data-i18n="hero.p"
-              >
+              <p class="text-muted-foreground text-base leading-relaxed max-w-md mb-8">
                 I build web applications end to end — REST APIs and data models on the back end,
                 React interfaces on the front end. Based in Iran, currently learning Nest.js to go
                 deeper on structured, production-style back ends.
               </p>
 
               <div class="flex flex-wrap items-center gap-3">
-                <a href="#work" class="btn btn-primary" data-i18n="hero.viewProjects"
-                  >View projects</a
-                >
+                <a href="#work" class="btn btn-primary">View projects</a>
                 <button id="resumeBtnHero" class="btn btn-outline">
-                  <span data-i18n="hero.viewResume">View resume</span>
+                  <span>View resume</span>
                   <i class="bi bi-file-earmark-arrow-down"></i>
                 </button>
               </div>
@@ -839,20 +722,20 @@
       >
         <div class="grid lg:grid-cols-5 gap-12">
           <div class="lg:col-span-3">
-            <h2 class="text-2xl md:text-3xl font-bold mb-5" data-i18n="about.h2">About</h2>
+            <h2 class="text-2xl md:text-3xl font-bold mb-5">About</h2>
 
-            <p class="text-muted-foreground leading-relaxed mb-4" data-i18n="about.p1">
+            <p class="text-muted-foreground leading-relaxed mb-4">
               My main focus is backend development, especially building REST APIs, authentication
               systems, database-driven applications, and real-time features. I also work with React
               and enjoy building complete products from the backend to the frontend.
             </p>
-            <p class="text-muted-foreground leading-relaxed mb-8" data-i18n="about.p2">
+            <p class="text-muted-foreground leading-relaxed mb-8">
               I’ve built several projects to develop my practical experience, including REST APIs,
               authentication systems, management platforms, and web applications. I care about clean
               code, good architecture, problem-solving, and building things that are actually
               useful.
             </p>
-            <p class="text-muted-foreground leading-relaxed mb-8" data-i18n="about.p3">
+            <p class="text-muted-foreground leading-relaxed mb-8">
               I’m currently looking for an opportunity where I can contribute to real-world
               projects, work with a development team, and continue growing as a developer.
             </p>
@@ -860,21 +743,15 @@
             <div class="grid grid-cols-3 gap-3 mb-8">
               <div class="card px-4 py-3.5">
                 <span class="text-xl font-bold block">1+</span>
-                <span class="text-muted-foreground text-xs" data-i18n="about.stat1"
-                  >year learning</span
-                >
+                <span class="text-muted-foreground text-xs">year learning</span>
               </div>
               <div class="card px-4 py-3.5">
                 <span class="text-xl font-bold block">3+</span>
-                <span class="text-muted-foreground text-xs" data-i18n="about.stat2"
-                  >projects built</span
-                >
+                <span class="text-muted-foreground text-xs">projects built</span>
               </div>
               <div class="card px-4 py-3.5">
                 <span class="text-xl font-bold block">24/7</span>
-                <span class="text-muted-foreground text-xs" data-i18n="about.stat3"
-                  >learning mode</span
-                >
+                <span class="text-muted-foreground text-xs">learning mode</span>
               </div>
             </div>
 
@@ -884,7 +761,7 @@
               >
               <span class="flex items-center gap-2 text-muted-foreground"
                 ><i class="bi bi-pin-map text-foreground/70"></i
-                ><span data-i18n="about.location">Remote / Tehran, Iran</span></span
+                ><span>Remote / Tehran, Iran</span></span
               >
               <span class="flex items-center gap-2 text-muted-foreground"
                 ><i class="bi bi-envelope text-foreground/70"></i
@@ -898,13 +775,8 @@
               <li class="pl-6 pb-8">
                 <span class="absolute -left-[5px] mt-1.5 w-2.5 h-2.5 rounded-full bg-accent"></span>
                 <span class="font-mono text-xs text-muted-foreground">2026</span>
-                <h4 class="font-semibold mt-1 mb-1.5" data-i18n="about.timeline1.title">
-                  Building projects
-                </h4>
-                <p
-                  class="text-sm text-muted-foreground leading-relaxed mb-2.5"
-                  data-i18n="about.timeline1.desc"
-                >
+                <h4 class="font-semibold mt-1 mb-1.5">Building projects</h4>
+                <p class="text-sm text-muted-foreground leading-relaxed mb-2.5">
                   Building full-stack apps with React, Node.js, Express and MongoDB — learning
                   through hands-on, real-world projects.
                 </p>
@@ -916,13 +788,8 @@
               <li class="pl-6 pb-8">
                 <span class="absolute -left-[5px] mt-1.5 w-2.5 h-2.5 rounded-full bg-border"></span>
                 <span class="font-mono text-xs text-muted-foreground">2026</span>
-                <h4 class="font-semibold mt-1 mb-1.5" data-i18n="about.timeline2.title">
-                  Back-end deep dive
-                </h4>
-                <p
-                  class="text-sm text-muted-foreground leading-relaxed mb-2.5"
-                  data-i18n="about.timeline2.desc"
-                >
+                <h4 class="font-semibold mt-1 mb-1.5">Back-end deep dive</h4>
+                <p class="text-sm text-muted-foreground leading-relaxed mb-2.5">
                   Strengthened Express.js and Fastify, built REST APIs with proper database design
                   in MongoDB, and I'm now learning Nest.js.
                 </p>
@@ -934,13 +801,8 @@
               <li class="pl-6">
                 <span class="absolute -left-[5px] mt-1.5 w-2.5 h-2.5 rounded-full bg-border"></span>
                 <span class="font-mono text-xs text-muted-foreground">2025</span>
-                <h4 class="font-semibold mt-1 mb-1.5" data-i18n="about.timeline3.title">
-                  Web dev beginnings
-                </h4>
-                <p
-                  class="text-sm text-muted-foreground leading-relaxed mb-2.5"
-                  data-i18n="about.timeline3.desc"
-                >
+                <h4 class="font-semibold mt-1 mb-1.5">Web dev beginnings</h4>
+                <p class="text-sm text-muted-foreground leading-relaxed mb-2.5">
                   Started with HTML, CSS and JavaScript, and built my first static sites.
                 </p>
                 <div class="flex flex-wrap gap-1.5">
@@ -958,16 +820,13 @@
         id="skills"
         class="max-w-5xl mx-auto px-5 md:px-6 py-16 md:py-20 border-t border-border"
       >
-        <h2 class="text-2xl md:text-3xl font-bold mb-2" data-i18n="skills.h2">Skills</h2>
-        <p class="text-muted-foreground text-sm mb-10" data-i18n="skills.p">
-          Technologies I work with regularly.
-        </p>
+        <h2 class="text-2xl md:text-3xl font-bold mb-2">Skills</h2>
+        <p class="text-muted-foreground text-sm mb-10">Technologies I work with regularly.</p>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
           <div class="card p-5">
             <h3 class="text-sm font-semibold mb-4 flex items-center gap-2">
-              <i class="bi bi-window text-muted-foreground"></i
-              ><span data-i18n="skills.frontend">Frontend</span>
+              <i class="bi bi-window text-muted-foreground"></i><span>Frontend</span>
             </h3>
             <div class="flex flex-wrap gap-2">
               <span class="badge">HTML5</span><span class="badge">CSS3</span
@@ -977,59 +836,53 @@
           </div>
           <div class="card p-5">
             <h3 class="text-sm font-semibold mb-4 flex items-center gap-2">
-              <i class="bi bi-hdd-network text-muted-foreground"></i
-              ><span data-i18n="skills.backend">Backend</span>
+              <i class="bi bi-hdd-network text-muted-foreground"></i><span>Backend</span>
             </h3>
             <div class="flex flex-wrap gap-2">
               <span class="badge">Node.js</span><span class="badge">Express.js</span>
               <span class="badge !border-accent/40 !text-accent"
                 ><span class="w-1.5 h-1.5 rounded-full bg-accent"></span>Nest.js</span
               >
-              <span class="badge">Fastify</span
-              ><span class="badge" data-i18n="skills.restfulApi">RESTful API Design</span>
+              <span class="badge">Fastify</span><span class="badge">RESTful API Design</span>
             </div>
           </div>
           <div class="card p-5">
             <h3 class="text-sm font-semibold mb-4 flex items-center gap-2">
-              <i class="bi bi-database text-muted-foreground"></i
-              ><span data-i18n="skills.database">Database</span>
+              <i class="bi bi-database text-muted-foreground"></i><span>Database</span>
             </h3>
             <div class="flex flex-wrap gap-2">
               <span class="badge">MongoDB</span><span class="badge">Mongoose ODM</span>
-              <span class="badge" data-i18n="skills.schemaDesign">Schema Design</span
-              ><span class="badge" data-i18n="skills.crud">CRUD Operations</span>
+              <span class="badge">Schema Design</span><span class="badge">CRUD Operations</span>
             </div>
           </div>
           <div class="card p-5">
             <h3 class="text-sm font-semibold mb-4 flex items-center gap-2">
               <i class="bi bi-shield-lock text-muted-foreground"></i
-              ><span data-i18n="skills.authSecurity">Auth &amp; Security</span>
+              ><span>Auth &amp; Security</span>
             </h3>
             <div class="flex flex-wrap gap-2">
-              <span class="badge" data-i18n="skills.jwt">JWT Authentication</span
-              ><span class="badge" data-i18n="skills.sessionAuth">Session-Based Auth</span>
-              <span class="badge">RBAC</span
-              ><span class="badge" data-i18n="skills.passwordHashing">Password Hashing</span
-              ><span class="badge" data-i18n="skills.inputValidation">Input Validation</span>
+              <span class="badge">JWT Authentication</span
+              ><span class="badge">Session-Based Auth</span> <span class="badge">RBAC</span
+              ><span class="badge">Password Hashing</span
+              ><span class="badge">Input Validation</span>
             </div>
           </div>
           <div class="card p-5">
             <h3 class="text-sm font-semibold mb-4 flex items-center gap-2">
               <i class="bi bi-diagram-3 text-muted-foreground"></i
-              ><span data-i18n="skills.architecture">Architecture &amp; Patterns</span>
+              ><span>Architecture &amp; Patterns</span>
             </h3>
             <div class="flex flex-wrap gap-2">
-              <span class="badge" data-i18n="skills.mvc">MVC Architecture</span
-              ><span class="badge" data-i18n="skills.modular">Modular Architecture</span>
-              <span class="badge" data-i18n="skills.serviceRepo">Service/Repository Pattern</span
-              ><span class="badge" data-i18n="skills.singleton">Singleton Pattern</span>
-              <span class="badge" data-i18n="skills.errorHandling">Centralized Error Handling</span>
+              <span class="badge">MVC Architecture</span
+              ><span class="badge">Modular Architecture</span>
+              <span class="badge">Service/Repository Pattern</span
+              ><span class="badge">Singleton Pattern</span>
+              <span class="badge">Centralized Error Handling</span>
             </div>
           </div>
           <div class="card p-5">
             <h3 class="text-sm font-semibold mb-4 flex items-center gap-2">
-              <i class="bi bi-broadcast text-muted-foreground"></i
-              ><span data-i18n="skills.realtime">Real-Time</span>
+              <i class="bi bi-broadcast text-muted-foreground"></i><span>Real-Time</span>
             </h3>
             <div class="flex flex-wrap gap-2">
               <span class="badge">WebSocket</span><span class="badge">Socket.io</span>
@@ -1037,8 +890,7 @@
           </div>
           <div class="card p-5">
             <h3 class="text-sm font-semibold mb-4 flex items-center gap-2">
-              <i class="bi bi-tools text-muted-foreground"></i
-              ><span data-i18n="skills.toolsDeploy">Tools &amp; Deployment</span>
+              <i class="bi bi-tools text-muted-foreground"></i><span>Tools &amp; Deployment</span>
             </h3>
             <div class="flex flex-wrap gap-2">
               <span class="badge">Git</span><span class="badge">GitHub</span
@@ -1048,13 +900,12 @@
           </div>
           <div class="card p-5">
             <h3 class="text-sm font-semibold mb-4 flex items-center gap-2">
-              <i class="bi bi-stars text-muted-foreground"></i
-              ><span data-i18n="skills.other">Other Skills</span>
+              <i class="bi bi-stars text-muted-foreground"></i><span>Other Skills</span>
             </h3>
             <div class="flex flex-wrap gap-2">
-              <span class="badge" data-i18n="skills.pwa">Progressive Web Apps (PWA)</span
-              ><span class="badge" data-i18n="skills.sw">Service Workers</span>
-              <span class="badge" data-i18n="skills.regex">Regular Expressions (RegEx)</span
+              <span class="badge">Progressive Web Apps (PWA)</span
+              ><span class="badge">Service Workers</span>
+              <span class="badge">Regular Expressions (RegEx)</span
               ><span class="badge">Canvas API</span>
             </div>
           </div>
@@ -1066,10 +917,8 @@
         id="education"
         class="max-w-5xl mx-auto px-5 md:px-6 py-16 md:py-20 border-t border-border"
       >
-        <h2 class="text-2xl md:text-3xl font-bold mb-2" data-i18n="education.h2">
-          Education &amp; certificates
-        </h2>
-        <p class="text-muted-foreground text-sm mb-10" data-i18n="education.p">
+        <h2 class="text-2xl md:text-3xl font-bold mb-2">Education &amp; certificates</h2>
+        <p class="text-muted-foreground text-sm mb-10">
           Self-taught, with structured courses along the way.
         </p>
 
@@ -1081,19 +930,9 @@
               <i class="bi bi-mortarboard"></i>
             </span>
             <div>
-              <h3 class="font-medium text-sm mb-1" data-i18n="education.item1.title">
-                Self-directed MERN stack study
-              </h3>
-              <p
-                class="text-xs text-muted-foreground leading-relaxed mb-1"
-                data-i18n="education.item1.date"
-              >
-                2025 — present
-              </p>
-              <p
-                class="text-sm text-muted-foreground leading-relaxed"
-                data-i18n="education.item1.desc"
-              >
+              <h3 class="font-medium text-sm mb-1">Self-directed MERN stack study</h3>
+              <p class="text-xs text-muted-foreground leading-relaxed mb-1">2025 — present</p>
+              <p class="text-sm text-muted-foreground leading-relaxed">
                 Learning full-stack development through documentation, courses and building real
                 projects.
               </p>
@@ -1106,19 +945,9 @@
               <i class="bi bi-patch-check"></i>
             </span>
             <div>
-              <h3 class="font-medium text-sm mb-1" data-i18n="education.item2.title">
-                Certificates
-              </h3>
-              <p
-                class="text-xs text-muted-foreground leading-relaxed mb-1"
-                data-i18n="education.item2.date"
-              >
-                No certificates yet
-              </p>
-              <p
-                class="text-sm text-muted-foreground leading-relaxed"
-                data-i18n="education.item2.desc"
-              >
+              <h3 class="font-medium text-sm mb-1">Certificates</h3>
+              <p class="text-xs text-muted-foreground leading-relaxed mb-1">No certificates yet</p>
+              <p class="text-sm text-muted-foreground leading-relaxed">
                 Nothing to show here for now — I'll add certificates here as I complete them.
               </p>
             </div>
@@ -1131,8 +960,8 @@
         id="work"
         class="max-w-5xl mx-auto px-5 md:px-6 py-16 md:py-20 border-t border-border"
       >
-        <h2 class="text-2xl md:text-3xl font-bold mb-2" data-i18n="work.h2">Work</h2>
-        <p class="text-muted-foreground text-sm mb-10" data-i18n="work.p">
+        <h2 class="text-2xl md:text-3xl font-bold mb-2">Work</h2>
+        <p class="text-muted-foreground text-sm mb-10">
           A project I've been building — more in progress.
         </p>
 
@@ -1144,18 +973,15 @@
               >
                 <i class="bi bi-check2-square"></i>
               </span>
-              <span class="badge" data-i18n="work.personalProject">Personal project</span>
+              <span class="badge">Personal project</span>
             </div>
             <h3 class="font-semibold text-lg mb-2">Peek</h3>
-            <p
-              class="text-sm text-muted-foreground leading-relaxed mb-5"
-              data-i18n="work.peekDesc"
-            >
+            <p class="text-sm text-muted-foreground leading-relaxed mb-5">
               A powerful static file explorer server. Built with Node.js, this tool allows you to
               serve static files and manage them through a beautiful web-based file explorer.
             </p>
             <a href="https://github.com/aydope/peek" class="btn btn-outline mt-auto self-start">
-              <span data-i18n="work.viewOnGithub">View on GitHub</span>
+              <span>View on GitHub</span>
               <i class="bi bi-arrow-up-right"></i>
             </a>
           </div>
@@ -1166,8 +992,8 @@
             >
               <i class="bi bi-github"></i>
             </span>
-            <h3 class="font-semibold text-lg mb-2" data-i18n="work.moreTitle">More on GitHub</h3>
-            <p class="text-sm text-muted-foreground leading-relaxed mb-5" data-i18n="work.moreDesc">
+            <h3 class="font-semibold text-lg mb-2">More on GitHub</h3>
+            <p class="text-sm text-muted-foreground leading-relaxed mb-5">
               I'm actively building new projects. Check my profile for what I'm currently working
               on.
             </p>
@@ -1183,34 +1009,28 @@
         id="github"
         class="max-w-5xl mx-auto px-5 md:px-6 py-16 md:py-20 border-t border-border"
       >
-        <h2 class="text-2xl md:text-3xl font-bold mb-2" data-i18n="github.h2">GitHub activity</h2>
-        <p class="text-muted-foreground text-sm mb-10" data-i18n="github.p">
-          Pulled live from the GitHub API.
-        </p>
+        <h2 class="text-2xl md:text-3xl font-bold mb-2">GitHub activity</h2>
+        <p class="text-muted-foreground text-sm mb-10">Pulled live from the GitHub API.</p>
 
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-4" id="githubStats">
           <div class="card p-5 text-center">
             <span class="text-2xl font-bold block" id="gh-repos">—</span>
-            <span class="text-muted-foreground text-xs" data-i18n="github.repos">public repos</span>
+            <span class="text-muted-foreground text-xs">public repos</span>
           </div>
           <div class="card p-5 text-center">
             <span class="text-2xl font-bold block" id="gh-followers">—</span>
-            <span class="text-muted-foreground text-xs" data-i18n="github.followers"
-              >followers</span
-            >
+            <span class="text-muted-foreground text-xs">followers</span>
           </div>
           <div class="card p-5 text-center">
             <span class="text-2xl font-bold block" id="gh-following">—</span>
-            <span class="text-muted-foreground text-xs" data-i18n="github.following"
-              >following</span
-            >
+            <span class="text-muted-foreground text-xs">following</span>
           </div>
           <div class="card p-5 text-center">
             <span class="text-2xl font-bold block" id="gh-since">—</span>
-            <span class="text-muted-foreground text-xs" data-i18n="github.since">member since</span>
+            <span class="text-muted-foreground text-xs">member since</span>
           </div>
         </div>
-        <p id="gh-error" class="text-xs text-muted-foreground mt-4 hidden" data-i18n="github.error">
+        <p id="gh-error" class="text-xs text-muted-foreground mt-4 hidden">
           Couldn't reach the GitHub API right now — refresh to try again.
         </p>
       </section>
@@ -1220,34 +1040,28 @@
         id="now"
         class="max-w-5xl mx-auto px-5 md:px-6 py-16 md:py-20 border-t border-border"
       >
-        <h2 class="text-2xl md:text-3xl font-bold mb-2" data-i18n="now.h2">Now</h2>
-        <p class="text-muted-foreground text-sm mb-10" data-i18n="now.p">
-          What I'm focused on at the moment.
-        </p>
+        <h2 class="text-2xl md:text-3xl font-bold mb-2">Now</h2>
+        <p class="text-muted-foreground text-sm mb-10">What I'm focused on at the moment.</p>
 
         <div class="grid sm:grid-cols-3 gap-4">
           <div class="card p-5">
             <i class="bi bi-diagram-3 text-accent text-lg mb-3 block"></i>
-            <h3 class="font-medium text-sm mb-1.5" data-i18n="now.card1.title">Learning Nest.js</h3>
-            <p class="text-xs text-muted-foreground leading-relaxed" data-i18n="now.card1.desc">
+            <h3 class="font-medium text-sm mb-1.5">Learning Nest.js</h3>
+            <p class="text-xs text-muted-foreground leading-relaxed">
               Going deeper into structured, production-style back ends.
             </p>
           </div>
           <div class="card p-5">
             <i class="bi bi-plug text-accent text-lg mb-3 block"></i>
-            <h3 class="font-medium text-sm mb-1.5" data-i18n="now.card2.title">
-              REST APIs &amp; WebSockets
-            </h3>
-            <p class="text-xs text-muted-foreground leading-relaxed" data-i18n="now.card2.desc">
+            <h3 class="font-medium text-sm mb-1.5">REST APIs &amp; WebSockets</h3>
+            <p class="text-xs text-muted-foreground leading-relaxed">
               Practicing real-time features with Socket.io.
             </p>
           </div>
           <div class="card p-5">
             <i class="bi bi-briefcase text-accent text-lg mb-3 block"></i>
-            <h3 class="font-medium text-sm mb-1.5" data-i18n="now.card3.title">
-              Looking for my next role
-            </h3>
-            <p class="text-xs text-muted-foreground leading-relaxed" data-i18n="now.card3.desc">
+            <h3 class="font-medium text-sm mb-1.5">Looking for my next role</h3>
+            <p class="text-xs text-muted-foreground leading-relaxed">
               Open to full-stack roles, freelance work and collaborations.
             </p>
           </div>
@@ -1259,10 +1073,8 @@
         id="faq"
         class="max-w-5xl mx-auto px-5 md:px-6 py-16 md:py-20 border-t border-border"
       >
-        <h2 class="text-2xl md:text-3xl font-bold mb-2" data-i18n="faq.h2">FAQ</h2>
-        <p class="text-muted-foreground text-sm mb-10" data-i18n="faq.p">
-          Common questions I get asked.
-        </p>
+        <h2 class="text-2xl md:text-3xl font-bold mb-2">FAQ</h2>
+        <p class="text-muted-foreground text-sm mb-10">Common questions I get asked.</p>
 
         <div class="max-w-2xl divide-y divide-border border-y border-border" id="faqList">
           <div class="faq-item py-1">
@@ -1270,15 +1082,10 @@
               class="faq-trigger w-full flex items-center justify-between text-left py-4 gap-4"
               aria-expanded="false"
             >
-              <span class="font-medium text-sm" data-i18n="faq.q1"
-                >Are you available for work right now?</span
-              >
+              <span class="font-medium text-sm">Are you available for work right now?</span>
               <i class="bi bi-plus faq-icon text-muted-foreground"></i>
             </button>
-            <div
-              class="faq-panel hidden pb-4 text-sm text-muted-foreground leading-relaxed"
-              data-i18n="faq.a1"
-            >
+            <div class="faq-panel hidden pb-4 text-sm text-muted-foreground leading-relaxed">
               Yes — I'm open to full-stack roles, freelance projects and collaborations, remote or
               in Tehran.
             </div>
@@ -1288,15 +1095,10 @@
               class="faq-trigger w-full flex items-center justify-between text-left py-4 gap-4"
               aria-expanded="false"
             >
-              <span class="font-medium text-sm" data-i18n="faq.q2"
-                >Do you work more on frontend or backend?</span
-              >
+              <span class="font-medium text-sm">Do you work more on frontend or backend?</span>
               <i class="bi bi-plus faq-icon text-muted-foreground"></i>
             </button>
-            <div
-              class="faq-panel hidden pb-4 text-sm text-muted-foreground leading-relaxed"
-              data-i18n="faq.a2"
-            >
+            <div class="faq-panel hidden pb-4 text-sm text-muted-foreground leading-relaxed">
               Both, but I have more experience on the backend with Node.js, Express and MongoDB. I
               use React and Tailwind CSS for the frontend.
             </div>
@@ -1306,15 +1108,10 @@
               class="faq-trigger w-full flex items-center justify-between text-left py-4 gap-4"
               aria-expanded="false"
             >
-              <span class="font-medium text-sm" data-i18n="faq.q3"
-                >Do you have a resume I can download?</span
-              >
+              <span class="font-medium text-sm">Do you have a resume I can download?</span>
               <i class="bi bi-plus faq-icon text-muted-foreground"></i>
             </button>
-            <div
-              class="faq-panel hidden pb-4 text-sm text-muted-foreground leading-relaxed"
-              data-i18n="faq.a3"
-            >
+            <div class="faq-panel hidden pb-4 text-sm text-muted-foreground leading-relaxed">
               Yes — use the "Resume" button in the header or hero. You can choose a backend- or
               frontend-focused version, in English or Persian.
             </div>
@@ -1324,15 +1121,10 @@
               class="faq-trigger w-full flex items-center justify-between text-left py-4 gap-4"
               aria-expanded="false"
             >
-              <span class="font-medium text-sm" data-i18n="faq.q4"
-                >What's the best way to reach you?</span
-              >
+              <span class="font-medium text-sm">What's the best way to reach you?</span>
               <i class="bi bi-plus faq-icon text-muted-foreground"></i>
             </button>
-            <div
-              class="faq-panel hidden pb-4 text-sm text-muted-foreground leading-relaxed"
-              data-i18n="faq.a4"
-            >
+            <div class="faq-panel hidden pb-4 text-sm text-muted-foreground leading-relaxed">
               Email is fastest, or send a message on LinkedIn — both are checked daily.
             </div>
           </div>
@@ -1347,14 +1139,12 @@
         <div class="card p-6 md:p-10">
           <div class="grid md:grid-cols-5 gap-10">
             <div class="md:col-span-2">
-              <h2 class="text-2xl md:text-3xl font-bold mb-3" data-i18n="contact.h2">
-                Get in touch
-              </h2>
-              <p class="text-muted-foreground text-sm leading-relaxed mb-4" data-i18n="contact.p">
+              <h2 class="text-2xl md:text-3xl font-bold mb-3">Get in touch</h2>
+              <p class="text-muted-foreground text-sm leading-relaxed mb-4">
                 Have a project in mind, or a role that fits? I'd like to hear about it.
               </p>
               <button id="consultBtnContact" class="btn btn-outline !h-9 !text-xs mb-6">
-                <span data-i18n="contact.orConsult">Or request a consultation</span>
+                <span>Or request a consultation</span>
                 <i class="bi bi-arrow-up-right"></i>
               </button>
 
@@ -1382,7 +1172,7 @@
                     class="w-9 h-9 rounded-md bg-muted flex items-center justify-center text-muted-foreground"
                     ><i class="bi bi-geo-alt"></i
                   ></span>
-                  <span data-i18n="about.location">Remote / Tehran, Iran</span>
+                  <span>Remote / Tehran, Iran</span>
                 </div>
               </div>
 
@@ -1421,26 +1211,13 @@
             <form class="md:col-span-3 grid gap-4" id="contactForm">
               <div class="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <label
-                    class="text-xs text-muted-foreground mb-1.5 block"
-                    for="cf-name"
-                    data-i18n="contact.form.name"
+                  <label class="text-xs text-muted-foreground mb-1.5 block" for="cf-name"
                     >Name</label
                   >
-                  <input
-                    id="cf-name"
-                    class="input"
-                    type="text"
-                    data-i18n-placeholder="contact.form.namePlaceholder"
-                    placeholder="Your name"
-                    required
-                  />
+                  <input id="cf-name" class="input" type="text" placeholder="Your name" required />
                 </div>
                 <div>
-                  <label
-                    class="text-xs text-muted-foreground mb-1.5 block"
-                    for="cf-email"
-                    data-i18n="contact.form.email"
+                  <label class="text-xs text-muted-foreground mb-1.5 block" for="cf-email"
                     >Email</label
                   >
                   <input
@@ -1453,27 +1230,21 @@
                 </div>
               </div>
               <div>
-                <label
-                  class="text-xs text-muted-foreground mb-1.5 block"
-                  for="cf-msg"
-                  data-i18n="contact.form.message"
+                <label class="text-xs text-muted-foreground mb-1.5 block" for="cf-msg"
                   >Message</label
                 >
                 <textarea
                   id="cf-msg"
                   class="input"
                   rows="4"
-                  data-i18n-placeholder="contact.form.messagePlaceholder"
                   placeholder="What are you building?"
                   required
                 ></textarea>
               </div>
               <button type="submit" class="btn btn-primary w-full sm:w-auto justify-self-start">
-                <span data-i18n="contact.form.send">Send message</span> <i class="bi bi-send"></i>
+                <span>Send message</span> <i class="bi bi-send"></i>
               </button>
-              <p class="text-xs text-muted-foreground -mt-1" data-i18n="contact.form.note">
-                This opens your email client.
-              </p>
+              <p class="text-xs text-muted-foreground -mt-1">This opens your email client.</p>
             </form>
           </div>
         </div>
@@ -1484,13 +1255,8 @@
       <div
         class="max-w-5xl mx-auto px-5 md:px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground"
       >
-        <span
-          >© <span id="year"></span>
-          <span data-i18n="footer.rights">Amin Sadeghi. All rights reserved.</span></span
-        >
-        <span class="font-mono ltr-always" data-i18n="footer.builtWith"
-          >built with tailwind, no framework</span
-        >
+        <span>© <span id="year"></span> <span>Amin Sadeghi. All rights reserved.</span></span>
+        <span class="font-mono ltr-always">built with tailwind, no framework</span>
       </div>
     </footer>
     <script src="src/js/app.js"></script>

@@ -109,8 +109,14 @@ function checkRateLimit(formName) {
   const remaining = getRemainingRateLimit(formName);
   if (remaining <= 0) return true;
   const time = formatRemaining(remaining);
-  const key = formName === "contact" ? "contact.rateLimited" : "consult.rateLimited";
-  showToast(t(key).replace("{time}", time), "info");
+  const key =
+    formName === "contact"
+      ? "You've already sent a message recently. Please try again in {time}."
+      : "consult.rateLimited";
+  showToast(
+    "You've already sent a request recently. Please try again in {time}.".replace("{time}", time),
+    "info",
+  );
   return false;
 }
 
@@ -434,44 +440,6 @@ const translations = {
   },
 };
 
-function t(key) {
-  const lang = document.documentElement.lang === "fa" ? "fa" : "en";
-  return (translations[lang] && translations[lang][key]) || translations.en[key] || key;
-}
-
-function applyLanguage(lang) {
-  document.documentElement.lang = lang;
-  document.documentElement.dir = lang === "fa" ? "rtl" : "ltr";
-  document.querySelectorAll("[data-i18n]").forEach((el) => {
-    const key = el.getAttribute("data-i18n");
-    const val = translations[lang][key];
-    if (val !== undefined) el.textContent = val;
-  });
-  document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
-    const key = el.getAttribute("data-i18n-placeholder");
-    const val = translations[lang][key];
-    if (val !== undefined) el.setAttribute("placeholder", val);
-  });
-  localStorage.setItem(LANG_KEY, lang);
-}
-
-function initLanguage() {
-  const saved = localStorage.getItem(LANG_KEY);
-  const lang = saved === "fa" || saved === "en" ? saved : "en";
-  applyLanguage(lang);
-}
-initLanguage();
-
-["langToggle", "langToggleMobile"].forEach((id) => {
-  const el = document.getElementById(id);
-  if (el) {
-    el.addEventListener("click", () => {
-      const next = document.documentElement.lang === "fa" ? "en" : "fa";
-      applyLanguage(next);
-    });
-  }
-});
-
 const menuToggle = document.getElementById("menuToggle");
 const mobileSidebar = document.getElementById("mobileSidebar");
 const sidebarOverlay = document.getElementById("sidebarOverlay");
@@ -525,7 +493,7 @@ document.getElementById("contactForm").addEventListener("submit", async (e) => {
   const submitBtn = e.target.querySelector('button[type="submit"]');
   const originalHTML = submitBtn.innerHTML;
   submitBtn.disabled = true;
-  submitBtn.innerHTML = `<span class="spinner"></span>${t("contact.sending")}`;
+  submitBtn.innerHTML = '<span class="spinner"></span>Sending…';
 
   const name = document.getElementById("cf-name").value;
   const email = document.getElementById("cf-email").value;
@@ -540,7 +508,7 @@ document.getElementById("contactForm").addEventListener("submit", async (e) => {
 
   if (result.ok) {
     markRateLimit("contact");
-    showToast(t("contact.sentViaTelegram"), "success");
+    showToast("Request sent successfully", "success");
     e.target.reset();
   } else {
     const body = encodeURIComponent(`${msg}\n\n— ${name} (${email})`);
@@ -598,11 +566,15 @@ document.querySelectorAll(".resume-track").forEach((btn) => {
     selectedTrack = btn.dataset.track;
     resumeStep2Sub.setAttribute(
       "data-i18n",
-      selectedTrack === "backend" ? "resume.step2SubBackend" : "resume.step2SubFrontend",
+      selectedTrack === "backend"
+        ? "Backend resume — pick a language"
+        : "Frontend resume — pick a language.",
     );
-    resumeStep2Sub.textContent = t(
-      selectedTrack === "backend" ? "resume.step2SubBackend" : "resume.step2SubFrontend",
-    );
+    resumeStep2Sub.textContent =
+      selectedTrack === "backend"
+        ? "Backend resume — pick a language"
+        : "Frontend resume — pick a language.";
+
     resumeStep1.classList.add("hidden");
     resumeStep2.classList.remove("hidden");
   });
@@ -793,7 +765,7 @@ consultForm.addEventListener("submit", async (e) => {
   const submitBtn = e.target.querySelector('button[type="submit"]');
   const originalHTML = submitBtn.innerHTML;
   submitBtn.disabled = true;
-  submitBtn.innerHTML = `<span class="spinner"></span>${t("consult.sending")}`;
+  submitBtn.innerHTML = '<span class="spinner"></span>Sending…';
 
   const name = document.getElementById("consult-name").value;
   const phone = document.getElementById("consult-phone").value;
@@ -810,7 +782,7 @@ consultForm.addEventListener("submit", async (e) => {
 
   if (result.ok) {
     markRateLimit("consult");
-    showToast(t("consult.sentViaTelegram"), "success");
+    showToast("Request sent successfully", "success");
     consultForm.reset();
   } else {
     const body = encodeURIComponent(`Name: ${name}\nPhone: ${phone}\nWork area: ${area}`);
