@@ -49,7 +49,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=JetBrains+Mono:wght@400;500;600&family=Vazirmatn:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=JetBrains+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <link
@@ -140,7 +140,6 @@
         color: hsl(var(--foreground));
       }
 
-      /* faint dot-grid texture instead of gradient blobs */
       .bg-grid {
         background-image: radial-gradient(hsl(var(--foreground) / 0.06) 1px, transparent 1px);
         background-size: 22px 22px;
@@ -609,7 +608,7 @@
             >
             <input
               id="consult-phone"
-              class="input ltr-always"
+              class="input"
               type="tel"
               placeholder="+98 9xx xxx xxxx"
               required
@@ -707,7 +706,7 @@
                 </div>
                 <pre
                   id="terminal"
-                  class="font-mono text-[12px] sm:text-[13px] leading-relaxed p-4 sm:p-5 h-72 overflow-hidden whitespace-pre-wrap break-words text-muted-foreground ltr-always"
+                  class="font-mono text-[12px] sm:text-[13px] leading-relaxed p-4 sm:p-5 h-72 overflow-hidden whitespace-pre-wrap break-words text-muted-foreground"
                 ></pre>
               </div>
             </div>
@@ -730,13 +729,13 @@
               and enjoy building complete products from the backend to the frontend.
             </p>
             <p class="text-muted-foreground leading-relaxed mb-8">
-              I’ve built several projects to develop my practical experience, including REST APIs,
+              I've built several projects to develop my practical experience, including REST APIs,
               authentication systems, management platforms, and web applications. I care about clean
               code, good architecture, problem-solving, and building things that are actually
               useful.
             </p>
             <p class="text-muted-foreground leading-relaxed mb-8">
-              I’m currently looking for an opportunity where I can contribute to real-world
+              I'm currently looking for an opportunity where I can contribute to real-world
               projects, work with a development team, and continue growing as a developer.
             </p>
 
@@ -765,7 +764,7 @@
               >
               <span class="flex items-center gap-2 text-muted-foreground"
                 ><i class="bi bi-envelope text-foreground/70"></i
-                ><span class="ltr-always">amin0xa1b@gmail.com</span></span
+                ><span>amin0xa1b@gmail.com</span></span
               >
             </div>
           </div>
@@ -998,7 +997,7 @@
               on.
             </p>
             <a href="https://github.com/aydope" class="btn btn-outline mt-auto">
-              <span class="ltr-always">github.com/aydope</span> <i class="bi bi-arrow-up-right"></i>
+              <span>github.com/aydope</span> <i class="bi bi-arrow-up-right"></i>
             </a>
           </div>
         </div>
@@ -1154,18 +1153,14 @@
                     class="w-9 h-9 rounded-md bg-muted flex items-center justify-center text-muted-foreground group-hover:text-accent transition"
                     ><i class="bi bi-envelope"></i
                   ></span>
-                  <span class="group-hover:text-accent transition ltr-always"
-                    >amin0xa1b@gmail.com</span
-                  >
+                  <span class="group-hover:text-accent transition">amin0xa1b@gmail.com</span>
                 </a>
                 <a href="tel:+989915867462" class="flex items-center gap-3 group">
                   <span
                     class="w-9 h-9 rounded-md bg-muted flex items-center justify-center text-muted-foreground group-hover:text-accent transition"
                     ><i class="bi bi-telephone"></i
                   ></span>
-                  <span class="group-hover:text-accent transition ltr-always"
-                    >+98 991 586 7462</span
-                  >
+                  <span class="group-hover:text-accent transition">+98 991 586 7462</span>
                 </a>
                 <div class="flex items-center gap-3">
                   <span
@@ -1191,13 +1186,13 @@
                   target="_blank"
                   ><i class="bi bi-linkedin"></i
                 ></a>
-                <af
+                <a
                   href="https://instagram.com/aydope.r"
                   class="btn btn-outline !h-10 !w-10 !p-0"
                   aria-label="Instagram"
                   target="_blank"
                   ><i class="bi bi-instagram"></i
-                ></af>
+                ></a>
                 <a
                   href="https://t.me/aydope"
                   class="btn btn-outline !h-10 !w-10 !p-0"
@@ -1256,7 +1251,7 @@
         class="max-w-5xl mx-auto px-5 md:px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted-foreground"
       >
         <span>© <span id="year"></span> <span>Amin Sadeghi. All rights reserved.</span></span>
-        <span class="font-mono ltr-always">built with tailwind, no framework</span>
+        <span class="font-mono">built with tailwind, no framework</span>
       </div>
     </footer>
     <script src="src/js/app.js"></script>
