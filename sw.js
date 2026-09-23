@@ -1,4 +1,4 @@
-const CACHE_NAME = "aydope-cache-v4";
+const CACHE_NAME = "aydope-cache-v5";
 const APP_SHELL = [
   "/",
   "/index.html",
@@ -8,7 +8,18 @@ const APP_SHELL = [
   "/src/assets/logo/favicon-96x96.png",
   "/src/assets/logo/favicon.svg",
   "/src/assets/logo/apple-touch-icon.png",
+  "/src/assets/logo/web-app-manifest-192x192.png",
+  "/src/assets/logo/web-app-manifest-512x512.png",
 ];
+
+const OWN_TOP_LEVEL_SEGMENTS = new Set(["index.html", "manifest.json", "sw.js", "src"]);
+
+function isOwnRequest(url) {
+  if (url.origin !== self.location.origin) return false;
+  const segments = url.pathname.split("/").filter(Boolean);
+  if (segments.length === 0) return true;
+  return OWN_TOP_LEVEL_SEGMENTS.has(segments[0]);
+}
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
@@ -43,7 +54,9 @@ self.addEventListener("fetch", (event) => {
 
   if (request.method !== "GET") return;
 
-  if (new URL(request.url).origin !== self.location.origin) return;
+  const url = new URL(request.url);
+
+  if (!isOwnRequest(url)) return;
 
   event.respondWith(
     caches.match(request).then((cached) => {
