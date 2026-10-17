@@ -38,21 +38,10 @@ body {
 
 /* faint dot-grid texture instead of gradient blobs */
 .bg-grid {
-  background-image: radial-gradient(
-    hsl(var(--foreground) / 0.06) 1px,
-    transparent 1px
-  );
+  background-image: radial-gradient(hsl(var(--foreground) / 0.06) 1px, transparent 1px);
   background-size: 22px 22px;
-  -webkit-mask-image: radial-gradient(
-    ellipse 70% 55% at 50% 0%,
-    #000 45%,
-    transparent 100%
-  );
-  mask-image: radial-gradient(
-    ellipse 70% 55% at 50% 0%,
-    #000 45%,
-    transparent 100%
-  );
+  -webkit-mask-image: radial-gradient(ellipse 70% 55% at 50% 0%, #000 45%, transparent 100%);
+  mask-image: radial-gradient(ellipse 70% 55% at 50% 0%, #000 45%, transparent 100%);
 }
 
 .btn {

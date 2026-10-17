@@ -1,7 +1,37 @@
 document.getElementById("year").textContent = new Date().getFullYear();
 
 const NOTIFY_ENDPOINT = "https://adotp.awaitbe.workers.dev/";
-const NOTIFY_TIMEOUT_MS = 5000;
+const NOTIFY_TIMEOUT_MS = 3000;
+const CONTACT_EMAIL = "amin0xa1b@gmail.com";
+
+function readStore(key) {
+  try {
+    return localStorage.getItem(key);
+  } catch {
+    // Storage can be blocked (private mode); treat it as empty.
+    return null;
+  }
+}
+
+function writeStore(key, value) {
+  try {
+    localStorage.setItem(key, value);
+  } catch {
+    // Losing the rate limit is better than breaking the form.
+  }
+}
+
+// Used when Telegram is unreachable (no VPN). The timeout is short on purpose:
+// browsers only allow mailto: shortly after a click, so we also show a link
+// the user can tap, which counts as a fresh click.
+function fallbackToEmail(subject, body) {
+  const href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  showToast(
+    `Could not send directly. <a class="underline" href="${href}">Open your email app</a> or write to ${CONTACT_EMAIL}`,
+    "info",
+  );
+  window.location.href = href;
+}
 
 async function notifyTelegram(text) {
   if (!NOTIFY_ENDPOINT) return { ok: false };
@@ -78,7 +108,7 @@ function rateLimitKey(formName) {
 }
 
 function getRemainingRateLimit(formName) {
-  const raw = localStorage.getItem(rateLimitKey(formName));
+  const raw = readStore(rateLimitKey(formName));
   if (!raw) return 0;
   const sentAt = Number(raw);
   if (!sentAt) return 0;
@@ -89,7 +119,7 @@ function getRemainingRateLimit(formName) {
 }
 
 function markRateLimit(formName) {
-  localStorage.setItem(rateLimitKey(formName), String(Date.now()));
+  writeStore(rateLimitKey(formName), String(Date.now()));
 }
 
 function formatRemaining(ms) {
@@ -180,10 +210,7 @@ document.getElementById("contactForm").addEventListener("submit", async (e) => {
     showToast("Message sent successfully", "success");
     e.target.reset();
   } else {
-    const body = encodeURIComponent(`${msg}\n\n— ${name} (${email})`);
-    window.location.href = `mailto:amin0xa1b@gmail.com?subject=${encodeURIComponent(
-      "Portfolio contact from " + name,
-    )}&body=${body}`;
+    fallbackToEmail("Portfolio contact from " + name, `${msg}\n\nFrom: ${name} (${email})`);
   }
 });
 
@@ -280,12 +307,13 @@ fetch("https://api.github.com/users/aydope")
     }
   })
   .catch(() => {
-    document.getElementById("gh-error").classList.remove("hidden");
+    document.getElementById("github")?.classList.add("hidden");
+    document.querySelectorAll('[data-nav="github"]').forEach((l) => l.classList.add("hidden"));
   });
 
 const lines = [
   { text: "$ whoami", pause: 350 },
-  { text: "amin@aydope — full-stack developer", pause: 500, muted: false },
+  { text: "amin@aydope - junior MERN developer", pause: 500, muted: false },
   { text: "", pause: 150 },
   { text: "$ cat stack.json", pause: 350 },
   { text: "  frontend  react · typescript · tailwind", pause: 250 },
@@ -446,10 +474,10 @@ consultForm.addEventListener("submit", async (e) => {
     showToast("Request sent successfully", "success");
     consultForm.reset();
   } else {
-    const body = encodeURIComponent(`Name: ${name}\nPhone: ${phone}\nWork area: ${area}`);
-    window.location.href = `mailto:amin0xa1b@gmail.com?subject=${encodeURIComponent(
+    fallbackToEmail(
       "Consultation request from " + name,
-    )}&body=${body}`;
+      `Name: ${name}\nPhone: ${phone}\nWork area: ${area}`,
+    );
   }
 });
 
@@ -461,12 +489,12 @@ const INSTALL_SNOOZE_KEY = "aydope-install-snoozed-until";
 let deferredInstallPrompt = null;
 
 function installBannerSnoozed() {
-  const until = Number(localStorage.getItem(INSTALL_SNOOZE_KEY) || 0);
+  const until = Number(readStore(INSTALL_SNOOZE_KEY) || 0);
   return Date.now() < until;
 }
 function snoozeInstallBanner(days) {
   const until = Date.now() + days * 24 * 60 * 60 * 1000;
-  localStorage.setItem(INSTALL_SNOOZE_KEY, String(until));
+  writeStore(INSTALL_SNOOZE_KEY, String(until));
 }
 function hideInstallBanner() {
   installBanner.classList.add("hidden");

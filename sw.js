@@ -1,9 +1,14 @@
-const CACHE_NAME = "aydope-cache-v8";
+const CACHE_NAME = "aydope-cache-v9";
+const NETWORK_TIMEOUT_MS = 3000;
 const APP_SHELL = [
   "/",
   "/index.html",
   "/manifest.json",
   "/src/styles/style.css",
+  "/src/js/app.js",
+  "/src/js/projects-data.js",
+  "/src/js/projects.js",
+  "/src/js/smooth-scroll.js",
   "/src/assets/logo/favicon.ico",
   "/src/assets/logo/favicon-96x96.png",
   "/src/assets/logo/favicon.svg",
@@ -19,6 +24,31 @@ function isOwnRequest(url) {
   const segments = url.pathname.split("/").filter(Boolean);
   if (segments.length === 0) return true;
   return OWN_TOP_LEVEL_SEGMENTS.has(segments[0]);
+}
+
+async function networkFirst(request) {
+  const network = fetch(request, { cache: "no-cache" }).then((response) => {
+    if (response.ok) {
+      const clone = response.clone();
+      caches.open(CACHE_NAME).then((cache) => cache.put(request, clone));
+    }
+    return response;
+  });
+  // If the timeout wins, this request keeps refreshing the cache; don't report its failure as unhandled.
+  network.catch(() => {});
+  const timeout = new Promise((_, reject) => setTimeout(reject, NETWORK_TIMEOUT_MS));
+
+  try {
+    return await Promise.race([network, timeout]);
+  } catch {
+    const cached = await caches.match(request);
+    if (cached) return cached;
+    try {
+      return await network;
+    } catch {
+      return (await caches.match("/")) ?? Response.error();
+    }
+  }
 }
 
 self.addEventListener("install", (event) => {
@@ -69,16 +99,5 @@ self.addEventListener("fetch", (event) => {
 
   if (!isOwnRequest(url)) return;
 
-  event.respondWith(
-    caches.match(request).then((cached) => {
-      if (cached) return cached;
-      return fetch(request).then((response) => {
-        if (response && response.ok) {
-          const clone = response.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(request, clone));
-        }
-        return response;
-      });
-    }),
-  );
+  event.respondWith(networkFirst(request));
 });

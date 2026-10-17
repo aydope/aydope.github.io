@@ -8,7 +8,7 @@
 
 ## About Me
 
-I’m a Full-Stack Web Developer focused on building modern web applications with JavaScript, TypeScript, Node.js, React, and MongoDB.
+I’m a junior MERN stack developer focused on building modern web applications with JavaScript, TypeScript, Node.js, React, and MongoDB.
 
 My main focus is backend development, especially building REST APIs, authentication systems, database-driven applications, and real-time features. I also work with React and enjoy building complete products from the backend to the frontend.
 
@@ -42,4 +42,4 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
-<p align="center">Made with ❤️ by Aydope</p>
+<p align="center">Made with ❤️ by  (Mohammad Amin Sadeghi) Aydope</p>
