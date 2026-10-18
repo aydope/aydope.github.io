@@ -37,7 +37,7 @@
   ).join("");
 
   function previewMarkup(p) {
-    if (p.demo) {
+    if (p.demo && p?.showDemoAsIframe) {
       return `<iframe src="${esc(p.demo)}" title="${esc(p.name)} live preview" class="w-full h-full border-0" sandbox="allow-scripts allow-same-origin allow-popups"></iframe>`;
     }
     if (p.image) {

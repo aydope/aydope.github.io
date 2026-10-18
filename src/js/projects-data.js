@@ -1,16 +1,3 @@
-// Edit this list to add or change portfolio projects. Nothing else needs to be touched.
-//
-// slug         unique id, also used for the card button
-// name         title shown on the card and in the modal
-// icon         any Bootstrap Icons class name, for example "bi-terminal"
-// kind         small badge on the card ("Personal project", "Open source", ...)
-// summary      one or two sentences for the card
-// description  longer text for the modal
-// highlights   bullet list in the modal
-// stack        technology badges
-// repo         GitHub URL, or null to hide the Source code button
-// demo         live URL, or null. When set, the modal embeds it as the preview.
-// image        screenshot path used as the preview when there is no demo, or null
 const PROJECTS = [
   {
     slug: "peek",
@@ -27,8 +14,75 @@ const PROJECTS = [
     ],
     stack: ["Node.js", "JavaScript"],
     repo: "https://github.com/aydope/peek",
-    demo: null,
-    image: null,
+    demo: "https://www.npmjs.com/package/peek-explorer",
+    image: "https://placehold.co/600x300?text=No preview available",
+  },
+  {
+    slug: "weather-app",
+    name: "Weather App",
+    icon: "bi-cloud-sun",
+    kind: "Personal project",
+    summary: "A responsive weather application built with React and TypeScript.",
+    description:
+      "A weather application built with React and TypeScript that provides a clean, responsive interface for exploring weather information. It demonstrates component-based architecture, type-safe development, and dynamic UI updates.",
+    highlights: [
+      "Dynamic weather information",
+      "Responsive user interface",
+      "Component-based architecture",
+      "Type-safe development with TypeScript",
+    ],
+    stack: ["React", "TypeScript"],
+    repo: "https://github.com/aydope/weather-app",
+    demo: "/weather-app/",
+    image: "/src/assets/previews/aftab.png",
+  },
+  {
+    slug: "farmaan",
+    name: "Farmaan",
+    icon: "bi-check2-square",
+    kind: "Personal project",
+    summary: "A simple, focused task manager.",
+    description:
+      "Farmaan is a task manager with a Persian-first interface and a minimal flow: add a task, finish it, move on.",
+    highlights: ["Persian-first interface", "Clean, minimal task flow"],
+    stack: ["HTML", "TailwindCSS", "Bootstrap Icons", "JQuery", "GSAP", "JavaScript"],
+    repo: "https://github.com/aydope/farmaan",
+    demo: "/farmaan/",
+    image: "/src/assets/previews/farmaan.png",
+  },
+  {
+    slug: "id",
+    name: "Digital ID",
+    icon: "bi-person-vcard",
+    kind: "Personal project",
+    summary: "A digital identity card that works as a compact personal profile page.",
+    description:
+      "A single-page digital ID card with my name, links and contact details, built as plain HTML and CSS with no build step.",
+    highlights: ["Single-page card layout", "Static, no build step"],
+    stack: ["HTML", "CSS", "JS"],
+    repo: "https://github.com/aydope/id",
+    demo: "/id/",
+    image: "/src/assets/previews/id.png",
+  },
+  {
+    slug: "shopika",
+    name: "Shopika",
+    icon: "bi-bag",
+    kind: "Personal project",
+    summary: "A responsive shopping platform UI template built with React and TypeScript.",
+    description:
+      "Shopika is a modern shopping platform UI template built with React and TypeScript. It features product browsing interfaces, a mock user dashboard, and a mock admin dashboard, with a focus on responsive design, reusable components, and a clean user experience. It is a frontend-only project with no backend integration.",
+    highlights: [
+      "Responsive shopping platform interface",
+      "Mock user dashboard",
+      "Mock admin dashboard",
+      "Reusable React components",
+      "Type-safe development with TypeScript",
+    ],
+    stack: ["React", "TypeScript"],
+    repo: "https://github.com/aydope/shopika",
+    demo: "/shopika/",
+    image: "/src/assets/previews/shopika.png",
   },
   {
     slug: "mokat",
@@ -45,35 +99,7 @@ const PROJECTS = [
     ],
     stack: ["TypeScript", "Node.js"],
     repo: "https://github.com/aydope/mokat",
-    demo: null,
-    image: null,
-  },
-  {
-    slug: "farmaan",
-    name: "Farmaan",
-    icon: "bi-check2-square",
-    kind: "Personal project",
-    summary: "A simple, focused task manager built for Persian speakers.",
-    description:
-      "Farmaan is a task manager with a Persian-first interface and a minimal flow: add a task, finish it, move on.",
-    highlights: ["Persian-first interface", "Clean, minimal task flow"],
-    stack: ["JavaScript"],
-    repo: "https://github.com/aydope/farmaan",
-    demo: null,
-    image: null,
-  },
-  {
-    slug: "id",
-    name: "Digital ID",
-    icon: "bi-person-vcard",
-    kind: "Personal project",
-    summary: "A digital identity card that works as a compact personal profile page.",
-    description:
-      "A single-page digital ID card with my name, links and contact details, built as plain HTML and CSS with no build step.",
-    highlights: ["Single-page card layout", "Static, no build step"],
-    stack: ["HTML", "CSS"],
-    repo: "https://github.com/aydope/id",
-    demo: "/id/",
-    image: null,
+    demo: "https://npmjs.com/package/@aydope/mokat",
+    image: "https://placehold.co/600x300?text=No preview available",
   },
 ];
