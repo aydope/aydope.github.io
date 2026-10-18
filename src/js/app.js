@@ -214,7 +214,7 @@ document.getElementById("contactForm").addEventListener("submit", async (e) => {
   }
 });
 
-// Resume dialog — track (backend/frontend) then language (en/fa), handled from one object
+// Resume dialog - track (backend/frontend) then language (en/fa), handled from one object
 const resumeLinks = {
   backend: {
     en: "src/assets/resume/backend-en.pdf",
@@ -262,7 +262,7 @@ document.querySelectorAll(".resume-track").forEach((btn) => {
   btn.addEventListener("click", () => {
     selectedTrack = btn.dataset.track;
     const label = selectedTrack === "backend" ? "Backend" : "Frontend";
-    resumeStep2Sub.textContent = `${label} resume — pick a language.`;
+    resumeStep2Sub.textContent = `${label} resume - pick a language.`;
     resumeStep1.classList.add("hidden");
     resumeStep2.classList.remove("hidden");
   });
@@ -299,9 +299,9 @@ fetch("https://api.github.com/users/aydope")
     return r.json();
   })
   .then((data) => {
-    document.getElementById("gh-repos").textContent = data.public_repos ?? "—";
-    document.getElementById("gh-followers").textContent = data.followers ?? "—";
-    document.getElementById("gh-following").textContent = data.following ?? "—";
+    document.getElementById("gh-repos").textContent = data.public_repos ?? "-";
+    document.getElementById("gh-followers").textContent = data.followers ?? "-";
+    document.getElementById("gh-following").textContent = data.following ?? "-";
     if (data.created_at) {
       document.getElementById("gh-since").textContent = new Date(data.created_at).getFullYear();
     }
