@@ -1,4 +1,4 @@
-const CACHE_NAME = "aydope-cache-v9";
+const CACHE_NAME = "aydope-cache-v10";
 const NETWORK_TIMEOUT_MS = 3000;
 const APP_SHELL = [
   "/",
