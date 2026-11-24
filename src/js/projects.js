@@ -1,25 +1,25 @@
 (() => {
-  const grid = document.getElementById("projectGrid");
-  const overlay = document.getElementById("projectOverlay");
-  const closeBtn = document.getElementById("projectClose");
+  const grid = document.getElementById('projectGrid');
+  const overlay = document.getElementById('projectOverlay');
+  const closeBtn = document.getElementById('projectClose');
   const parts = {
-    icon: document.getElementById("projectIcon"),
-    kind: document.getElementById("projectKind"),
-    title: document.getElementById("projectTitle"),
-    preview: document.getElementById("projectPreview"),
-    description: document.getElementById("projectDescription"),
-    highlights: document.getElementById("projectHighlights"),
-    stack: document.getElementById("projectStack"),
-    links: document.getElementById("projectLinks"),
+    icon: document.getElementById('projectIcon'),
+    kind: document.getElementById('projectKind'),
+    title: document.getElementById('projectTitle'),
+    preview: document.getElementById('projectPreview'),
+    description: document.getElementById('projectDescription'),
+    highlights: document.getElementById('projectHighlights'),
+    stack: document.getElementById('projectStack'),
+    links: document.getElementById('projectLinks'),
   };
   let lastTrigger = null;
 
   const esc = (s) =>
     String(s).replace(
       /[&<>"']/g,
-      (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c],
+      (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c],
     );
-  const badges = (items) => items.map((x) => `<span class="badge">${esc(x)}</span>`).join("");
+  const badges = (items) => items.map((x) => `<span class="badge">${esc(x)}</span>`).join('');
 
   grid.innerHTML = PROJECTS.map(
     (
@@ -34,7 +34,7 @@
       <div class="flex flex-wrap gap-1.5 mb-5">${badges(p.stack)}</div>
       <span class="mt-auto inline-flex items-center gap-1.5 text-sm font-medium">View details <i class="bi bi-arrow-right"></i></span>
     </button>`,
-  ).join("");
+  ).join('');
 
   function previewMarkup(p) {
     if (p.demo && p?.showDemoAsIframe) {
@@ -52,7 +52,7 @@
     parts.kind.textContent = p.kind;
     parts.title.textContent = p.name;
     parts.description.textContent = p.description;
-    parts.highlights.innerHTML = p.highlights.map((x) => `<li>${esc(x)}</li>`).join("");
+    parts.highlights.innerHTML = p.highlights.map((x) => `<li>${esc(x)}</li>`).join('');
     parts.stack.innerHTML = badges(p.stack);
     parts.preview.innerHTML = previewMarkup(p);
     parts.links.innerHTML = [
@@ -62,39 +62,39 @@
         `<a href="${esc(p.repo)}" class="btn btn-outline" target="_blank" rel="noopener noreferrer"><span>Source code</span><i class="bi bi-github"></i></a>`,
     ]
       .filter(Boolean)
-      .join("");
+      .join('');
 
-    overlay.classList.remove("hidden");
-    overlay.classList.add("flex");
-    document.body.style.overflow = "hidden";
+    overlay.classList.remove('hidden');
+    overlay.classList.add('flex');
+    document.body.style.overflow = 'hidden';
     closeBtn.focus();
   }
 
   function closeProject() {
-    overlay.classList.add("hidden");
-    overlay.classList.remove("flex");
-    document.body.style.overflow = "";
-    parts.preview.innerHTML = "";
+    overlay.classList.add('hidden');
+    overlay.classList.remove('flex');
+    document.body.style.overflow = '';
+    parts.preview.innerHTML = '';
     if (lastTrigger) lastTrigger.focus();
   }
 
-  grid.addEventListener("click", (e) => {
-    const btn = e.target.closest("[data-slug]");
+  grid.addEventListener('click', (e) => {
+    const btn = e.target.closest('[data-slug]');
     if (btn)
       openProject(
         PROJECTS.find((p) => p.slug === btn.dataset.slug),
         btn,
       );
   });
-  closeBtn.addEventListener("click", closeProject);
-  overlay.addEventListener("click", (e) => {
+  closeBtn.addEventListener('click', closeProject);
+  overlay.addEventListener('click', (e) => {
     if (e.target === overlay) closeProject();
   });
-  document.addEventListener("keydown", (e) => {
-    if (overlay.classList.contains("hidden")) return;
-    if (e.key === "Escape") return closeProject();
-    if (e.key !== "Tab") return;
-    const items = [...overlay.querySelectorAll("a[href], button:not([disabled])")];
+  document.addEventListener('keydown', (e) => {
+    if (overlay.classList.contains('hidden')) return;
+    if (e.key === 'Escape') return closeProject();
+    if (e.key !== 'Tab') return;
+    const items = [...overlay.querySelectorAll('a[href], button:not([disabled])')];
     const first = items[0];
     const last = items[items.length - 1];
     if (e.shiftKey && document.activeElement === first) {
@@ -107,23 +107,23 @@
   });
 
   // Built from PROJECTS so the structured data never drifts from what the page shows.
-  const ld = document.createElement("script");
-  ld.type = "application/ld+json";
+  const ld = document.createElement('script');
+  ld.type = 'application/ld+json';
   ld.textContent = JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    name: "Projects by Amin Sadeghi",
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Projects by Amin Sadeghi',
     itemListElement: PROJECTS.map((p, i) => ({
-      "@type": "ListItem",
+      '@type': 'ListItem',
       position: i + 1,
       item: {
-        "@type": "SoftwareSourceCode",
+        '@type': 'SoftwareSourceCode',
         name: p.name,
         description: p.summary,
         programmingLanguage: p.stack,
         codeRepository: p.repo || undefined,
-        url: p.demo ? new URL(p.demo, "https://aydope.github.io/").href : p.repo || undefined,
-        author: { "@id": "https://aydope.github.io/#person" },
+        url: p.demo ? new URL(p.demo, 'https://aydope.github.io/').href : p.repo || undefined,
+        author: { '@id': 'https://aydope.github.io/#person' },
       },
     })),
   });

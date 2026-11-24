@@ -4,12 +4,12 @@
   const LERP = 0.1;
   const root = document.documentElement;
   const wantsSmooth =
-    window.matchMedia("(hover: hover) and (pointer: fine)").matches &&
-    !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.matchMedia('(hover: hover) and (pointer: fine)').matches &&
+    !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!wantsSmooth) return;
 
   // The CSS smooth behavior would animate every scrollTo call and fight the loop.
-  root.style.scrollBehavior = "auto";
+  root.style.scrollBehavior = 'auto';
 
   let current = window.scrollY;
   let target = current;
@@ -55,10 +55,10 @@
   }
 
   window.addEventListener(
-    "wheel",
+    'wheel',
     (e) => {
       if (e.ctrlKey || e.shiftKey || e.defaultPrevented) return;
-      if (document.body.style.overflow === "hidden") return;
+      if (document.body.style.overflow === 'hidden') return;
       if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
       if (scrollsInside(e.target, e.deltaY)) return;
       e.preventDefault();
@@ -69,7 +69,7 @@
     { passive: false },
   );
 
-  document.addEventListener("click", (e) => {
+  document.addEventListener('click', (e) => {
     const link = e.target.closest('a[href^="#"]');
     if (!link || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey)
       return;
@@ -77,20 +77,20 @@
       link.hash.length > 1 && document.getElementById(decodeURIComponent(link.hash.slice(1)));
     if (!section) return;
     e.preventDefault();
-    const header = document.querySelector("header");
+    const header = document.querySelector('header');
     target = clamp(
       section.getBoundingClientRect().top + window.scrollY - (header ? header.offsetHeight : 0),
     );
-    history.pushState(null, "", link.hash);
-    section.setAttribute("tabindex", "-1");
+    history.pushState(null, '', link.hash);
+    section.setAttribute('tabindex', '-1');
     section.focus({ preventScroll: true });
     start();
   });
 
-  window.addEventListener("scroll", () => {
+  window.addEventListener('scroll', () => {
     if (!frame) current = target = window.scrollY;
   });
-  window.addEventListener("resize", () => {
+  window.addEventListener('resize', () => {
     target = clamp(target);
   });
 })();
