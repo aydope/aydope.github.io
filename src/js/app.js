@@ -1,8 +1,8 @@
-document.getElementById("year").textContent = new Date().getFullYear();
+document.getElementById('year').textContent = new Date().getFullYear();
 
-const NOTIFY_ENDPOINT = "https://adotp.awaitbe.workers.dev/";
+const NOTIFY_ENDPOINT = 'https://adotp.awaitbe.workers.dev/';
 const NOTIFY_TIMEOUT_MS = 3000;
-const CONTACT_EMAIL = "amin0xa1b@gmail.com";
+const CONTACT_EMAIL = 'amin0xa1b@gmail.com';
 
 function readStore(key) {
   try {
@@ -28,7 +28,7 @@ function fallbackToEmail(subject, body) {
   const href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   showToast(
     `Could not send directly. <a class="underline" href="${href}">Open your email app</a> or write to ${CONTACT_EMAIL}`,
-    "info",
+    'info',
   );
   window.location.href = href;
 }
@@ -39,8 +39,8 @@ async function notifyTelegram(text) {
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), NOTIFY_TIMEOUT_MS);
     const res = await fetch(NOTIFY_ENDPOINT, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ text }),
       signal: controller.signal,
       keepalive: true,
@@ -48,26 +48,26 @@ async function notifyTelegram(text) {
     clearTimeout(timeout);
     if (!res.ok) return { ok: false };
     const data = await res.json();
-    return { ok: !!data.ok, desc: data.desc || "" };
+    return { ok: !!data.ok, desc: data.desc || '' };
   } catch {
     return { ok: false };
   }
 }
 
-function showToast(message, type = "success") {
-  document.getElementById("app-toast")?.remove();
+function showToast(message, type = 'success') {
+  document.getElementById('app-toast')?.remove();
 
   const styles = {
-    success: { icon: "bi-check-circle-fill", iconColor: "text-accent", stripe: "bg-accent" },
-    error: { icon: "bi-x-circle-fill", iconColor: "text-red-400", stripe: "bg-red-500/80" },
-    info: { icon: "bi-info-circle-fill", iconColor: "text-amber-400", stripe: "bg-amber-500/80" },
+    success: { icon: 'bi-check-circle-fill', iconColor: 'text-accent', stripe: 'bg-accent' },
+    error: { icon: 'bi-x-circle-fill', iconColor: 'text-red-400', stripe: 'bg-red-500/80' },
+    info: { icon: 'bi-info-circle-fill', iconColor: 'text-amber-400', stripe: 'bg-amber-500/80' },
   };
   const s = styles[type] || styles.info;
 
-  const toast = document.createElement("div");
-  toast.id = "app-toast";
-  toast.setAttribute("role", "status");
-  toast.setAttribute("aria-live", "polite");
+  const toast = document.createElement('div');
+  toast.id = 'app-toast';
+  toast.setAttribute('role', 'status');
+  toast.setAttribute('aria-live', 'polite');
   toast.className = `fixed inset-x-4 bottom-4 z-[100]
     sm:left-auto sm:right-4 sm:w-80
     opacity-0 translate-y-3 transition-all duration-300 ease-out`;
@@ -89,15 +89,15 @@ function showToast(message, type = "success") {
   document.body.appendChild(toast);
 
   const dismiss = () => {
-    toast.classList.add("opacity-0", "translate-y-3");
+    toast.classList.add('opacity-0', 'translate-y-3');
     setTimeout(() => toast.remove(), 300);
   };
 
-  toast.querySelector("button").addEventListener("click", dismiss);
-  requestAnimationFrame(() => toast.classList.remove("opacity-0", "translate-y-3"));
+  toast.querySelector('button').addEventListener('click', dismiss);
+  requestAnimationFrame(() => toast.classList.remove('opacity-0', 'translate-y-3'));
 
   setTimeout(() => {
-    if (document.getElementById("app-toast")) dismiss();
+    if (document.getElementById('app-toast')) dismiss();
   }, 5000);
 }
 
@@ -134,69 +134,74 @@ function checkRateLimit(formName) {
   const remaining = getRemainingRateLimit(formName);
   if (remaining <= 0) return true;
   const time = formatRemaining(remaining);
-  const label = formName === "contact" ? "message" : "request";
-  showToast(`You've already sent a ${label} recently. Please try again in ${time}.`, "info");
+  const label = formName === 'contact' ? 'message' : 'request';
+  showToast(`You've already sent a ${label} recently. Please try again in ${time}.`, 'info');
   return false;
 }
 
-const menuToggle = document.getElementById("menuToggle");
-const mobileSidebar = document.getElementById("mobileSidebar");
-const sidebarOverlay = document.getElementById("sidebarOverlay");
-const sidebarClose = document.getElementById("sidebarClose");
+const menuToggle = document.getElementById('menuToggle');
+const mobileSidebar = document.getElementById('mobileSidebar');
+const sidebarOverlay = document.getElementById('sidebarOverlay');
+const sidebarClose = document.getElementById('sidebarClose');
 
 function openSidebar() {
-  mobileSidebar.classList.remove("translate-x-full");
-  mobileSidebar.setAttribute("aria-hidden", "false");
-  sidebarOverlay.classList.remove("hidden");
-  menuToggle.setAttribute("aria-expanded", "true");
-  document.body.style.overflow = "hidden";
+  mobileSidebar.classList.remove('translate-x-full');
+  mobileSidebar.setAttribute('aria-hidden', 'false');
+  sidebarOverlay.classList.remove('hidden');
+  menuToggle.setAttribute('aria-expanded', 'true');
+  document.body.style.overflow = 'hidden';
 }
+
 function closeSidebar() {
-  mobileSidebar.classList.add("translate-x-full");
-  mobileSidebar.setAttribute("aria-hidden", "true");
-  sidebarOverlay.classList.add("hidden");
-  menuToggle.setAttribute("aria-expanded", "false");
-  document.body.style.overflow = "";
+  mobileSidebar.classList.add('translate-x-full');
+  mobileSidebar.setAttribute('aria-hidden', 'true');
+  sidebarOverlay.classList.add('hidden');
+  menuToggle.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
 }
-menuToggle.addEventListener("click", openSidebar);
-sidebarClose.addEventListener("click", closeSidebar);
-sidebarOverlay.addEventListener("click", closeSidebar);
+
+menuToggle.addEventListener('click', openSidebar);
+sidebarClose.addEventListener('click', closeSidebar);
+sidebarOverlay.addEventListener('click', closeSidebar);
 document
-  .querySelectorAll("#mobileSidebar a")
-  .forEach((a) => a.addEventListener("click", closeSidebar));
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") closeSidebar();
+  .querySelectorAll('#mobileSidebar a')
+  .forEach((a) => a.addEventListener('click', closeSidebar));
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    menuToggle.blur();
+    closeSidebar();
+  }
 });
 
-const sections = ["about", "skills", "work", "github", "now", "faq", "contact"].map((id) =>
+const sections = ['about', 'skills', 'work', 'github', 'now', 'faq', 'contact'].map((id) =>
   document.getElementById(id),
 );
-const navLinks = document.querySelectorAll("[data-nav]");
+const navLinks = document.querySelectorAll('[data-nav]');
 const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        navLinks.forEach((l) => l.classList.toggle("active", l.dataset.nav === entry.target.id));
+        navLinks.forEach((l) => l.classList.toggle('active', l.dataset.nav === entry.target.id));
       }
     });
   },
-  { rootMargin: "-45% 0px -50% 0px" },
+  { rootMargin: '-45% 0px -50% 0px' },
 );
 sections.forEach((s) => s && observer.observe(s));
 
-document.getElementById("contactForm").addEventListener("submit", async (e) => {
+document.getElementById('contactForm').addEventListener('submit', async (e) => {
   e.preventDefault();
 
-  if (!checkRateLimit("contact")) return;
+  if (!checkRateLimit('contact')) return;
 
   const submitBtn = e.target.querySelector('button[type="submit"]');
   const originalHTML = submitBtn.innerHTML;
   submitBtn.disabled = true;
   submitBtn.innerHTML = `<span class="spinner"></span>Sending…`;
 
-  const name = document.getElementById("cf-name").value;
-  const email = document.getElementById("cf-email").value;
-  const msg = document.getElementById("cf-msg").value;
+  const name = document.getElementById('cf-name').value;
+  const email = document.getElementById('cf-email').value;
+  const msg = document.getElementById('cf-msg').value;
 
   const result = await notifyTelegram(
     `📬 New portfolio contact\nName: ${name}\nEmail: ${email}\nMessage: ${msg}`,
@@ -206,193 +211,321 @@ document.getElementById("contactForm").addEventListener("submit", async (e) => {
   submitBtn.innerHTML = originalHTML;
 
   if (result.ok) {
-    markRateLimit("contact");
-    showToast("Message sent successfully", "success");
+    markRateLimit('contact');
+    showToast('Message sent successfully', 'success');
     e.target.reset();
   } else {
-    fallbackToEmail("Portfolio contact from " + name, `${msg}\n\nFrom: ${name} (${email})`);
+    fallbackToEmail('Portfolio contact from ' + name, `${msg}\n\nFrom: ${name} (${email})`);
   }
 });
 
 // Resume dialog - track (backend/frontend) then language (en/fa), handled from one object
 const resumeLinks = {
   backend: {
-    en: "src/assets/resume/backend-en.pdf",
-    fa: "src/assets/resume/backend-fa.pdf",
+    en: 'src/assets/resume/backend-en.pdf',
+    fa: 'src/assets/resume/backend-fa.pdf',
   },
   frontend: {
-    en: "src/assets/resume/frontend-en.pdf",
-    fa: "src/assets/resume/frontend-fa.pdf",
+    en: 'src/assets/resume/frontend-en.pdf',
+    fa: 'src/assets/resume/frontend-fa.pdf',
   },
 };
 
-const resumeOverlay = document.getElementById("resumeOverlay");
-const resumeStep1 = document.getElementById("resumeStep1");
-const resumeStep2 = document.getElementById("resumeStep2");
-const resumeStep2Sub = document.getElementById("resumeStep2Sub");
+const resumeOverlay = document.getElementById('resumeOverlay');
+const resumeStep1 = document.getElementById('resumeStep1');
+const resumeStep2 = document.getElementById('resumeStep2');
+const resumeStep2Sub = document.getElementById('resumeStep2Sub');
 let selectedTrack = null;
 
 function openResumeDialog() {
   selectedTrack = null;
-  resumeStep1.classList.remove("hidden");
-  resumeStep2.classList.add("hidden");
-  resumeOverlay.classList.remove("hidden");
-  resumeOverlay.classList.add("flex");
-  document.body.style.overflow = "hidden";
+  resumeStep1.classList.remove('hidden');
+  resumeStep2.classList.add('hidden');
+  resumeOverlay.classList.remove('hidden');
+  resumeOverlay.classList.add('flex');
+  document.body.style.overflow = 'hidden';
 }
 function closeResumeDialog() {
-  resumeOverlay.classList.add("hidden");
-  resumeOverlay.classList.remove("flex");
-  document.body.style.overflow = "";
+  resumeOverlay.classList.add('hidden');
+  resumeOverlay.classList.remove('flex');
+  document.body.style.overflow = '';
 }
 
-["resumeBtnHeader", "resumeBtnHero", "resumeBtnMobile"].forEach((id) => {
+['resumeBtnHeader', 'resumeBtnHero', 'resumeBtnMobile'].forEach((id) => {
   const el = document.getElementById(id);
-  if (el) el.addEventListener("click", openResumeDialog);
+  if (el) el.addEventListener('click', openResumeDialog);
 });
-document.getElementById("resumeClose").addEventListener("click", closeResumeDialog);
-resumeOverlay.addEventListener("click", (e) => {
+document.getElementById('resumeClose').addEventListener('click', closeResumeDialog);
+resumeOverlay.addEventListener('click', (e) => {
   if (e.target === resumeOverlay) closeResumeDialog();
 });
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") closeResumeDialog();
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    document.getElementById('resumeBtnHeader').blur();
+    closeResumeDialog();
+  }
 });
 
-document.querySelectorAll(".resume-track").forEach((btn) => {
-  btn.addEventListener("click", () => {
+document.querySelectorAll('.resume-track').forEach((btn) => {
+  btn.addEventListener('click', () => {
     selectedTrack = btn.dataset.track;
-    const label = selectedTrack === "backend" ? "Backend" : "Frontend";
+    const label = selectedTrack === 'backend' ? 'Backend' : 'Frontend';
     resumeStep2Sub.textContent = `${label} resume - pick a language.`;
-    resumeStep1.classList.add("hidden");
-    resumeStep2.classList.remove("hidden");
+    resumeStep1.classList.add('hidden');
+    resumeStep2.classList.remove('hidden');
   });
 });
 
-document.getElementById("resumeBack").addEventListener("click", () => {
-  resumeStep2.classList.add("hidden");
-  resumeStep1.classList.remove("hidden");
+document.getElementById('resumeBack').addEventListener('click', () => {
+  resumeStep2.classList.add('hidden');
+  resumeStep1.classList.remove('hidden');
 });
 
-document.querySelectorAll(".resume-lang").forEach((btn) => {
-  btn.addEventListener("click", () => {
+document.querySelectorAll('.resume-lang').forEach((btn) => {
+  btn.addEventListener('click', () => {
     const lang = btn.dataset.lang;
     const url = resumeLinks[selectedTrack] && resumeLinks[selectedTrack][lang];
     closeResumeDialog();
-    if (url) window.open(url, "_blank");
+    if (url) window.open(url, '_blank');
   });
 });
 
-document.querySelectorAll(".faq-trigger").forEach((trigger) => {
-  trigger.addEventListener("click", () => {
+document.querySelectorAll('.faq-trigger').forEach((trigger) => {
+  trigger.addEventListener('click', () => {
     const panel = trigger.nextElementSibling;
-    const open = trigger.getAttribute("aria-expanded") === "true";
-    trigger.setAttribute("aria-expanded", String(!open));
-    panel.classList.toggle("hidden", open);
-    trigger.querySelector(".faq-icon").className =
-      "faq-icon bi text-muted-foreground " + (open ? "bi-plus" : "bi-dash");
+    const open = trigger.getAttribute('aria-expanded') === 'true';
+    trigger.setAttribute('aria-expanded', String(!open));
+    panel.classList.toggle('hidden', open);
+    trigger.querySelector('.faq-icon').className =
+      'faq-icon bi text-muted-foreground ' + (open ? 'bi-plus' : 'bi-dash');
   });
 });
 
-fetch("https://api.github.com/users/aydope")
-  .then((r) => {
-    if (!r.ok) throw new Error("bad response");
-    return r.json();
-  })
-  .then((data) => {
-    document.getElementById("gh-repos").textContent = data.public_repos ?? "-";
-    document.getElementById("gh-followers").textContent = data.followers ?? "-";
-    document.getElementById("gh-following").textContent = data.following ?? "-";
-    if (data.created_at) {
-      document.getElementById("gh-since").textContent = new Date(data.created_at).getFullYear();
+// fetch("https://api.github.com/users/aydope")
+//   .then((r) => {
+//     if (!r.ok) throw new Error("bad response");
+//     return r.json();
+//   })
+//   .then((data) => {
+//     document.getElementById("gh-repos").textContent = data.public_repos ?? "-";
+//     document.getElementById("gh-followers").textContent = data.followers ?? "-";
+//     document.getElementById("gh-following").textContent = data.following ?? "-";
+//     if (data.created_at) {
+//       document.getElementById("gh-since").textContent = new Date(data.created_at).getFullYear();
+//     }
+//   })
+//   .catch(() => {
+//     document.getElementById("github")?.classList.add("hidden");
+//     document.querySelectorAll('[data-nav="github"]').forEach((l) => l.classList.add("hidden"));
+//   });
+
+const GITHUB_API_URL = 'https://api.github.com/users/aydope';
+
+const githubSection = document.getElementById('github');
+const githubError = document.getElementById('gh-error');
+
+const showGithubError = (message) => {
+  if (!githubError) return;
+
+  githubError.textContent = message;
+  githubError.classList.remove('hidden');
+};
+const githubFields = {
+  repos: document.getElementById('gh-repos'),
+  followers: document.getElementById('gh-followers'),
+  following: document.getElementById('gh-following'),
+  since: document.getElementById('gh-since'),
+
+  name: document.getElementById('gh-name'),
+  bio: document.getElementById('gh-bio'),
+  hireable: document.getElementById('gh-hireable'),
+  location: document.getElementById('gh-location'),
+  twitter: document.getElementById('gh-twitter'),
+
+  profileLink: document.getElementById('gh-profile-link'),
+  avatar: document.getElementById('gh-avatar'),
+};
+
+const setText = (element, value) => {
+  if (element) {
+    element.textContent = value ?? '—';
+  }
+};
+
+const setLink = (element, url) => {
+  if (!element) return;
+
+  if (url) {
+    element.href = url;
+    element.hidden = false;
+  } else {
+    element.removeAttribute('href');
+    element.hidden = true;
+  }
+};
+
+const updateGithubProfile = (user) => {
+  // Repository statistics
+  setText(githubFields.repos, user.public_repos);
+  setText(githubFields.followers, user.followers);
+  setText(githubFields.following, user.following);
+
+  setText(githubFields.since, user.created_at ? new Date(user.created_at).getFullYear() : '—');
+
+  // Profile information
+  setText(githubFields.name, user.name);
+  setText(githubFields.bio, user.bio);
+  setText(githubFields.location, user.location);
+
+  setText(
+    githubFields.hireable,
+    user.hireable === true
+      ? 'Open to work'
+      : user.hireable === false
+        ? 'Not looking for work'
+        : 'Availability not specified',
+  );
+
+  // Twitter / X
+  const twitterUsername = user.twitter_username;
+
+  if (twitterUsername) {
+    setText(githubFields.twitter, `@${twitterUsername}`);
+
+    setLink(githubFields.twitter, `https://x.com/${encodeURIComponent(twitterUsername)}`);
+
+    githubFields.twitter?.setAttribute('target', '_blank');
+    githubFields.twitter?.setAttribute('rel', 'noopener noreferrer');
+  } else {
+    setText(githubFields.twitter, '—');
+    setLink(githubFields.twitter, null);
+  }
+
+  // GitHub profile URL
+  setLink(githubFields.profileLink, user.html_url);
+
+  // Avatar
+  if (githubFields.avatar && user.avatar_url) {
+    githubFields.avatar.src = user.avatar_url;
+    githubFields.avatar.alt = `${user.login}'s GitHub avatar`;
+    githubFields.avatar.hidden = false;
+  }
+};
+
+const loadGithubProfile = async () => {
+  if (!githubSection) return;
+
+  try {
+    const response = await fetch(GITHUB_API_URL, {
+      method: 'GET',
+      headers: {
+        Accept: 'application/vnd.github+json',
+      },
+      cache: 'no-store',
+    });
+
+    if (!response.ok) {
+      throw new Error(`GitHub API error: ${response.status} ${response.statusText}`);
     }
-  })
-  .catch(() => {
-    document.getElementById("github")?.classList.add("hidden");
-    document.querySelectorAll('[data-nav="github"]').forEach((l) => l.classList.add("hidden"));
-  });
+
+    const user = await response.json();
+
+    if (!user || typeof user.login !== 'string') {
+      throw new Error('Invalid GitHub API response.');
+    }
+
+    updateGithubProfile(user);
+  } catch (error) {
+    console.error('[GitHub] Failed to load profile:', error);
+
+    showGithubError('Failed to load GitHub profile. Please try again later.');
+  }
+};
+
+loadGithubProfile();
 
 const lines = [
-  { text: "$ whoami", pause: 350 },
-  { text: "amin@aydope - junior MERN developer", pause: 500, muted: false },
-  { text: "", pause: 150 },
-  { text: "$ cat stack.json", pause: 350 },
-  { text: "  frontend  react · typescript · tailwind", pause: 250 },
-  { text: "  backend   node · express · fastify · mongodb", pause: 250 },
-  { text: "  learning  nest.js", pause: 500 },
-  { text: "", pause: 150 },
-  { text: "$ status", pause: 350 },
-  { text: "open to new opportunities ●", pause: 0 },
+  { text: '$ whoami', pause: 350 },
+  { text: 'amin@aydope - junior MERN developer', pause: 500, muted: false },
+  { text: '', pause: 150 },
+  { text: '$ cat stack.json', pause: 350 },
+  { text: '  frontend  react · typescript · tailwind', pause: 250 },
+  { text: '  backend   node · express · fastify · mongodb', pause: 250 },
+  { text: '  learning  nest.js', pause: 500 },
+  { text: '', pause: 150 },
+  { text: '$ status', pause: 350 },
+  { text: 'open to new opportunities ●', pause: 0 },
 ];
 
-const termEl = document.getElementById("terminal");
-const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const termEl = document.getElementById('terminal');
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 async function typeTerminal() {
   if (reduceMotion) {
-    termEl.textContent = lines.map((l) => l.text).join("\n");
+    termEl.textContent = lines.map((l) => l.text).join('\n');
     return;
   }
-  let output = "";
+  let output = '';
   for (const line of lines) {
     for (const ch of line.text) {
       output += ch;
       termEl.textContent = output;
       await new Promise((r) => setTimeout(r, 12));
     }
-    output += "\n";
+    output += '\n';
     termEl.textContent = output;
     await new Promise((r) => setTimeout(r, line.pause));
   }
-  termEl.classList.add("terminal-caret");
+  termEl.classList.add('terminal-caret');
 }
 typeTerminal();
 
 let refreshing = false;
 
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
     navigator.serviceWorker
-      .register("/sw.js", { updateViaCache: "none" })
+      .register('/sw.js', { updateViaCache: 'none' })
       .then((registration) => {
         if (registration.waiting) {
           showUpdateModal(registration.waiting);
         }
 
-        registration.addEventListener("updatefound", () => {
+        registration.addEventListener('updatefound', () => {
           const newWorker = registration.installing;
           if (!newWorker) return;
-          newWorker.addEventListener("statechange", () => {
-            if (newWorker.state === "installed" && navigator.serviceWorker.controller) {
+          newWorker.addEventListener('statechange', () => {
+            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
               showUpdateModal(newWorker);
             }
           });
         });
 
         registration.update();
-        document.addEventListener("visibilitychange", () => {
-          if (document.visibilityState === "visible") registration.update();
+        document.addEventListener('visibilitychange', () => {
+          if (document.visibilityState === 'visible') registration.update();
         });
         setInterval(() => registration.update(), 5 * 60 * 1000);
       })
       .catch((err) => {
-        console.error("[PWA] registration failed:", err);
+        console.error('[PWA] registration failed:', err);
       });
 
-    navigator.serviceWorker.addEventListener("controllerchange", () => {
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
       if (refreshing) return;
       refreshing = true;
       window.location.reload();
     });
   });
 } else {
-  console.error("[PWA] this browser has no serviceWorker support");
+  console.error('[PWA] this browser has no serviceWorker support');
 }
 
-const updateOverlay = document.getElementById("updateOverlay");
-const updateReloadBtn = document.getElementById("updateReloadBtn");
-const updateReloadSpinner = document.getElementById("updateReloadSpinner");
-const updateReloadLabel = document.getElementById("updateReloadLabel");
-const updateLaterBtn = document.getElementById("updateLaterBtn");
+const updateOverlay = document.getElementById('updateOverlay');
+const updateReloadBtn = document.getElementById('updateReloadBtn');
+const updateReloadSpinner = document.getElementById('updateReloadSpinner');
+const updateReloadLabel = document.getElementById('updateReloadLabel');
+const updateLaterBtn = document.getElementById('updateLaterBtn');
 let pendingWorker = null;
 let updateAvailable = false;
 
@@ -400,20 +533,20 @@ function showUpdateModal(worker) {
   pendingWorker = worker;
   updateAvailable = true;
   hideInstallBanner();
-  updateOverlay.classList.remove("hidden");
-  updateOverlay.classList.add("flex");
+  updateOverlay.classList.remove('hidden');
+  updateOverlay.classList.add('flex');
 }
 function hideUpdateModal() {
-  updateOverlay.classList.add("hidden");
-  updateOverlay.classList.remove("flex");
+  updateOverlay.classList.add('hidden');
+  updateOverlay.classList.remove('flex');
 }
-updateReloadBtn.addEventListener("click", () => {
+updateReloadBtn.addEventListener('click', () => {
   updateReloadBtn.disabled = true;
   updateLaterBtn.disabled = true;
-  updateReloadSpinner.classList.remove("hidden");
-  updateReloadLabel.textContent = "Updating…";
+  updateReloadSpinner.classList.remove('hidden');
+  updateReloadLabel.textContent = 'Updating…';
   if (pendingWorker) {
-    pendingWorker.postMessage("SKIP_WAITING");
+    pendingWorker.postMessage('SKIP_WAITING');
     setTimeout(() => {
       if (!refreshing) window.location.reload();
     }, 4000);
@@ -421,44 +554,44 @@ updateReloadBtn.addEventListener("click", () => {
     window.location.reload();
   }
 });
-updateLaterBtn.addEventListener("click", hideUpdateModal);
+updateLaterBtn.addEventListener('click', hideUpdateModal);
 
-const consultOverlay = document.getElementById("consultOverlay");
-const consultClose = document.getElementById("consultClose");
-const consultForm = document.getElementById("consultForm");
+const consultOverlay = document.getElementById('consultOverlay');
+const consultClose = document.getElementById('consultClose');
+const consultForm = document.getElementById('consultForm');
 
 function openConsultDialog() {
-  consultOverlay.classList.remove("hidden");
-  consultOverlay.classList.add("flex");
-  document.body.style.overflow = "hidden";
+  consultOverlay.classList.remove('hidden');
+  consultOverlay.classList.add('flex');
+  document.body.style.overflow = 'hidden';
 }
 function closeConsultDialog() {
-  consultOverlay.classList.add("hidden");
-  consultOverlay.classList.remove("flex");
-  document.body.style.overflow = "";
+  consultOverlay.classList.add('hidden');
+  consultOverlay.classList.remove('flex');
+  document.body.style.overflow = '';
 }
-["consultBtnHero", "consultBtnContact"].forEach((id) => {
+['consultBtnHero', 'consultBtnContact'].forEach((id) => {
   const el = document.getElementById(id);
-  if (el) el.addEventListener("click", openConsultDialog);
+  if (el) el.addEventListener('click', openConsultDialog);
 });
-consultClose.addEventListener("click", closeConsultDialog);
-consultOverlay.addEventListener("click", (e) => {
+consultClose.addEventListener('click', closeConsultDialog);
+consultOverlay.addEventListener('click', (e) => {
   if (e.target === consultOverlay) closeConsultDialog();
 });
 
-consultForm.addEventListener("submit", async (e) => {
+consultForm.addEventListener('submit', async (e) => {
   e.preventDefault();
 
-  if (!checkRateLimit("consult")) return;
+  if (!checkRateLimit('consult')) return;
 
   const submitBtn = e.target.querySelector('button[type="submit"]');
   const originalHTML = submitBtn.innerHTML;
   submitBtn.disabled = true;
   submitBtn.innerHTML = `<span class="spinner"></span>Sending…`;
 
-  const name = document.getElementById("consult-name").value;
-  const phone = document.getElementById("consult-phone").value;
-  const area = document.getElementById("consult-area").value;
+  const name = document.getElementById('consult-name').value;
+  const phone = document.getElementById('consult-phone').value;
+  const area = document.getElementById('consult-area').value;
 
   const result = await notifyTelegram(
     `💬 New consultation request\nName: ${name}\nPhone: ${phone}\nWork area: ${area}`,
@@ -470,23 +603,41 @@ consultForm.addEventListener("submit", async (e) => {
   closeConsultDialog();
 
   if (result.ok) {
-    markRateLimit("consult");
-    showToast("Request sent successfully", "success");
+    markRateLimit('consult');
+    showToast('Request sent successfully', 'success');
     consultForm.reset();
   } else {
     fallbackToEmail(
-      "Consultation request from " + name,
+      'Consultation request from ' + name,
       `Name: ${name}\nPhone: ${phone}\nWork area: ${area}`,
     );
   }
 });
 
-const installBanner = document.getElementById("installBanner");
-const installBtn = document.getElementById("installBtn");
-const installDismiss = document.getElementById("installDismiss");
-const installClose = document.getElementById("installClose");
-const INSTALL_SNOOZE_KEY = "aydope-install-snoozed-until";
+const installBanner = document.getElementById('installBanner');
+const installBtn = document.getElementById('installBtn');
+const installDismiss = document.getElementById('installDismiss');
+const installClose = document.getElementById('installClose');
+const INSTALL_SNOOZE_KEY = 'aydope-install-snoozed-until';
 let deferredInstallPrompt = null;
+
+const forceInstallBanner = new URLSearchParams(window.location.search).get('action') === 'install';
+
+function showInstallBanner() {
+  if (updateAvailable) return;
+
+  // Avoid showing the install banner for an installed PWA.
+  if (window.matchMedia('(display-mode: standalone)').matches) return;
+
+  installBanner.classList.remove('hidden');
+
+  // Enable installation only when the browser supports it.
+  installBtn.disabled = !deferredInstallPrompt;
+}
+
+function hideInstallBanner() {
+  installBanner.classList.add('hidden');
+}
 
 function installBannerSnoozed() {
   const until = Number(readStore(INSTALL_SNOOZE_KEY) || 0);
@@ -497,33 +648,43 @@ function snoozeInstallBanner(days) {
   writeStore(INSTALL_SNOOZE_KEY, String(until));
 }
 function hideInstallBanner() {
-  installBanner.classList.add("hidden");
+  installBanner.classList.add('hidden');
 }
 
-window.addEventListener("beforeinstallprompt", (event) => {
+window.addEventListener('beforeinstallprompt', (event) => {
   event.preventDefault();
   deferredInstallPrompt = event;
-  if (!updateAvailable && !installBannerSnoozed()) {
-    installBanner.classList.remove("hidden");
+  if (!updateAvailable && forceInstallBanner && !installBannerSnoozed()) {
+    showInstallBanner();
   }
 });
 
-installBtn.addEventListener("click", async () => {
-  hideInstallBanner();
-  if (!deferredInstallPrompt) return;
-  deferredInstallPrompt.prompt();
-  await deferredInstallPrompt.userChoice;
+installBtn.addEventListener('click', async () => {
+  if (!deferredInstallPrompt) {
+    showToast('Use your browser menu to install this app.', 'info');
+    return;
+  }
+
+  const promptEvent = deferredInstallPrompt;
   deferredInstallPrompt = null;
+
+  hideInstallBanner();
+
+  await promptEvent.prompt();
+
+  const { outcome } = await promptEvent.userChoice;
+
+  if (outcome === 'dismissed') {
+    snoozeInstallBanner(7);
+  }
 });
-installDismiss.addEventListener("click", () => {
+function dismissInstallBanner() {
   hideInstallBanner();
   snoozeInstallBanner(7);
-});
-installClose.addEventListener("click", () => {
-  hideInstallBanner();
-  snoozeInstallBanner(7);
-});
-window.addEventListener("appinstalled", () => {
+}
+installDismiss.addEventListener('click', dismissInstallBanner);
+installClose.addEventListener('click', dismissInstallBanner);
+window.addEventListener('appinstalled', () => {
   hideInstallBanner();
   deferredInstallPrompt = null;
 });
