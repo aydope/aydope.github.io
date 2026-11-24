@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta
       name="description"
-      content="Amin Sadeghi (Aydope), junior MERN stack developer based in Tehran. Node.js, Express, MongoDB and React. Open to remote roles."
+      content="Mohammad Amin Sadeghi known as Aydope a junior MERN stack developer based in Iran"
     />
     <meta
       name="keywords"
-      content="Aydope, Amin Sadeghi, junior MERN stack developer, MERN developer, React developer, Node.js developer, Nest.js, Iran"
+      content="Aydope, Mohammad Amin Sadeghi, junior MERN stack developer, MERN developer, React developer, Node.js developer, Nest.js, Iran, Next.js"
     />
-    <meta name="author" content="Amin Sadeghi (Aydope)" />
+    <meta name="author" content="Aydope" />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#09090b" />
     <meta name="color-scheme" content="dark" />
@@ -28,7 +28,7 @@
     />
     <meta
       property="og:description"
-      content="Junior MERN stack developer building clean, well-structured web apps. Learning Nest.js."
+      content="Junior MERN stack developer building clean, well-structured web apps."
     />
     <meta property="og:locale" content="en_US" />
 
@@ -39,7 +39,7 @@
     <meta name="twitter:title" content="Aydope · Junior MERN Stack Developer" />
     <meta
       name="twitter:description"
-      content="Junior MERN stack developer building clean, well-structured web apps. Learning Nest.js."
+      content="Junior MERN stack developer building clean, well-structured web apps."
     />
     <meta
       name="twitter:image"
@@ -72,274 +72,9 @@
     <meta name="apple-mobile-web-app-title" content="Aydope" />
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              border: "hsl(var(--border))",
-              input: "hsl(var(--input))",
-              ring: "hsl(var(--ring))",
-              background: "hsl(var(--background))",
-              foreground: "hsl(var(--foreground))",
-              card: "hsl(var(--card))",
-              "card-foreground": "hsl(var(--card-foreground))",
-              muted: "hsl(var(--muted))",
-              "muted-foreground": "hsl(var(--muted-foreground))",
-              accent: "hsl(var(--accent))",
-              "accent-foreground": "hsl(var(--accent-foreground))",
-              primary: "hsl(var(--primary))",
-              "primary-foreground": "hsl(var(--primary-foreground))",
-            },
-            fontFamily: {
-              sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
-              mono: ["'JetBrains Mono'", "ui-monospace", "SFMono-Regular", "monospace"],
-            },
-            borderRadius: {
-              lg: "var(--radius)",
-              md: "calc(var(--radius) - 2px)",
-              sm: "calc(var(--radius) - 4px)",
-            },
-          },
-        },
-      };
-    </script>
+    <script src="src/js/tailwind.config.js"></script>
+    <link rel="stylesheet" href="src/styles/style.css" />
 
-    <style>
-      :root {
-        --background: 240 6% 6%;
-        --foreground: 220 14% 96%;
-        --card: 240 6% 8.5%;
-        --card-foreground: 220 14% 96%;
-        --border: 240 5% 16%;
-        --input: 240 5% 16%;
-        --ring: 240 5% 34%;
-        --muted: 240 5% 13%;
-        --muted-foreground: 240 4% 62%;
-        --accent: 158 44% 52%;
-        --accent-foreground: 240 6% 6%;
-        --primary: 220 14% 96%;
-        --primary-foreground: 240 6% 6%;
-        --radius: 0.6rem;
-      }
-
-      * {
-        border-color: hsl(var(--border));
-      }
-      html {
-        scroll-behavior: smooth;
-      }
-      body {
-        background-color: hsl(var(--background));
-        color: hsl(var(--foreground));
-        font-family: Inter, ui-sans-serif, system-ui, sans-serif;
-        -webkit-font-smoothing: antialiased;
-        overflow-x: hidden;
-      }
-      ::selection {
-        background: hsl(var(--accent) / 0.3);
-        color: hsl(var(--foreground));
-      }
-
-      .bg-grid {
-        background-image: radial-gradient(hsl(var(--foreground) / 0.06) 1px, transparent 1px);
-        background-size: 22px 22px;
-        -webkit-mask-image: radial-gradient(ellipse 70% 55% at 50% 0%, #000 45%, transparent 100%);
-        mask-image: radial-gradient(ellipse 70% 55% at 50% 0%, #000 45%, transparent 100%);
-      }
-
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-        height: 2.5rem;
-        padding: 0 1.1rem;
-        border-radius: var(--radius);
-        font-size: 0.875rem;
-        font-weight: 500;
-        white-space: nowrap;
-        transition:
-          background-color 0.15s ease,
-          border-color 0.15s ease,
-          opacity 0.15s ease;
-      }
-      .btn:focus-visible {
-        outline: 2px solid hsl(var(--ring));
-        outline-offset: 2px;
-      }
-      .btn:disabled {
-        opacity: 0.6;
-        cursor: not-allowed;
-        pointer-events: none;
-      }
-      .spinner {
-        display: inline-block;
-        width: 0.9rem;
-        height: 0.9rem;
-        border: 2px solid hsl(var(--primary-foreground) / 0.35);
-        border-top-color: hsl(var(--primary-foreground));
-        border-radius: 50%;
-        margin-right: 0.5rem;
-        vertical-align: -2px;
-        animation: spin 0.6s linear infinite;
-      }
-      @keyframes spin {
-        to {
-          transform: rotate(360deg);
-        }
-      }
-      @media (prefers-reduced-motion: reduce) {
-        .spinner {
-          animation-duration: 1.5s;
-        }
-      }
-      .btn-primary {
-        background: hsl(var(--primary));
-        color: hsl(var(--primary-foreground));
-      }
-      .btn-primary:hover {
-        opacity: 0.88;
-      }
-      .btn-outline {
-        background: transparent;
-        color: hsl(var(--foreground));
-        border: 1px solid hsl(var(--border));
-      }
-      .btn-outline:hover {
-        background: hsl(var(--muted));
-      }
-      .btn-ghost {
-        background: transparent;
-        color: hsl(var(--muted-foreground));
-      }
-      .btn-ghost:hover {
-        color: hsl(var(--foreground));
-        background: hsl(var(--muted));
-      }
-
-      .card {
-        background: hsl(var(--card));
-        border: 1px solid hsl(var(--border));
-        border-radius: var(--radius);
-      }
-
-      .badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.4rem;
-        font-size: 0.72rem;
-        font-weight: 500;
-        line-height: 1;
-        padding: 0.4rem 0.65rem;
-        border-radius: 9999px;
-        background: hsl(var(--muted));
-        color: hsl(var(--muted-foreground));
-        border: 1px solid hsl(var(--border));
-      }
-
-      .input {
-        width: 100%;
-        height: 2.5rem;
-        border-radius: var(--radius);
-        background: hsl(var(--muted) / 0.5);
-        border: 1px solid hsl(var(--border));
-        color: hsl(var(--foreground));
-        padding: 0 0.85rem;
-        font-size: 0.875rem;
-      }
-      .input:focus {
-        outline: 2px solid hsl(var(--ring));
-        outline-offset: 1px;
-      }
-      textarea.input {
-        height: auto;
-        padding: 0.7rem 0.85rem;
-        resize: vertical;
-      }
-
-      .nav-link {
-        color: hsl(var(--muted-foreground));
-        font-size: 0.875rem;
-        transition: color 0.15s ease;
-      }
-      .nav-link:hover,
-      .nav-link.active {
-        color: hsl(var(--foreground));
-      }
-
-      .kbd {
-        font-family: "JetBrains Mono", monospace;
-        font-size: 0.68rem;
-        padding: 0.1rem 0.4rem;
-        border-radius: 0.3rem;
-        background: hsl(var(--muted));
-        border: 1px solid hsl(var(--border));
-        color: hsl(var(--muted-foreground));
-      }
-
-      .terminal-caret::after {
-        content: "▍";
-        margin-left: 2px;
-        color: hsl(var(--accent));
-        animation: blink 1s steps(1) infinite;
-      }
-      @keyframes blink {
-        50% {
-          opacity: 0;
-        }
-      }
-
-      .fade-up {
-        opacity: 0;
-        transform: translateY(10px);
-        animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      }
-      @keyframes fadeUp {
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        html {
-          scroll-behavior: auto;
-        }
-        .fade-up {
-          animation: none;
-          opacity: 1;
-          transform: none;
-        }
-        .terminal-caret::after {
-          animation: none;
-        }
-      }
-
-      #mobileSidebar {
-        will-change: transform;
-      }
-      @media (prefers-reduced-motion: reduce) {
-        #mobileSidebar {
-          transition: none;
-        }
-      }
-
-      .skip-link {
-        position: absolute;
-        left: -9999px;
-        top: 0;
-        z-index: 100;
-        background: hsl(var(--foreground));
-        color: hsl(var(--background));
-        padding: 0.6rem 1rem;
-        border-radius: 0 0 0.4rem 0;
-      }
-      .skip-link:focus {
-        left: 0;
-      }
-    </style>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -348,8 +83,8 @@
             "@type": "WebSite",
             "@id": "https://aydope.github.io/#website",
             "url": "https://aydope.github.io/",
-            "name": "Amin Sadeghi (Aydope)",
-            "description": "Portfolio of Amin Sadeghi, a junior MERN stack developer.",
+            "name": "Mohammad Amin Sadeghi",
+            "description": "Portfolio of Mohammad Amin Sadeghi, a junior MERN stack developer.",
             "inLanguage": "en",
             "publisher": {
               "@id": "https://aydope.github.io/#person"
@@ -359,7 +94,7 @@
             "@type": "ProfilePage",
             "@id": "https://aydope.github.io/#profile",
             "url": "https://aydope.github.io/",
-            "name": "Amin Sadeghi (Aydope) | Junior MERN Stack Developer",
+            "name": "Mohammad Amin Sadeghi | Junior MERN Stack Developer",
             "isPartOf": {
               "@id": "https://aydope.github.io/#website"
             },
@@ -392,14 +127,15 @@
               "MongoDB",
               "React",
               "REST APIs",
-              "Nest.js"
+              "Nest.js",
+              "Next.js"
             ],
             "sameAs": [
               "https://github.com/aydope",
               "https://www.linkedin.com/in/mohammad-amin-sadeghi",
               "https://x.com/_aydope",
               "https://t.me/aydope",
-              "https://instagram.com/aydope.r"
+              "https://instagram.com/aydope.dev"
             ]
           }
         ]
@@ -503,7 +239,7 @@
             ><i class="bi bi-linkedin"></i
           ></a>
           <a
-            href="https://instagram.com/aydope.r"
+            href="https://instagram.com/aydope.dev"
             class="hover:text-foreground transition"
             aria-label="Instagram"
             target="_blank"
@@ -808,7 +544,7 @@
                   ><i class="bi bi-linkedin"></i
                 ></a>
                 <a
-                  href="https://instagram.com/aydope.r"
+                  href="https://instagram.com/aydope.dev"
                   class="hover:text-foreground transition"
                   aria-label="Instagram"
                   target="_blank"
@@ -1112,29 +848,84 @@
         id="github"
         class="max-w-5xl mx-auto px-5 md:px-6 py-16 md:py-20 border-t border-border"
       >
-        <h2 class="text-2xl md:text-3xl font-bold mb-2">GitHub activity</h2>
-        <p class="text-muted-foreground text-sm mb-10">Pulled live from the GitHub API.</p>
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-8">
+          <div>
+            <h2 class="text-2xl md:text-3xl font-bold mb-2">GitHub activity</h2>
 
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4" id="githubStats">
+            <p class="text-muted-foreground text-sm">Pulled live from the GitHub API.</p>
+          </div>
+
+          <a
+            id="gh-profile-link"
+            href="https://github.com/aydope"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-sm text-accent hover:underline"
+          >
+            View GitHub profile ↗
+          </a>
+        </div>
+
+        <!-- Profile -->
+        <div class="card p-5 md:p-6 mb-5">
+          <div class="flex items-start gap-4">
+            <img
+              id="gh-avatar"
+              src=""
+              alt="GitHub avatar"
+              class="w-16 h-16 rounded-full object-cover shrink-0"
+              loading="lazy"
+              hidden
+            />
+
+            <div class="min-w-0 flex-1">
+              <h3 id="gh-name" class="font-bold text-lg">—</h3>
+
+              <p id="gh-bio" class="text-sm text-muted-foreground mt-1">—</p>
+
+              <div class="flex flex-wrap gap-x-4 gap-y-2 mt-3 text-xs text-muted-foreground">
+                <span id="gh-location">—</span>
+                <span id="gh-hireable">—</span>
+              </div>
+
+              <a
+                id="gh-twitter"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-block text-xs text-accent mt-3 hover:underline"
+                hidden
+              ></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- GitHub Stats -->
+        <div id="githubStats" class="grid grid-cols-2 sm:grid-cols-4 gap-4">
           <div class="card p-5 text-center">
-            <span class="text-2xl font-bold block" id="gh-repos">-</span>
+            <span class="text-2xl font-bold block" id="gh-repos">—</span>
             <span class="text-muted-foreground text-xs">public repos</span>
           </div>
+
           <div class="card p-5 text-center">
-            <span class="text-2xl font-bold block" id="gh-followers">-</span>
+            <span class="text-2xl font-bold block" id="gh-followers">—</span>
             <span class="text-muted-foreground text-xs">followers</span>
           </div>
+
           <div class="card p-5 text-center">
-            <span class="text-2xl font-bold block" id="gh-following">-</span>
+            <span class="text-2xl font-bold block" id="gh-following">—</span>
             <span class="text-muted-foreground text-xs">following</span>
           </div>
+
           <div class="card p-5 text-center">
-            <span class="text-2xl font-bold block" id="gh-since">-</span>
+            <span class="text-2xl font-bold block" id="gh-since">—</span>
             <span class="text-muted-foreground text-xs">member since</span>
           </div>
         </div>
-        <p id="gh-error" class="text-xs text-muted-foreground mt-4 hidden">
-          Couldn't reach the GitHub API right now - refresh to try again.
+
+        <!-- API Error -->
+        <p id="gh-error" class="text-xs text-red-400 mt-4 hidden" role="alert" aria-live="polite">
+          Failed to load GitHub data. Please try again later.
         </p>
       </section>
 
@@ -1332,7 +1123,7 @@
                   ><i class="bi bi-linkedin"></i
                 ></a>
                 <a
-                  href="https://instagram.com/aydope.r"
+                  href="https://instagram.com/aydope.dev"
                   class="btn btn-outline !h-10 !w-10 !p-0"
                   aria-label="Instagram"
                   target="_blank"
