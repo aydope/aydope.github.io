@@ -18,11 +18,9 @@
 * {
   border-color: hsl(var(--border));
 }
-
 html {
   scroll-behavior: smooth;
 }
-
 body {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
@@ -30,13 +28,11 @@ body {
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
-
 ::selection {
   background: hsl(var(--accent) / 0.3);
   color: hsl(var(--foreground));
 }
 
-/* faint dot-grid texture instead of gradient blobs */
 .bg-grid {
   background-image: radial-gradient(hsl(var(--foreground) / 0.06) 1px, transparent 1px);
   background-size: 22px 22px;
@@ -60,36 +56,55 @@ body {
     border-color 0.15s ease,
     opacity 0.15s ease;
 }
-
 .btn:focus-visible {
   outline: 2px solid hsl(var(--ring));
   outline-offset: 2px;
 }
-
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+.spinner {
+  display: inline-block;
+  width: 0.9rem;
+  height: 0.9rem;
+  border: 2px solid hsl(var(--primary-foreground) / 0.35);
+  border-top-color: hsl(var(--primary-foreground));
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  vertical-align: -2px;
+  animation: spin 0.6s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation-duration: 1.5s;
+  }
+}
 .btn-primary {
   background: hsl(var(--primary));
   color: hsl(var(--primary-foreground));
 }
-
 .btn-primary:hover {
   opacity: 0.88;
 }
-
 .btn-outline {
   background: transparent;
   color: hsl(var(--foreground));
   border: 1px solid hsl(var(--border));
 }
-
 .btn-outline:hover {
   background: hsl(var(--muted));
 }
-
 .btn-ghost {
   background: transparent;
   color: hsl(var(--muted-foreground));
 }
-
 .btn-ghost:hover {
   color: hsl(var(--foreground));
   background: hsl(var(--muted));
@@ -125,12 +140,10 @@ body {
   padding: 0 0.85rem;
   font-size: 0.875rem;
 }
-
 .input:focus {
   outline: 2px solid hsl(var(--ring));
   outline-offset: 1px;
 }
-
 textarea.input {
   height: auto;
   padding: 0.7rem 0.85rem;
@@ -142,7 +155,6 @@ textarea.input {
   font-size: 0.875rem;
   transition: color 0.15s ease;
 }
-
 .nav-link:hover,
 .nav-link.active {
   color: hsl(var(--foreground));
@@ -164,7 +176,6 @@ textarea.input {
   color: hsl(var(--accent));
   animation: blink 1s steps(1) infinite;
 }
-
 @keyframes blink {
   50% {
     opacity: 0;
@@ -176,7 +187,6 @@ textarea.input {
   transform: translateY(10px);
   animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
-
 @keyframes fadeUp {
   to {
     opacity: 1;
@@ -188,13 +198,11 @@ textarea.input {
   html {
     scroll-behavior: auto;
   }
-
   .fade-up {
     animation: none;
     opacity: 1;
     transform: none;
   }
-
   .terminal-caret::after {
     animation: none;
   }
@@ -203,7 +211,6 @@ textarea.input {
 #mobileSidebar {
   will-change: transform;
 }
-
 @media (prefers-reduced-motion: reduce) {
   #mobileSidebar {
     transition: none;
@@ -220,7 +227,6 @@ textarea.input {
   padding: 0.6rem 1rem;
   border-radius: 0 0 0.4rem 0;
 }
-
 .skip-link:focus {
   left: 0;
 }
