@@ -1,5 +1,6 @@
-const CACHE_NAME = 'aydope-cache-v11';
+const CACHE_NAME = 'aydope-cache-v12';
 const NETWORK_TIMEOUT_MS = 3000;
+
 const APP_SHELL = [
   '/',
   '/index.html',
@@ -9,12 +10,12 @@ const APP_SHELL = [
   '/src/js/projects-data.js',
   '/src/js/projects.js',
   '/src/js/smooth-scroll.js',
-  '/src/assets/logo/favicon.ico',
-  '/src/assets/logo/favicon-96x96.png',
-  '/src/assets/logo/favicon.svg',
-  '/src/assets/logo/apple-touch-icon.png',
-  '/src/assets/logo/web-app-manifest-192x192.png',
-  '/src/assets/logo/web-app-manifest-512x512.png',
+  '/src/assets/logo/v2/favicon.ico',
+  '/src/assets/logo/v2/favicon-96x96.png',
+  '/src/assets/logo/v2/favicon.svg',
+  '/src/assets/logo/v2/apple-touch-icon.png',
+  '/src/assets/logo/v2/web-app-manifest-192x192.png',
+  '/src/assets/logo/v2/web-app-manifest-512x512.png',
 ];
 
 const OWN_TOP_LEVEL_SEGMENTS = new Set(['index.html', 'manifest.json', 'sw.js', 'src']);
