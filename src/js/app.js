@@ -173,7 +173,7 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
-const sections = ['about', 'skills', 'work', 'github', 'now', 'faq', 'contact'].map((id) =>
+const sections = ['about', 'skills', 'work', "services", 'github', 'now', 'faq', 'contact'].map((id) =>
   document.getElementById(id),
 );
 const navLinks = document.querySelectorAll('[data-nav]');
