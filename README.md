@@ -8,7 +8,7 @@
 
 ## About Me
 
-I’m a junior MERN stack developer focused on building modern web applications with JavaScript, TypeScript, Node.js, React, and MongoDB.
+I'm a MERN Stack Developer focused on building modern web applications using JavaScript, TypeScript, Node.js, Express.js, React, and MongoDB.
 
 My main focus is backend development, especially building REST APIs, authentication systems, database-driven applications, and real-time features. I also work with React and enjoy building complete products from the backend to the frontend.
 
