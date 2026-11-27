@@ -446,12 +446,12 @@ loadGithubProfile();
 
 const lines = [
   { text: '$ whoami', pause: 350 },
-  { text: 'amin@aydope - junior MERN developer', pause: 500, muted: false },
+  { text: 'amin@aydope - MERN developer', pause: 500, muted: false },
   { text: '', pause: 150 },
   { text: '$ cat stack.json', pause: 350 },
   { text: '  frontend  react · typescript · tailwind', pause: 250 },
   { text: '  backend   node · express · fastify · mongodb', pause: 250 },
-  { text: '  learning  nest.js', pause: 500 },
+  { text: '  learning  nest.js and next.js', pause: 500 },
   { text: '', pause: 150 },
   { text: '$ status', pause: 350 },
   { text: 'open to new opportunities ●', pause: 0 },
